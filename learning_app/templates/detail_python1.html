@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h1>Type과 Comparison</h1>
+</div>
+<div>
+    <a href=""><div>
+        <div>
+            {% if python1_1 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Step 1</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python1_2 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Step 2</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python1_3 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Step 3</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python1_4 == True %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Project 1</h3>
+        </div>
+    </div></a>
+</div>
+{% endblock %}
