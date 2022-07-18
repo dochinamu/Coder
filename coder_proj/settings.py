@@ -126,3 +126,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'account_app.User'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+STATIC_ROOT = os.path.join('staticfiles')
+
+# media 파일 url 지정 
+MEDIA_URL = '/media/'
+
+# BASE_DIR 아래 media 폴더에 사용자가 업로드한 파일을 올리겠다
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
