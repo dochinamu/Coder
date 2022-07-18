@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h1>프로그래밍 언어</h1>
+</div>
+<div>
+    <a href="{% url 'learning_python' %}"><div>
+        <img src="{% static 'img/python.jpg' %}" alt="no image">
+        <h2>python</h2>
+    </div></a>
+    <a href=""><div>
+        <img src="{% static 'img/HTML.jpg' %}" alt="no image">
+        <h2>HTML</h2>
+    </div></a>
+    <a href=""><div>
+        <img src="{% static 'img/CSS.jpg' %}" alt="no image">
+        <h2>CSS</h2>
+    </div></a>
+    <a href=""><div>
+        <img src="{% static 'img/Java.jpg' %}" alt="no image">
+        <h2>Java</h2>
+    </div></a>
+</div>
+<div>
+    <a href=""><div>
+        <div>
+            {% if python0 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 0</h3>
+            <h3>파이썬 기초</h3>
+        </div>
+    </div></a>
+    <a href="{% url 'detail_python1' %}"><div>
+        <div>
+            {% if python1 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 1</h3>
+            <h3>Type과 Comparison</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python2 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 2</h3>
+            <h3>루프(반복문)</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python3 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 3</h3>
+            <h3>blahblahblah</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python3 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 3</h3>
+            <h3>blahblahblah</h3>
+        </div>
+    </div></a>
+    <a href=""><div>
+        <div>
+            {% if python3 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 3</h3>
+            <h3>blahblahblah</h3>
+        </div>
+    </div></a>
+</div>
+
+{% endblock %}
