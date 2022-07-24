@@ -3,6 +3,7 @@ from django.contrib import auth
 #from django.contrib.auth.models import User
 from .models import User
 
+
 # Create your views here.
 def account(request):
     return render(request, 'account.html')
@@ -13,10 +14,13 @@ def signup(request):
             # 회원가입 
             new_user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'], 
             name=request.POST['name'], nickname=request.POST['nickname'], email=request.POST['email'], phone_number=request.POST['phone_number'])
+            
             # 로그인
             auth.login(request, new_user)
             # 홈 리다이렉션
             return redirect('home')
+        else:
+            return render(request, 'resignup.html')
     # GET 요청
     return render(request, 'signup.html') 
 
@@ -26,12 +30,12 @@ def login(request):
         userid = request.POST['username']
         userpw = request.POST['password']
         user = auth.authenticate(request, username=userid, password=userpw)
-        
+
         if user is not None:
             auth.login(request, user)
             return redirect('home')
         else:
-            return render(request,'account.html')
+            return render(request,'relogin.html')
     
     # GET 요청
     else:
@@ -40,3 +44,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('home') 
+
+def searchpw(request):
+    return render(request, 'searchpw.html')
+    

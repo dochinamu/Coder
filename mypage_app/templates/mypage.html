@@ -1,45 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<div>
-    
-</div>
-<div>
-    
-</div>
-<div>
-    <a href="">프로필 변경</a>
-</div>
-<div>
-    <div>
-        <p>총 출석일</p>
-        <p></p>
-    </div>
-    <div>
-        <p>연속 출석일</p>
-        <p></p>
-    </div>
-    <div>
-        <p>완료 스텝 수</p>
-        <p></p>
-    </div>
-</div>
-<div>
-    <h2>보유 뱃지 수</h2>
-    <p></p>
-</div>
-<div>
-    <h1>코스 진행도</h1>
-</div>
-<div>
-    <img src="{% static 'img/python.jpg' %}">
-    <div>
-        <h2>Python</h2>
-        <h2>8%</h2>
-    </div>
-    <div>
-        
-    </div>
-</div>
+
+<style>
+    .profile    {display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;}
+
+    h3  {margin-top: 0px;}
+
+    .all-badge  {border: solid 2px gray;
+                border-radius: 10px;
+                width: 80%; height: 30%;
+                padding:5%;}
+</style>
+
+
+<section class = "profile">
+    {% if user.profile_photo %}
+        <img src="{{ user.profile_photo.url}}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
+    {% else %}
+        <img src="{% static 'img/user.png' %}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
+    {% endif %}
+
+    <h2>{{ user.nickname }}</h2>
+    <h3>{{ user.profile_message }}</h3>
+
+
+    <a href="{% url 'update_mypage' %}">프로필 변경</a>
+    <br>
+
+    <article class = "all-badge">
+        <a href = "{% url 'badge' %}"><h3>획득한 뱃지</h3></a>
+
+    </article>
+
+
+</section>
+
+
+
+ 
 {% endblock %}

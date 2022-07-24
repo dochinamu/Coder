@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+   section  {display: flex; 
+            flex-direction: column;
+            margin-left: 8%; margin-right: 8%;}
+
+    .badge-category {display: flex; 
+                    flex-wrap: wrap;}
+
+    .badge  {margin: 5%;
+            width: 23%;}
+    
+</style>
+
+
+<section>
+    <br>
+    <h1>뱃지</h1>
+
+    <h2>출석 뱃지</h2>
+    <article class = "badge-category">
+        <div class = "badge">
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            <p>첫 출석</p>
+        </div>
+    </article>
+
+    <h2>학습 뱃지</h2>
+    <article class = "badge-category">
+        <div class = "badge">
+            {% if user.python1_1 or user.python1_2 or user.python1_3 or user.python1_4 %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% endif %}
+            <p>첫 스텝</p>
+        </div>
+
+        <div class = "badge">
+            {% if user.python1 or user.python2 or user.python3 %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% endif %}
+            <p>첫 커리 완료</p>
+        </div>
+
+        <div class = "badge">
+            {% if user.python0 %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% endif %}
+            <p>첫 코스 완료</p>
+        </div>
+
+        <div class = "badge">
+            {% if user.python0 == True %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% endif %}
+            <p>파이썬 코스 완료</p>
+        </div>
+
+    </article>
+
+    <h2>챌린지 뱃지</h2>
+    <article class = "badge-category">
+        
+    </article>
+
+<section>
+   
+{% endblock %}

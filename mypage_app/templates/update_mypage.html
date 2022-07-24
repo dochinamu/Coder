@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+
+    section {display: flex;
+            flex-direction: column;
+            align-items: center;  
+            justify-content: center;
+            margin-top: 30px;}
+
+    form    {display: flex;
+            flex-direction: column;
+            align-items: center;  
+            justify-content: center;}
+
+    input   {width: 250px;
+            height: 40%;
+            border: gray 3px solid;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 15px;
+            background-color: #fafafa;
+            }
+
+    #image   {border: none;
+            background: none;}
+
+    .button   {font-size: 15px;
+                color: white;
+                background-color: rgb(98,118,222);
+                border:none;
+                width: 275px;
+                margin-top: 30px;}
+
+    label   {color: gray; 
+            font-size:20px;}
+
+    .one-input  {display:flex;
+                flex-direction: column;
+                justify-content: flex-start;}
+</style>
+
+
+
+<section class = "profile">
+    <form action="{% url 'update_mypage' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="imgbox" id="profile_img">
+            <label className="input-file-button" for="input-file">
+                {% if user.profile_photo %}
+                <img src="{{ user.profile_photo.url }}" id="previewImage" style = "width: 100px; height: 100px; object-fit:cover;border-radius: 100px;">
+                {% else %}
+                <img src="{% static 'img/user.png' %}" id="previewImage" style = "width: 100px; height: 100px; object-fit:cover;border-radius: 100px;">
+                {% endif %}
+            </label>
+            <input type="file" class="file" id="input-file" name="image" style="display:none" onchange="imageView(this);">
+            <script type="text/javascript">
+            function readImage(input) {
+                if (input.files && input.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = (e) => {
+                        const previewImage = document.getElementById('previewImage');
+                        previewImage.src = e.target.result;
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            document.getElementById('input-file').addEventListener('change', (e) => {
+                readImage(e.target);
+            })
+            </script>
+        </div>
+            
+            
+        <div class="one-input">
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" value="{{ user.name }}">
+        </div>
+        
+        <div class="one-input">
+        <label for="nickname">닉네임</label>
+        <input type="text" name="nickname" id="nickname" value="{{ user.nickname }}">
+        </div>
+        
+        <div class="one-input">
+        <label for="profile_message">상태메시지 </label>
+        <input type="text" name="profile_message" id="profile_message" value="{{ user.profile_message }}">
+        </div>
+        
+        <div class="one-input">
+        <label for="email">이메일</label>
+        <input type="text" name="email" id="email" value="{{ user.email }}">
+        </div>
+        
+        <div class="one-input">
+        <label for="phone_number">휴대폰 번호 </label>
+        <input type="text" name="phone_number" id="phone_number" value="{{ user.phone_number }}">
+        </div>
+        
+        <input type="submit" value="정보 수정 완료하기" class="button">
+        <br/>
+        
+    </form>
+</section>
+{% endblock %}
