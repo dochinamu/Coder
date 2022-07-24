@@ -45,20 +45,5 @@
 
 
 <br/>
-<hr/>
-{% if user.is_authenticated %}
-안녕하세요, {{ user.username }}님! <br/> 
-{{ user.email }}
-{{ user.nickname }}
-{{ user.phone_number }}
-{{ user.name }}
-{{ user.python1 }}
-{{ user.python1_3 }}
-{{ user.profile_image.url }}
 
-<img src = "{{ user.profile_image.url }}"> 
-
-{% endif %}
-<br/>
-<a href="{% url 'logout' %}">로그아웃</a>
 {% endblock %} 
