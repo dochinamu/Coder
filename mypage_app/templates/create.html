@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <div>
+            <input type="file" name="upload" accept=".jpg">
+        </div>
+        <div>
+            <label for="profile_message">상태메시지</label><br/>
+            <input type="text" name="profile_message" id="profile_message">
+        </div>
+        <input type="submit" value="정보 입력하기" class="button">
+    </div>
+</form>
+{% endblock %}

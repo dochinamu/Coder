@@ -2,57 +2,83 @@
 {% load static %}
 
 {% block content %}
-<div>
+
+<style>
+    .big-box {margin: 0px 15px 15px 15px;}
+
+    h1 {color: rgba(0, 0, 0, 0.2);
+        font-size: 18px;}
+
+    section {display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 10px;}
+
+    article {display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 3px 15px;}
+
+    .lang_chosen {background-color: royalblue;}
+
+    h2 {color: rgba(0, 0, 0, 0.2);
+        font-size: 12px;
+        margin: 1px 0px;}
+
+    .curri-box {background-color: rgba(0, 0, 0, 0.1);
+        text-align: left;}
+
+    h3 {color: rgba(0, 0, 0, 0.2);
+        font-size: 12px;}
+
+    p {color: black;
+        font-size: 12px;}
+</style>
+
+
+<div class="big-box">
     <h1>프로그래밍 언어</h1>
-</div>
-<div>
-    <a href="{% url 'learning_python' %}"><div>
-        <img src="{% static 'img/python.jpg' %}" alt="no image">
-        <h2>python</h2>
-    </div></a>
-    <a href=""><div>
-        <img src="{% static 'img/HTML.jpg' %}" alt="no image">
-        <h2>HTML</h2>
-    </div></a>
-    <a href=""><div>
-        <img src="{% static 'img/CSS.jpg' %}" alt="no image">
-        <h2>CSS</h2>
-    </div></a>
-    <a href=""><div>
-        <img src="{% static 'img/Java.jpg' %}" alt="no image">
-        <h2>Java</h2>
-    </div></a>
-</div>
-<div>
-    <a href=""><div>
-        <div>
-            {% if python0 == True %}
-                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+    <section>
+        <a href="{% url 'learning_python' %}"><article class="lang_chosen">
+            <img src="{% static 'img/Python.jpg' %}" alt="python" width="70px" height="70px">
+            <h2>Python</h2>
+        </article></a>
+        <a href=""><article class="lang_chosen">
+            <img src="{% static 'img/HTML.jpg' %}" alt="html" width="70px" height="70px">
+            <h2>HTML</h2>
+        </article></a>
+        <a href=""><diarticlev>
+            <img src="{% static 'img/CSS.jpg' %}" alt="css" width="70px" height="70px">
+            <h2>CSS</h2>
+        </article></a>
+        <a href=""><article>
+            <img src="{% static 'img/Java.jpg' %}" alt="java" width="70px" height="70px">
+            <h2>Java</h2>
+        </article></a>
+    </section>
+    <a href="{% url 'detail_python1' %}"><section class="curri-box">
+        <article>
+            {% if user.python1 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="check_on" width="30px" height="30px">
             {% else %}
-                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+                <img src="{% static 'img/check_off.jpg' %}" alt="check_off" width="30px" height="30px">
             {% endif %}
-        </div>
-        <div>
-            <h3>Curri 0</h3>
-            <h3>파이썬 기초</h3>
-        </div>
-    </div></a>
-    <a href="{% url 'detail_python1' %}"><div>
-        <div>
-            {% if python1 == True %}
-                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
-            {% else %}
-                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
-            {% endif %}
-        </div>
-        <div>
+        </article>
+        <article>
             <h3>Curri 1</h3>
-            <h3>Type과 Comparison</h3>
-        </div>
-    </div></a>
-    <a href=""><div>
+            <p>파이썬 기초</p>
+        </article>
+    </section></a>
+</div>
+
+<div>
+    <a href=""><article>
         <div>
-            {% if python2 == True %}
+            {% if user.python2 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
@@ -60,48 +86,61 @@
         </div>
         <div>
             <h3>Curri 2</h3>
+            <h3>Type과 Comparison</h3>
+        </div>
+    </article></a>
+    <a href=""><article>
+        <div>
+            {% if user.python3 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+        </div>
+        <div>
+            <h3>Curri 3</h3>
             <h3>루프(반복문)</h3>
         </div>
-    </div></a>
-    <a href=""><div>
+    </article></a>
+    <a href=""><article>
         <div>
-            {% if python3 == True %}
+            {% if user.python4 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
         </div>
         <div>
-            <h3>Curri 3</h3>
+            <h3>Curri 4</h3>
             <h3>blahblahblah</h3>
         </div>
-    </div></a>
-    <a href=""><div>
+    </article></a>
+    <a href=""><article>
         <div>
-            {% if python3 == True %}
+            {% if user.python4 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
         </div>
         <div>
-            <h3>Curri 3</h3>
+            <h3>Curri 4</h3>
             <h3>blahblahblah</h3>
         </div>
-    </div></a>
-    <a href=""><div>
+    </article></a>
+    <a href=""><article>
         <div>
-            {% if python3 == True %}
+            {% if user.python4 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
         </div>
         <div>
-            <h3>Curri 3</h3>
+            <h3>Curri 4</h3>
             <h3>blahblahblah</h3>
         </div>
-    </div></a>
+    </article></a>
 </div>
 
 {% endblock %}

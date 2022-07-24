@@ -3,30 +3,83 @@
 
 {% block content %}
 <div>
-    
+    {% if user.profile_photo %}
+        <img src="{{ user.profile_photo.url }}" alt="no image" width="300">
+    {% else %}
+        <img >
+    {% endif %}
 </div>
 <div>
-    
+    {{ user.profile_message }}
 </div>
 <div>
-    <a href="">프로필 변경</a>
+    {% if user.profile_message == '' %}
+        <a href="{% url 'create' %}">프로필 생성</a>
+    {% else %}
+        <a href="{% url 'update' %}">프로필 변경</a>
+    {% endif %}
 </div>
 <div>
+    <h2>이번주 출석현황</h2>
     <div>
-        <p>총 출석일</p>
-        <p></p>
+        <h3>월</h3>
+        {% if mon == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
     </div>
     <div>
-        <p>연속 출석일</p>
-        <p></p>
+        <h3>화</h3>
+        {% if tue == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
     </div>
     <div>
-        <p>완료 스텝 수</p>
-        <p></p>
+        <h3>수</h3>
+        {% if wed == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
+    </div>
+    <div>
+        <h3>목</h3>
+        {% if thu == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
+    </div>
+    <div>
+        <h3>금</h3>
+        {% if fri == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
+    </div>
+    <div>
+        <h3>토</h3>
+        {% if sat == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
+    </div>
+    <div>
+        <h3>일</h3>
+        {% if sun == True %}
+            <img src="{% static 'img/check_yes.jpg' %}">
+        {% else %}
+            <img src="{% static 'img/check_no.jpg' %}">
+        {% endif %}
     </div>
 </div>
 <div>
-    <h2>보유 뱃지 수</h2>
+    <h2>획득한 뱃지</h2>
     <p></p>
 </div>
 <div>
@@ -36,7 +89,7 @@
     <img src="{% static 'img/python.jpg' %}">
     <div>
         <h2>Python</h2>
-        <h2>8%</h2>
+        <h2>{{ python_per }}</h2>
     </div>
     <div>
         
