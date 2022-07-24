@@ -1,98 +1,117 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<div>
+
+<style>
+    .profile    {display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;}
+
+    h3  {margin-top: 0px;}
+
+    .all-badge  {border: solid 2px gray;
+                border-radius: 10px;
+                width: 80%; height: 30%;
+                padding:5%;}
+</style>
+
+
+<section class = "profile">
     {% if user.profile_photo %}
-        <img src="{{ user.profile_photo.url }}" alt="no image" width="300">
+        <img src="{{ user.profile_photo.url}}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
     {% else %}
-        <img >
+        <img src="{% static 'img/user.png' %}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
     {% endif %}
-</div>
-<div>
-    {{ user.profile_message }}
-</div>
-<div>
-    {% if user.profile_message == '' %}
-        <a href="{% url 'create' %}">프로필 생성</a>
-    {% else %}
-        <a href="{% url 'update' %}">프로필 변경</a>
-    {% endif %}
-</div>
-<div>
-    <h2>이번주 출석현황</h2>
+
+    <h2>{{ user.nickname }}</h2>
+    <h3>{{ user.profile_message }}</h3>
+
+
+    <a href="{% url 'update_mypage' %}">프로필 변경</a>
+    <br>
+    
     <div>
-        <h3>월</h3>
-        {% if mon == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
+        <h2>이번주 출석현황</h2>
+        <div>
+            <h3>월</h3>
+            {% if mon == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div>
+            <h3>화</h3>
+            {% if tue == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div>
+            <h3>수</h3>
+            {% if wed == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div>
+            <h3>목</h3>
+            {% if thu == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div>
+            <h3>금</h3>
+            {% if fri == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div>
+            <h3>토</h3>
+            {% if sat == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div>
+            <h3>일</h3>
+            {% if sun == True %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+    </div>
+
+    <article class = "all-badge">
+        <a href = "{% url 'badge' %}"><h3>획득한 뱃지</h3></a>
+
+    </article>
+
+    <div>
+        <h1>코스 진행도</h1>
     </div>
     <div>
-        <h3>화</h3>
-        {% if tue == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
+        <img src="{% static 'img/python.jpg' %}">
+        <div>
+            <h2>Python</h2>
+            <h2>{{ python_per }}</h2>
+        </div>
+        <div>
+            
+        </div>
     </div>
-    <div>
-        <h3>수</h3>
-        {% if wed == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
-    </div>
-    <div>
-        <h3>목</h3>
-        {% if thu == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
-    </div>
-    <div>
-        <h3>금</h3>
-        {% if fri == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
-    </div>
-    <div>
-        <h3>토</h3>
-        {% if sat == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
-    </div>
-    <div>
-        <h3>일</h3>
-        {% if sun == True %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
-    </div>
-</div>
-<div>
-    <h2>획득한 뱃지</h2>
-    <p></p>
-</div>
-<div>
-    <h1>코스 진행도</h1>
-</div>
-<div>
-    <img src="{% static 'img/python.jpg' %}">
-    <div>
-        <h2>Python</h2>
-        <h2>{{ python_per }}</h2>
-    </div>
-    <div>
-        
-    </div>
-</div>
+    
+    <br/>
+    <a href="{% url 'logout' %}">로그아웃</a>
+</section>
 {% endblock %}

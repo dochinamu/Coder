@@ -23,6 +23,11 @@
             margin:0;
         }
 
+        header a    {text-decoration: none;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 20px;}
+        
     </style>
 
 
@@ -31,10 +36,18 @@
     <div style="height:70px;">
         <header>
             <div>
-                <a href="{% url 'home' %}">CODER</a>
+                <a href="{% url 'home' %}" id = "coder">CO:DER</a>
             </div>
             <div>
-                <a href="{% url 'mypage' %}">프로필</a>
+                {% if user.is_authenticated %}
+                    {% if user.profile_photo %}
+                    <a href="{% url 'mypage' user.id %}" id = "profile"><img src="{{ user.profile_photo.url}}" alt="profile" width="50px" height="50px" style="object-fit:cover;border-radius: 100px;"></a>
+                    {% else %}
+                    <a href="{% url 'mypage' user.id %}" id = "profile"><img src="{% static 'img/user.png' %}" alt="profile" width="50px" height="50px" style="object-fit:cover;border-radius: 100px;"></a>
+                    {% endif %}
+                {% else %}  
+                <a href = "{% url 'login' %}" id = "login">login</a>
+                {% endif %}
             </div>
         </header>
     </div>
