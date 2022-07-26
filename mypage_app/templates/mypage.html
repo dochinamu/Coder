@@ -9,7 +9,22 @@
                 justify-content: center;
                 margin-top: 30px;}
 
-    h3  {margin-top: 0px;}
+                .attend-challenge h3 {margin-bottom:0px;}
+
+    .week   {display:flex;
+            flex-direction:row;
+            justify-content:space-around;
+            margin-right:2%; margin-left:2%;}
+
+    .week img  {width:40px; 
+                height:40px; 
+                object-fit:cover;
+                border-radius:100px;}
+
+    .day    {display:flex;
+            flex-direction:column;
+            align-items:center;
+            margin-right:2%;}
 
     .all-badge  {border: solid 2px gray;
                 border-radius: 10px;
@@ -32,65 +47,67 @@
     <a href="{% url 'update_mypage' %}">프로필 변경</a>
     <br>
     
-    <div>
-        <h2>이번주 출석현황</h2>
-        <div>
-            <h3>월</h3>
-            {% if mon == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
+    <section class = "attend-challenge login">
+        <h3 class = "attend-title">이번주 출석 현황</h3>
+        <div class = "week">
+            <div class="day">
+                <h3>월</h3>
+                {% if mon == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
+            <div class="day">
+                <h3>화</h3>
+                {% if tue == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
+            <div class="day">
+                <h3>수</h3>
+                {% if wed == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
+            <div class="day">
+                <h3>목</h3>
+                {% if thu == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
+            <div class="day">
+                <h3>금</h3>
+                {% if fri == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
+            <div class="day">
+                <h3>토</h3>
+                {% if sat == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
+            <div class="day">
+                <h3>일</h3>
+                {% if sun == True %}
+                    <img src="{% static 'img/check_yes.jpg' %}">
+                {% else %}
+                    <img src="{% static 'img/check_no.jpg' %}">
+                {% endif %}
+            </div>
         </div>
-        <div>
-            <h3>화</h3>
-            {% if tue == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div>
-            <h3>수</h3>
-            {% if wed == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div>
-            <h3>목</h3>
-            {% if thu == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div>
-            <h3>금</h3>
-            {% if fri == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div>
-            <h3>토</h3>
-            {% if sat == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div>
-            <h3>일</h3>
-            {% if sun == True %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-    </div>
+    </section>
 
     <article class = "all-badge">
         <a href = "{% url 'badge' %}"><h3>획득한 뱃지</h3></a>
