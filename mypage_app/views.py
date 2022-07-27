@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from account_app.models import User, Attend
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+#from django_q.tasks import schedule
+import datetime
   
 @login_required(login_url='/account/login/')
 def mypage(request, user_id):
+    # Get user
     User = get_user_model()
     user = get_object_or_404(User, pk=user_id)
-    #user = User.objects.get(username=request.user.username)
+    # Set variable
     mon = False
     tue = False
     wed = False
@@ -17,6 +20,8 @@ def mypage(request, user_id):
     sun = False
     python_clear = 0
     python_total = 0
+
+    # Calculate cleared percentage
     if user.python1_1 == True:
         python_clear += 1
     python_total += 1
@@ -29,11 +34,22 @@ def mypage(request, user_id):
     if user.python1_4 == True:
         python_clear += 1
     python_total += 1
+    print(python_clear)
+    print(python_total)
     python_per = python_clear*100/python_total
-    print(python_per)
 
-    attend = Attend.objects.filter(attender=user)
+    # Record this week
+    date = datetime.date.today()
+    start_week = date - datetime.timedelta(date.weekday())
+    end_week = start_week + datetime.timedelta(7)
+    print(start_week)
+    print(end_week)
+
+    # Get attend queryset with filter
+    attend = Attend.objects.filter(attender=user, datetime__gte=start_week, datetime__lte=end_week)
     print(attend)
+
+    # Change weekday variable to true
     for obj in attend:
         field_name = 'datetime'
         date = getattr(obj, field_name)
@@ -52,6 +68,14 @@ def mypage(request, user_id):
         if date.weekday() == 6:
             sun = True
     return render(request, 'mypage.html', {'mon':mon, 'tue':tue, 'wed':wed, 'thu':thu, 'fri':fri, 'sat':sat, 'sun':sun, 'python_per':python_per})
+
+#user = User.objects.get(username=request.user.username)
+#now = datetime.datetime.now()
+#    if now.hour == 0:
+#        attend.clear()
+
+#def job():
+#    print("I am working...")
 
 @login_required(login_url='/account/login/')
 def update_mypage(request):
