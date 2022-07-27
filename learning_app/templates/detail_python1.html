@@ -2,57 +2,82 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <h1>Type과 Comparison</h1>
-</div>
-<div>
-    <a href=""><div>
-        <div>
+<style>
+   
+    
+    h1  {font-size: 20px; margin:20px;}
+ 
+
+    .step-list  {display:flex;
+                flex-direction: row;
+                flex-wrap:wrap;
+                justify-content: center;}
+
+    .one-step   {display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid gray;
+                border-radius: 10px;
+                width: 130px;
+                padding: 20px;
+                margin:10px;
+                color: black;
+                }
+
+    .one-step img   {width: 40px; height: 40px;
+                    object-fit:cover;
+                    border-radius:100px; }
+
+    a   {text-decoration: none;}
+
+</style>
+
+
+<h1>Type과 Comparison</h1>
+
+<section class="step-list">
+    <a href="">
+        <article class = "one-step">
             {% if user.python1_1 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
-        </div>
-        <div>
             <h3>Step 1</h3>
-        </div>
-    </div></a>
-    <a href=""><div>
-        <div>
+        </article>
+    </a>
+    <a href="">
+        <article class = "one-step">
             {% if user.python1_2 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
-        </div>
-        <div>
             <h3>Step 2</h3>
-        </div>
-    </div></a>
-    <a href=""><div>
-        <div>
+        </article>
+    </a>
+    <a href="">
+        <article class = "one-step">
             {% if user.python1_3 == True %}
                 <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
                 <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
-        </div>
-        <div>
             <h3>Step 3</h3>
-        </div>
-    </div></a>
-    <a href=""><div>
-        <div>
+        </article>
+    </a>
+    <a href="">
+        <article class = "one-step">
             {% if user.python1_4 == True %}
-            <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
             {% else %}
-            <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
             {% endif %}
-        </div>
-        <div>
-            <h3>Project 1</h3>
-        </div>
-    </div></a>
-</div>
+            <h3>Step 4</h3>
+        </article>
+    </a>
+
+</section>
+
 {% endblock %}

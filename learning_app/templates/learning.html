@@ -6,8 +6,8 @@
 <style>
     .big-box {margin: 0px 15px 15px 15px;}
 
-    h1 {color: rgba(0, 0, 0, 0.2);
-        font-size: 15px;}
+    .big-box h1 {color: rgba(0, 0, 0, 0.5);
+                font-size:20px;}
 
     section {display: flex;
             flex-direction: row;
@@ -16,6 +16,8 @@
             margin-top: 10px;
             border: 2px solid rgba(0, 0, 0, 0.2);
             border-radius: 10px;}
+    
+    .big-box a   {text-decoration: none;}
 
     article {display: flex;
             flex-direction: column;
@@ -23,8 +25,14 @@
             justify-content: center;
             margin: 10px;}
 
-    h2 {color: rgba(0, 0, 0, 0.2);
+    h2 {color: rgba(0, 0, 0, 0.5);
         font-size: 15px;}
+
+    .big-box img    {width:70px; 
+                    height:70px; 
+                    object-fit:cover;
+                    border-radius:100px;}
+
 
 
 </style>
@@ -34,22 +42,25 @@
 <div class="big-box">
     <h1>프로그래밍 언어</h1>
     <section>
-        <a href="{% url 'learning_python' %}"><article>
-            <img src="{% static 'img/Python.jpg' %}" alt="python" width="70px" height="70px">
-            <h2>Python</h2>
-        </article></a>
-        <a href=""><article>
-            <img src="{% static 'img/HTML.jpg' %}" alt="html" width="70px" height="70px">
-            <h2>HTML</h2>
-        </article></a>
-        <a href=""><diarticlev>
-            <img src="{% static 'img/CSS.jpg' %}" alt="css" width="70px" height="70px">
+        <a href="{% url 'learning_python' %}">
+            <article>
+                <img src="{% static 'img/Python.jpg' %}" alt="python">
+                <h2>Python</h2>
+            </article></a>
+        <a href="">
+            <article>
+                <img src="{% static 'img/HTML.jpg' %}" alt="html">
+                <h2>HTML</h2>
+            </article></a>
+        <a href="">
+            <article>
+            <img src="{% static 'img/CSS.jpg' %}" alt="css">
             <h2>CSS</h2>
-        </article></a>
+            </article></a>
         <a href=""><article>
-            <img src="{% static 'img/Java.jpg' %}" alt="java" width="70px" height="70px">
+            <img src="{% static 'img/Java.jpg' %}" alt="java">
             <h2>Java</h2>
-        </article></a>
+            </article></a>
     </section>
 </div>
 {% endblock %}
