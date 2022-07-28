@@ -9,6 +9,17 @@
                 justify-content: center;
                 margin-top: 30px;}
 
+    .message    {margin-top:0px;}
+
+    
+    .attend-challenge   {width: 80%;
+                        border: 2px solid rgb(0,0,0,0.3);
+                        border-radius: 10px;
+                        padding-right: 5%; padding-left: 5%;
+                        padding-bottom: 5%;
+                        }
+    .attend-title   {margin-bottom: 0px;}
+
     .week   {display:flex;
             flex-direction:row;
             justify-content:space-around;
@@ -24,10 +35,14 @@
             align-items:center;
             margin-right:2%;}
 
-    .all-badge  {border: solid 2px gray;
+    .all-badge  {border: solid 2px rgb(0,0,0,0.3);
                 border-radius: 10px;
                 width: 80%; height: 30%;
-                padding:5%;}
+                padding:5%;
+                margin-top: 20px; margin-bottom: 20px;}
+
+    .all-badge a {text-decoration: none; 
+                color: black;}
 
     .gauge {
         width: 100%;
@@ -55,6 +70,38 @@
         transition: transform 0.2s ease-out;
 
     }
+
+    .progress {border: solid 2px rgb(0,0,0,0.3);
+                border-radius: 10px;
+                width: 80%; height: 30%;
+                padding:5%;
+                margin-top: 20px; margin-bottom: 20px;}
+
+
+    .progress img {width:80px; 
+                height:80px; 
+                object-fit:cover;
+                border-radius:100px;}
+
+    .submit-button  {text-decoration: none;
+                    font-size: 15px;
+                    color: white;
+                    background-color: rgb(98,118,222);
+                    border:none;
+                    border-radius: 10px;
+                    text-align: center;
+                    width: 80px; height: 25px;}
+
+    .one-course {display:flex; 
+                flex-direction: row;
+                justify-content: flex-start;}
+
+    .course-progress    {width: 70%;
+                        margin-left: 10%; }
+
+    .explain    {display:flex; flex-direction: row;
+                justify-content: space-between;}
+
 </style>
 
 
@@ -66,13 +113,13 @@
     {% endif %}
 
     <h2>{{ user.nickname }}</h2>
-    <h3>{{ user.profile_message }}</h3>
+    <h3 class = "message">{{ user.profile_message }}</h3>
 
 
     <a href="{% url 'update_mypage' %}">프로필 변경</a>
     <br>
     
-    <section class = "attend-challenge login">
+    <section class = "attend-challenge">
         <h3 class = "attend-title">이번주 출석 현황</h3>
         <div class = "week">
             <div class="day">
@@ -135,41 +182,44 @@
     </section>
 
     <article class = "all-badge">
-        <a href = "{% url 'badge' %}"><h3>획득한 뱃지</h3></a>
+        <a href = "{% url 'badge' %}"><h3>획득한 뱃지 보기</h3></a>
 
     </article>
 
-    <div>
-        <h1>코스 진행도</h1>
-    </div>
-    <div>
-        <img src="{% static 'img/python.jpg' %}">
-        <div>
-            <h2>Python</h2>
-            <h2>{{ python_per }}%</h2>
-        </div>
-        <div class="gauge">
-            <div class="gauge-body">
-                <div class="gauge-fill"></div>
-            </div>
-        </div>
-
+   
+    <section class="progress">
+        <h3>코스 진행도</h3>
+        
+        <article class="one-course">
+            <img src="{% static 'img/python.jpg' %}">
+            <div class = "course-progress">   
+                <div class = "explain">
+                    <h3>Python</h3>
+                    <h4>{{ python_per }}%</h4>
+                </div>
+                <div class="gauge">
+                    <div class="gauge-body">
+                        <div class="gauge-fill"></div>
+                    </div>
+                </div>
+            </div> 
+        </article>
+        
         <script>
             const gaugeElement = document.querySelector(".gauge");
-
             function setGaugeValue(gauge, value) {
                 if (value < 0 || value > 1) {
                     return;
                 }
-
                 gauge.querySelector(".gauge-fill").style.transform = `$value`;
             }
-
             setGaugeValue(gaugeElement, python_per);
         </script>
-    </div>
+        
+    </section>
     
     <br/>
-    <a href="{% url 'logout' %}">로그아웃</a>
+    <a href="{% url 'logout' %}" class="submit-button">로그아웃</a>
+    <br/>
 </section>
 {% endblock %}
