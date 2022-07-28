@@ -124,56 +124,70 @@
         <div class = "week">
             <div class="day">
                 <h3>월</h3>
-                {% if mon == True %}
+                {% if mon == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif mon == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
             </div>
             <div class="day">
                 <h3>화</h3>
-                {% if tue == True %}
+                {% if tue == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif tue == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
             </div>
             <div class="day">
                 <h3>수</h3>
-                {% if wed == True %}
+                {% if wed == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif wed == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
             </div>
             <div class="day">
                 <h3>목</h3>
-                {% if thu == True %}
+                {% if thu == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif thu == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
             </div>
             <div class="day">
                 <h3>금</h3>
-                {% if fri == True %}
+                {% if fri == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif fri == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
             </div>
             <div class="day">
                 <h3>토</h3>
-                {% if sat == True %}
+                {% if sat == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif sat == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
             </div>
             <div class="day">
                 <h3>일</h3>
-                {% if sun == True %}
+                {% if sun == 'attend' %}
                     <img src="{% static 'img/check_yes.jpg' %}">
+                {% elif sun == 'no_check' %}
+                    <img src="{% static 'img/check_off.jpg' %}">
                 {% else %}
                     <img src="{% static 'img/check_no.jpg' %}">
                 {% endif %}
