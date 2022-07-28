@@ -26,6 +26,11 @@
             <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
             <p>첫 출석</p>
         </div>
+
+        <div class = "badge">
+            <img src="{% static 'img/check_off.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            <p>단골손님 (7일 연속 출석)</p>
+        </div>
     </article>
 
     <h2>학습 뱃지</h2>
@@ -48,14 +53,6 @@
             <p>첫 커리 완료</p>
         </div>
 
-        <div class = "badge">
-            {% if user.python0 %}
-            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
-            {% else %}
-            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
-            {% endif %}
-            <p>첫 코스 완료</p>
-        </div>
 
         <div class = "badge">
             {% if user.python0 == True %}
