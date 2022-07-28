@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'account_app',
     'mypage_app',
     'learning_app',
+    'challenge_app',
 ]
 
 MIDDLEWARE = [

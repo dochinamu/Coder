@@ -31,3 +31,4 @@ class Attend(models.Model):
 
     def __str__(self):
         return str(str(self.attender.username + " " + str(self.datetime) + " " + str(self.datetime.weekday())))
+

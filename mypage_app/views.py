@@ -11,13 +11,13 @@ def mypage(request, user_id):
     User = get_user_model()
     user = get_object_or_404(User, pk=user_id)
     # Set variable
-    mon = False
-    tue = False
-    wed = False
-    thu = False
-    fri = False
-    sat = False
-    sun = False
+    mon = ''
+    tue = ''
+    wed = ''
+    thu = ''
+    fri = ''
+    sat = ''
+    sun = ''
     python_clear = 0
     python_total = 0
 
@@ -40,33 +40,46 @@ def mypage(request, user_id):
 
     # Record this week
     date = datetime.date.today()
-    start_week = date - datetime.timedelta(date.weekday())
-    end_week = start_week + datetime.timedelta(7)
+    weekday = date.weekday()
+    tomorrow = date + datetime.timedelta(1)
+    start_week = date - datetime.timedelta(weekday)
     print(start_week)
-    print(end_week)
+    attend = Attend.objects.filter(attender=user, datetime__gte=start_week, datetime__lte=tomorrow)
+    print(attend)
+    if weekday <= 5:
+        sun = 'no_check'
+    if weekday <= 4:
+        sat = 'no_check'
+    if weekday <= 3:
+        fri = 'no_check'
+    if weekday <= 2:
+        thu = 'no_check'
+    if weekday <= 1:
+        wed = 'no_check'
+    if weekday <= 0:
+        tue = 'no_check'
 
     # Get attend queryset with filter
-    attend = Attend.objects.filter(attender=user, datetime__gte=start_week, datetime__lte=end_week)
-    print(attend)
 
     # Change weekday variable to true
     for obj in attend:
         field_name = 'datetime'
         date = getattr(obj, field_name)
         if date.weekday() == 0:
-            mon = True
+            mon = 'attend'
         if date.weekday() == 1:
-            tue = True
+            tue = 'attend'
         if date.weekday() == 2:
-            wed = True
+            wed = 'attend'
         if date.weekday() == 3:
-            thu = True
+            thu = 'attend'
         if date.weekday() == 4:
-            fri = True
+            fri = 'attend'
         if date.weekday() == 5:
-            sat = True
+            sat = 'attend'
         if date.weekday() == 6:
-            sun = True
+            sun = 'attend'
+
     return render(request, 'mypage.html', {'mon':mon, 'tue':tue, 'wed':wed, 'thu':thu, 'fri':fri, 'sat':sat, 'sun':sun, 'python_per':python_per})
 
 #user = User.objects.get(username=request.user.username)
