@@ -8,15 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODER</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
 
         header {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
-            width: 100%;
+            
             height: 70px;
         }
+
+        .logo {font-family: 'Baloo 2', cursive;
+                color: #6885E4;
+                font-size: 33px;}
 
         body {
             margin:0;
@@ -35,7 +40,7 @@
     <div>
         <header>
             <div>
-                <a href="{% url 'home' %}" id = "coder"><h3>CO:DER</h3></a>
+                <a href="{% url 'home' %}" id = "coder"><p class = "logo">CO:DER</p></a>
             </div>
             <div>
                 {% if user.is_authenticated %}

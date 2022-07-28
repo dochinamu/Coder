@@ -14,11 +14,10 @@ def signup(request):
             # 회원가입 
             new_user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'], 
             name=request.POST['name'], nickname=request.POST['nickname'], email=request.POST['email'], phone_number=request.POST['phone_number'])
-            
             # 로그인
-            auth.login(request, new_user)
+            #auth.login(request, new_user)
             # 홈 리다이렉션
-            return redirect('home')
+            return render(request, 'account.html')
         else:
             return render(request, 'resignup.html')
     # GET 요청

@@ -13,7 +13,7 @@ class User(AbstractUser):
     python2 = models.BooleanField(default=False)
     python3 = models.BooleanField(default=False)
     python4 = models.BooleanField(default=False)
-    python1_1 = models.BooleanField(default=True)
+    python1_1 = models.BooleanField(default=False)
     python1_2 = models.BooleanField(default=False)
     python1_3 = models.BooleanField(default=False)
     python1_4 = models.BooleanField(default=False)
