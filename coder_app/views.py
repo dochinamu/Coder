@@ -1,24 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from account_app.models import User, Attend
+from challenge_app.models import Challenge
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 import datetime
 
 def home(request):
-    #User = get_user_model()
-    #user = get_object_or_404(User, pk=user_id)
-    #user = User.objects.get(username=request.user.username)
+    py_chals = Challenge.objects.filter(category='python')
+
     try:
         User = get_user_model()
         user = get_object_or_404(User, username=request.user.username)
-        mon = ''
-        tue = ''
-        wed = ''
-        thu = ''
-        fri = ''
-        sat = ''
-        sun = ''
+        #User = get_user_model()
+        #user = get_object_or_404(User, pk=user_id)
+        #user = User.objects.get(username=request.user.username)
+
         date = datetime.date.today()
         weekday = date.weekday()
         tomorrow = date + datetime.timedelta(1)
@@ -28,35 +25,39 @@ def home(request):
         # Get attend queryset with filter
         attend = Attend.objects.filter(attender=user, datetime__gte=start_week, datetime__lte=tomorrow)
         print(attend)
+
+        weekdays = {'월': '', '화': '', '수': '', '목': '', '금': '', '토': '', '일': ''}
+        print(weekdays.values)
         if weekday <= 5:
-            sun = 'no_check'
+            weekdays['일'] = 'no_check'
         if weekday <= 4:
-            sat = 'no_check'
+            weekdays['토'] = 'no_check'
         if weekday <= 3:
-            fri = 'no_check'
+            weekdays['금'] = 'no_check'
         if weekday <= 2:
-            thu = 'no_check'
+            weekdays['목'] = 'no_check'
         if weekday <= 1:
-            wed = 'no_check'
+            weekdays['수'] = 'no_check'
         if weekday <= 0:
-            tue = 'no_check'
+            weekdays['화'] = 'no_check'
+
         for obj in attend:
             field_name = 'datetime'
             date = getattr(obj, field_name)
             if date.weekday() == 0:
-                mon = 'attend'
+                weekdays['월'] = 'attend'
             if date.weekday() == 1:
-                tue = 'attend'
+                weekdays['화'] = 'attend'
             if date.weekday() == 2:
-                wed = 'attend'
+                weekdays['수'] = 'attend'
             if date.weekday() == 3:
-                thu = 'attend'
+                weekdays['목'] = 'attend'
             if date.weekday() == 4:
-                fri = 'attend'
+                weekdays['금'] = 'attend'
             if date.weekday() == 5:
-                sat = 'attend'
+                weekdays['토'] = 'attend'
             if date.weekday() == 6:
-                sun = 'attend'
-        return render(request, 'home.html', {'mon':mon, 'tue':tue, 'wed':wed, 'thu':thu, 'fri':fri, 'sat':sat, 'sun':sun})
+                weekdays['일'] = 'attend'
+        return render(request, 'home.html', {'weekdays': weekdays, 'py_chals': py_chals})
     except Http404:
         return render(request, 'home.html')
