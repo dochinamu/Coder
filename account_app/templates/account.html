@@ -32,12 +32,12 @@
 
 <secton class="form-section">
 <h1>로그인</h1>
-<form action="{% url 'login' %}" method="POST">
+<form action="{% url 'login' %}" method="POST" name="loginForm">
     {% csrf_token %}
     <input type="text" name="username" required placeholder="아이디" id = "id-input"><br>
     <input type="password" name="password" required placeholder="비밀번호">
     <p id = "serch-pw"><a href = "{% url 'searchpw' %}">비밀번호를 잊으셨나요?</a></p>
-    <input type="submit" value="로그인" class = "submit-button">
+    <input type="button" onclick="login()" value="로그인" class="submit-button">
 </form>
 
 <p>코더 계정이 없으신가요? <a href="{% url 'signup' %}">회원가입</a></p> <br/>
@@ -45,4 +45,17 @@
 
 
 <br/>
+
+<script>
+        function login(){
+                var loginForm = document.loginForm;
+                var username = loginForm.username.value;
+                var password = loginForm.password.value;
+                
+                FlareLane.setUserId(username);
+                loginForm.submit();
+        }       
+
+</script>
+
 {% endblock %} 

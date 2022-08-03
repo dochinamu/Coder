@@ -31,3 +31,10 @@ class Attend(models.Model):
 
     def __str__(self):
         return str(str(self.attender.username + " " + str(self.datetime) + " " + str(self.datetime.weekday())))
+
+class PyStepAttend(models.Model):
+    attender = models.ForeignKey(User, on_delete=models.CASCADE)
+    datetime = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.attender.username + " " + str(self.datetime))
