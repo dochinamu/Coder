@@ -84,76 +84,18 @@
 <section class = "attend-challenge login">
     <h3 class = "attend-title">이번주 출석 현황</h3>
     <div class = "week">
+        {% for key,value in weekdays.items %}
         <div class="day">
-            <h3>월</h3>
-            {% if mon == 'attend' %}
+            <h3>{{ key }}</h3>
+            {% if value == 'attend' %}
                 <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif mon == 'no_check' %}
+            {% elif value == 'no_check' %}
                 <img src="{% static 'img/check_off.jpg' %}">
             {% else %}
                 <img src="{% static 'img/check_no.jpg' %}">
             {% endif %}
         </div>
-        <div class="day">
-            <h3>화</h3>
-            {% if tue == 'attend' %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif tue == 'no_check' %}
-                <img src="{% static 'img/check_off.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div class="day">
-            <h3>수</h3>
-            {% if wed == 'attend' %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif wed == 'no_check' %}
-                <img src="{% static 'img/check_off.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div class="day">
-            <h3>목</h3>
-            {% if thu == 'attend' %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif thu == 'no_check' %}
-                <img src="{% static 'img/check_off.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div class="day">
-            <h3>금</h3>
-            {% if fri == 'attend' %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif fri == 'no_check' %}
-                <img src="{% static 'img/check_off.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div class="day">
-            <h3>토</h3>
-            {% if sat == 'attend' %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif sat == 'no_check' %}
-                <img src="{% static 'img/check_off.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
-        <div class="day">
-            <h3>일</h3>
-            {% if sun == 'attend' %}
-                <img src="{% static 'img/check_yes.jpg' %}">
-            {% elif sun == 'no_check' %}
-                <img src="{% static 'img/check_off.jpg' %}">
-            {% else %}
-                <img src="{% static 'img/check_no.jpg' %}">
-            {% endif %}
-        </div>
+        {% endfor %}
     </div>
     
     <div class = "my-challenge">
@@ -187,7 +129,7 @@
 
 
     <div class="challenge-category">
-        <a href="{% url 'python_challenge' %}"><p>python</p></a>
+        <a href="{% url 'home' %}"><p class="selected-category">python</p></a>
         <p>HTML</p>
         <p>CSS</p>
         <p>JAVA</p>
@@ -196,30 +138,24 @@
     <hr>
 
     <div class = "one-category">
-        <a href="{% url 'python_challenge1' %}"><article class = "one-challenge"> 
-            <div class="challenge-img">챌린지1</div>
-            <p class="challenge-title">매일 파이썬 학습하기</p>
-            <div class="tag-list">
-                <p class = "tag"># 오늘부터 시작</p>
-                <p class = "tag"># 매일</p>
-                <p class = "tag"># 2주동안</p>
-            </div>
-        </article></a>
-
-        <article class = "one-challenge"> 
-            <div class="challenge-img">챌린지2</div>
-            <p class="challenge-title">파이썬 코스 완주하기</p>
-            <div class="tag-list">
-                <p class = "tag"># 오늘부터 시작</p>
-                <p class = "tag"># 주3회</p>
-                <p class = "tag"># 한달동안</p>
-            </div>
-        </article>
+        {% for py_chal in py_chals %}
+            <a href="{% url 'python_explain' py_chal.id %}"><article class = "one-challenge"> 
+                <div class="challenge-img">챌린지{{ py_chal.id }}</div>
+                <p class="challenge-title">{{ py_chal.title }}</p>
+                <div class="tag-list">
+                    <p class = "tag">{{ py_chal.tag }}</p>
+                </div>
+            </article></a>
+        {% endfor %}
     </div>
 
 </section>
 
-
+<section class="">
+    {% if user.is_superuser %}
+        <a href="{% url 'new_challenge' %}"><button>등록하기</button></a>
+    {% endif %}
+</section>
 
 
 {% endblock %}

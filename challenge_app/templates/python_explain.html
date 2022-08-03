@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+
+</style>
+
+
+<h2>{{ py_chal.title }}</h2>
+<p class="challenge-explain">{{ py_chal.body }}</p>
+
+{% if user in pars %}
+<a href="{% url 'my_challenge' %}">이미 참가중인 챌린지입니다 나의 챌린지로 GO</a>
+{% else %}
+<a href="{% url 'python_challenge' py_chal.id %}">챌린지 시작하기</a>
+{% endif %}
+
+{% endblock %}
