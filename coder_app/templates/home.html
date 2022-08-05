@@ -138,24 +138,20 @@
     <hr>
 
     <div class = "one-category">
-        {% for py_chal in py_chals %}
-            <a href="{% url 'python_explain' py_chal.id %}"><article class = "one-challenge"> 
-                <div class="challenge-img">챌린지{{ py_chal.id }}</div>
-                <p class="challenge-title">{{ py_chal.title }}</p>
+        
+            <a href="{% url 'python1_explain' %}"><article class = "one-challenge"> 
+                <div class="challenge-img">챌린지1</div>
+                <p class="challenge-title">매일 파이썬 학습하기</p>
                 <div class="tag-list">
-                    <p class = "tag">{{ py_chal.tag }}</p>
+                    <p class = "tag">매일</p>
+                    <p class = "tag">일주일간</p>
                 </div>
             </article></a>
-        {% endfor %}
+        
     </div>
 
 </section>
 
-<section class="">
-    {% if user.is_superuser %}
-        <a href="{% url 'new_challenge' %}"><button>등록하기</button></a>
-    {% endif %}
-</section>
 
 
 {% endblock %}
