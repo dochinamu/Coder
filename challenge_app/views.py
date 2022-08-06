@@ -28,10 +28,10 @@ def my_challenge(request):
     for chal in chals:
         chal_user = ChallengeUsers.objects.filter(challenge=chal, user=user)
         print(chal_user)
-        field_name = 'started_at'
-        start_date = getattr(chal_user, field_name)
-        fin_date = start_date + datetime.timedelta(13)
-        my_chal.update({'chal': chal, 'start': start_date, 'fin': fin_date})
+        #field_name = 'started_at'
+        #start_date = getattr(chal_user, field_name)
+        #fin_date = start_date + datetime.timedelta(13)
+        #my_chal.update({'chal': chal, 'start': start_date, 'fin': fin_date})
 
     #field_name = 'started_at'
     #start_date = getattr(obj, field_name)
@@ -68,13 +68,13 @@ def python_challenge(request, chal_id):
     User = get_user_model()
     user = get_object_or_404(User, username=request.user.username)
 
-    obj = get_object_or_404(ChallengeUsers, pk=chal_id)
-    print(obj)
+    #objs = ChallengeUsers.objects.filter(challenge=py_chal, user=user)
+    #try:
+    #    obj = objs[0]
 
-    objs = ChallengeUsers.objects.filter(challenge=py_chal, user=user)
     try:
-        obj = objs[0]
-    except IndexError:
+        obj = get_object_or_404(ChallengeUsers, pk=chal_id)
+    except Http404:
         ChallengeUsers.objects.create(challenge=py_chal, user=user)
         objs = ChallengeUsers.objects.filter(challenge=py_chal, user=user)
         obj = objs[0]
@@ -84,7 +84,8 @@ def python_challenge(request, chal_id):
 
     days = {}
     for x in range(14):
-        days.update({start_date + datetime.timedelta(x): ''})
+        days.update({"day" + x: ''})
+        #start_date + datetime.timedelta(x)
 #    day1 = start_date
 #    day2 = start_date + datetime.timedelta(1)
 #    day3 = start_date + datetime.timedelta(2)

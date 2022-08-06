@@ -7,7 +7,7 @@ class Challenge(models.Model):
     title = models.CharField(max_length=30)
     body = models.TextField(default='')
     tag = models.TextField(default='')
-    #started_at = models.DateTimeField(auto_now_add=True)
+    started_at = models.DateTimeField(auto_now_add=True)
     participant = models.ManyToManyField(User, through="ChallengeUsers", related_name="challenges")
     
     def __str__(self):
