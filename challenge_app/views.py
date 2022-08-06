@@ -25,6 +25,7 @@ def python1_explain(request):
         join = False
     return render(request, 'python1_explain.html', {'join': join} )
 
+
 # 파이썬 챌린지1 참여하기 + 챌린지 페이지 이동 
 @login_required(login_url='/account/login/')
 def python1_challenge(request):
@@ -38,6 +39,7 @@ def python1_challenge(request):
     else:
         new_challenge = PythonChallenge1.objects.create(participant = user) 
         return render(request, 'python1_challenge.html')
+
 
 
 # def new_challenge(request):
@@ -80,6 +82,7 @@ def python1_challenge(request):
 #     #py_chal = py_chals[chal_id-1]
 #     print(py_chal)
 
+
 #     User = get_user_model()
 #     user = get_object_or_404(User, username=request.user.username)
 
@@ -92,6 +95,41 @@ def python1_challenge(request):
 #     #print(chals)
 #     return render(request, 'python_explain.html', {'py_chal': py_chal, 'pars': pars})
 #     #{'py_chal': py_chal, 'pars': pars}
+
+    #objs = ChallengeUsers.objects.filter(challenge=py_chal, user=user)
+    #try:
+    #    obj = objs[0]
+
+    # try:
+    #     obj = get_object_or_404(ChallengeUsers, pk=chal_id)
+    # except Http404:
+    #     ChallengeUsers.objects.create(challenge=py_chal, user=user)
+    #     objs = ChallengeUsers.objects.filter(challenge=py_chal, user=user)
+    #     obj = objs[0]
+    # field_name = 'started_at'
+    # start_date = getattr(obj, field_name)
+    # print(start_date.year)
+
+    # days = {}
+    # for x in range(14):
+    #     days.update({"day" + x: ''})
+        #start_date + datetime.timedelta(x)
+#    day1 = start_date
+#    day2 = start_date + datetime.timedelta(1)
+#    day3 = start_date + datetime.timedelta(2)
+#    day4 = start_date + datetime.timedelta(3)
+#    day5 = start_date + datetime.timedelta(4)
+#    day6 = start_date + datetime.timedelta(5)
+#    day7 = start_date + datetime.timedelta(6)
+#    day8 = start_date + datetime.timedelta(7)
+#    day9 = start_date + datetime.timedelta(8)
+#    day10 = start_date + datetime.timedelta(9)
+#    day11 = start_date + datetime.timedelta(10)
+#    day12 = start_date + datetime.timedelta(11)
+#    day13 = start_date + datetime.timedelta(12)
+#    day14 = start_date + datetime.timedelta(13)
+
+
 
 # def python_challenge(request, chal_id):
 #     py_chal = get_object_or_404(Challenge, pk=chal_id)

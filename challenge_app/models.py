@@ -1,6 +1,7 @@
 from django.db import models
 from account_app.models import User
 
+
 # 매일 파이썬 학습하기 챌린지(7일간 연속 학습)에 대한 모델 
 # 어떤 유저가 챌린지에 참여하면, 해당 유저를 participant로 갖는 PythonChallenge1 객체를 1개 생성한다 
 # 즉 이 챌린지의 참여자가 10명이면 PythonChallenge1 객체가 10개 생기고, 
