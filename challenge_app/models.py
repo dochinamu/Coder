@@ -1,19 +1,26 @@
 from django.db import models
 from account_app.models import User
 
-# Create your models here.
-class Challenge(models.Model):
-    category = models.CharField(max_length=15, default='')
-    title = models.CharField(max_length=30)
-    body = models.TextField(default='')
-    tag = models.TextField(default='')
-    #started_at = models.DateTimeField(auto_now_add=True)
-    participant = models.ManyToManyField(User, through="ChallengeUsers", related_name="challenges")
-    
-    def __str__(self):
-        return self.title
 
-class ChallengeUsers(models.Model):
-    challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    started_at = models.DateTimeField(auto_now_add=True)
+# 매일 파이썬 학습하기 챌린지(7일간 연속 학습)에 대한 모델 
+# 어떤 유저가 챌린지에 참여하면, 해당 유저를 participant로 갖는 PythonChallenge1 객체를 1개 생성한다 
+# 즉 이 챌린지의 참여자가 10명이면 PythonChallenge1 객체가 10개 생기고, 
+# 각 객체는 사용자 1명의 챌린지 이수 여부 등의 정보를 저장한다 
+
+class PythonChallenge1(models.Model):
+    participant = models.ForeignKey(User, on_delete=models.CASCADE)
+    # PythonChallenge1에 따른 챌린지 이름은 다 같을테니까 default로 값을 준다 
+    # title을 따로 활용할 일은 없을 것 같다 혹시 몰라서 정의해둠 
+    title = models.CharField(default="매일 파이썬 학습하기", max_length=200)
+    # 시작 날짜: 객체 생성 시 자동 추가  
+    start = models.DateField(auto_now_add=True)
+    # 챌린지 완료 여부 
+    complete = models.BooleanField(default=False)
+    # day1-day7까지 각각에 대한 완료 여부 
+    day1 = models.BooleanField(default=False)
+    day2 = models.BooleanField(default=False)
+    day3 = models.BooleanField(default=False)
+    day4 = models.BooleanField(default=False)
+    day5 = models.BooleanField(default=False)
+    day6 = models.BooleanField(default=False)
+    day7 = models.BooleanField(default=False)

@@ -1,33 +1,49 @@
 var num=1;
 var quiz_list = {
-    1: {'type':'block', 'question1': "변수의 이름에는 '숫자'가 포함될 수 있어요. 여러개의 비슷한 변수들이 있을 때 변수에 숫자를 추가하면 보다 쉽게 구분할 수 있어요.", 'question2': `우선 변수 'city_1'을 만들어볼까요?`, 
-    'block1': `1`, 'block2': `_`, 'block3': 'city', 'answer': '321'},
-    2: {'type':'block', 'question1': "변수를 생성하고 변수의 이름을 정한 후에는 '='을 사용해서 변수에 value를 저장해요.", 'question2': `예를 들면, city_1="Seoul"`, 
-    'block1': `"Seoul"`, 'block2': `=`, 'block3': 'city_1', 'answer': '321'},
-    3: {'type':'block', 'question1': "value를 변수에 저장한다는 건, 물건을 캐리어에 넣는 것과 비슷해요.", 'question2': `"galaxy"를 'device_type'에 저장해보세요.`, 
-    'block1': `"galaxy"`, 'block2': `device_type`, 'block3': `=`, 'answer': '231'},
-    4: {'type':'block', 'question1': `우리가 변수에 저장한 "Seoul"과 "galaxy"는 모두 문자열(String)이에요.`, 'question2': `문자열은 처음과 끝을 큰따옴표로 묶어요.`, 
-    'block1': `"`, 'block2': `/`, 'block3': `.`, 'block4': `.`, 'answer': '11'},
-    5: {'type':'block', 'question1': `문자열에는 공백을 포함하여 모든 종류의 문자와 기호가 들어갈 수 있어요`, 'question2': `예를 들면, "코딩의 시작은 CO:DER"`, 
-    'block1': `"`, 'block2': `_`, 'block3': `코딩의 시작은 CO:DER`, 'answer': '131'},
-    6: {'type':'multiple', 'question1': ``, 'question2': `다음 중 변수는 무엇인가요?`, 
-    'default_code': 'Id = "0921sean"','choice1': `Id`, 'choice2': `"0921sean"`, 'answer': '1'},
-    7: {'type':'multiple', 'question1': ``, 'question2': `Value가 문자열인지 어떻게 알 수 있나요?`, 
-    'choice1': `큰 따옴표 사이에 있기 때문에`, 'choice2': `= 표시가 있기 때문에`, 'answer': '1'},    
-    8: {'type':'multiple', 'question1': ``, 'question2': `다음 코드에는 어떤 일이 일어나고 있나요?`, 
-    'default_code': 'Measurement = "average"', 'choice1': `변수 "average"가 Measurement value를 저장하고 있다`, 'choice2': `변수 Measurement가 value "average"를 저장하고 있다.`, 'answer': '2'},
-    9: {'type':'multiple', 'question1': ``, 'question2': `다음 중 변수의 이름은 무엇인가요?`, 
-    'default_code': 'hobby = "tennis"', 'choice1': `hobby`, 'choice2': `"tennis"`, 'answer': '1'},
-    10: {'type':'block', 'question1': ``, 'question2': `job 변수를 생성하고 "Developer" value를 지정해주세요.`, 
-    'bogi': 'Name = "Sojeong"','block1': `"Developer"`, 'block2': `=`, 'block3': "job", 'answer': '321'},
-    11: {'type':'block', 'question1': ``, 'question2': `job_title 변수에 문자열 값을 지정해주세요.`, 
-    "bogi2":"job_title =",'block1': `"`, 'block2': `Marketer`, 'block3': `+`, 'block4': '"', 'answer': '121'},
-    12: {'type': 'typing', 'question1': ``, 'question2': 'user_agent 변수에 문자열 값 "Mobile"을 지정해주세요.',
-    'pre_blank': 'user_agent = ', 'after_blank': '', 'answer': `"Mobile"`}   
+    1: {'type':'block', 'question1': `+기호로, 문자열 값을 이어붙여 하나의 값을 만들어낼 수 있는데, 이를 표현식(expression)이라고 부릅니다`, 'question2': '“55”를 print() 안에 덧붙여 하나의 문자열을 출력해볼까요?',
+    'bogi2': 'print("Followers"', 'bogi3': '"55")','block1': `-`, 'block2': '+', 'block3': '*', 'answer': '2', 'input_text1': true},
+    2: {'type':'block', 'question1': "표현식(expression)에 변수를 입력하면, 변수명이 아니라 변수의 ‘값’(value)을 사용하는 거예요.", 'question2': `“Followers: “에 followers를 덧붙여 확인해봅시다.`, 
+    'bogi': 'followers = "55"', 'bogi2': 'print("Followers"', 'bogi4': ')', 'block1': `followers`, 'block2': `+`, 'answer': '21', 'input_text1': true, 'input_text2': true},
+    3: {'type':'multiple', 'question1': "변수 label의 값은 무엇일까요?", 'question2': ``, 
+    'default_code': `label = "Name: " + "Joe"`, 'choice1': '"Joe"', 'choice2': `"Name: Joe"`, 'answer': '2'},
+    4: {'type':'multiple', 'question1': `<4. 선택> 이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
+    'default_code': `user = "coder_love_holic" <br> print("Username:" + user)`, 'choice1': `Username:user`, 'choice2': `Username:CO:DER_love_holic`, 'answer': '2'},
+    5: {'type':'block', 'question1': `콘솔에 다산 정약용을 출력해보세요.`, 'question2': ``, 
+    'bogi': 'title = "다산" <br/> name = "정약용"', 'bogi2': 'print(', 'bogi5': ')', 'block1': `+`, 'block2': `title`, 'block3': 'name', 'answer': '213', 'input_text1': true, 'input_text2': true, 'input_text3': true},
+    6: {'type':'block', 'question1': `파이썬의 다양한 자료형 중 ‘숫자형’은 (문자열과 달리) 좌우를 따옴표로 둘러싸지 않고 숫자만 작성해요.`, 'question2': ``, 
+    'bogi2' : 'coder_users = ', 'block1': `<1000>`, 'block2': `"1000"`, 'block3': '1000', 'answer': '3', 'input_text1': true},
+    7: {'type': 'block', 'question1': '숫자형 값을 갖는 변수도 계산할 수도 있어요', 'question2': 'number_of_steps에 1을 더해 결과를 확인해봅시다.',
+    'bogi': `number_of_steps = 10 <br/> print("You're on step: ")`, 'bogi2': 'print(number_of_steps', 'bogi4': ')', 'block1': '+', 'block2': '=', 'block3': '1', 'answer': '13', 'input_text1': true, 'input_text2': true}, 
+    8: {'type': 'block', 'question1': '변수에 계산 결과를 저장할 수도 있어요', 'question2': 'total에 men+women의 값을 저장해봅시다!',
+    'bogi': `men = 10 <br/> women = 8`, 'bogi2': ' ', 'bogi3': ' = men','bogi5': '<br/> &nbsp; print("Total number: ") <br/> &nbsp; print(total)', 'block1': '+', 'block2': 'women', 'block3': 'total', 'answer': '312', 'input_text1': true, 'input_text2': true, 'input_text3': true}, 
+    9: {'type':'multiple', 'question1': `아래의 코드는 왜 4가 아니라 31을 출력할까요?`, 'question2': ``, 
+    'default_code': `temperature = "3" + "1" <br/> print(temperature)`, 'choice1': `“3”과 “1”이 문자열 값이기 때문에`, 'choice2': `숫자형끼리 뺄셈을 하는 표현식이기 때문에`, 'answer': '1'},    
+    10: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
+    'default_code': `area = "3 * 5" <br> &nbsp; print(area)`, 'choice1': `15`, 'choice2': `3 * 5`, 'answer': '2'},    
+    11: {'type':'block', 'question1': `변수 savings에 변수 interest를 곱해보세요.`, 'question2': ``,
+    'bogi': `savings = 100 <br/> &nbsp; interest = 0.04`, 'bogi2': `print(savings`, 'bogi4': ')', 'block1': `/`, 'block2': `interest`, 'block3': '*', 'answer': '32', 'input_text1': true, 'input_text2': true}, 
+    12: {'type':'block', 'question1': `sum_of_grades를 subjects로 나누어 과목별 점수의 평균값을 구해보세요.`, 'question2': ``, 
+    'bogi': `sum_of_grades = 460 <br/> subjects = 5`, 'bogi2': `print(`, 'bogi5': ')', 'block1': `sum_of_grades`, 'block2': `subjects`, 'block3': '/', 'answer': '132', 'input_text1': true, 'input_text2': true, 'input_text3': true}, 
 };
+const num_list = ["","2","3","4","5"]
+const num_list_for_input = ["1", "2", "3"]
+const num_list_for_block = ["1", "2", "3"]
+
 var value='';
+var value2='';
 $('.bogi2').hide()
-$('.code_background').attr('style', 'height: 25%')
+$('.bogi3').hide()
+$('.bogi4').hide()
+$('.bogi5').hide()
+$('.block3').hide()
+if (num === 1) {
+    $('.bogi2').show()
+    $('.bogi2').html(quiz_list[num]['bogi2'])
+    $('.bogi3').show()
+    $('.bogi3').html(quiz_list[num]['bogi3'])
+    $('#input_text2').hide(); $('#input_text3').hide();
+}
+
 function next() {
     //번호 키우기
     num++;
@@ -74,9 +90,10 @@ function next() {
         // $("#"+quiz_list[num]['type']).show();       
     } //타이핑형: 입력된 내용 지우기 + 빈칸 앞 뒤 내용 바꾸고 틀 띄우기
     else if (quiz_list[num]['type'] === 'typing') {
-        $('.underline').val("");
+        $('#input_text').val("");
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 
+        
 
         // $("#"+quiz_list[num]['type']).show() 
     } 
@@ -84,36 +101,55 @@ function next() {
     else if (quiz_list[num]['type'] === 'block') {
         $('.bogi').html('')
         $('.bogi2').html('')
+        $('.bogi3').html('')
+        $('.bogi4').html('')
+        $('.bogi4').html('')
         $('.underline').attr("value", "");
-        $('#input_text1').attr("size", '2px')          
-        $('#input_text2').attr("size", '2px')          
-        $('#input_text3').attr("size", '2px')          
+        $('.underline').attr("size", '1px')          
 
-        if (num === 4) {
-            $('#input_text2').attr('value', 'Miami')
-            $('#input_text2').attr("size", $('#input_text2').val().length) 
-        } else if (num === 10) {
-            $('.bogi').html(quiz_list[num]['bogi'])
-        } else if (num === 11) {
-            $('.bogi2').show()
-            $('.bogi2').html(quiz_list[num]['bogi2'])
-        } else if (num == 12) {
-            $('.bogi2').hide()
+        //보기가 객체 속성으로 존재한다면, 해당 내용 수정하여 띄우기 / 없으면 숨기기
+        num_list.map((it) =>
+          {if (("bogi" + it) in quiz_list[num]) {
+            console.log('있네~', it);
+            $('.bogi' + it).show();
+            $(".bogi" + it).html(quiz_list[num]["bogi" + it]);
+          } else {
+            console.log('없음', it);
+            $('.bogi' + it).hide();
+          }})
+        
+          //input_text1,2,3 가 객체 속성으로 존재한다면, 해당 내용 띄우기 / 없으면 숨기기
+        num_list.map((it) =>
+          {if (("input_text" + it) in quiz_list[num]) {
+            console.log('있네~', it);
+            $('#input_text' + it).show();
+          } else {
+            console.log('없음', it);
+            $('#input_text' + it).hide();
+          }})
+        
+    
+        if (num === 5) {
+            $('.block3').show();
+        }  else if (num === 8) {
+            $('.code_background').attr('style', 'height: 50%')
+        } else if (num === 9) {
+            $('.code_background').attr('style', 'height: 35%')
         }
 
         $('.block1').html(quiz_list[num]['block1'])
         $('.block2').html(quiz_list[num]['block2'])
         $('.block3').html(quiz_list[num]['block3'])
-        // $("#"+quiz_list[num]['type']).show() 
     } 
     
     $("#"+quiz_list[num]['type']).show()
-    if (num === 7) {$(".code_background").hide()}
-    if (num === 8) {$(".code_background").show()}
+    // if (num === 5) {$(".code_background").hide()}
+    // if (num === 6) {$(".code_background").show()}
     } 
 }
 
 $('.first_next_btn').click(function() {
+    setTimeout(() => $(".progress-bar").attr("style", "width: calc(100/12*1%)"), 500);
     $('.explanation').hide();
     $('.question').show();
 })
@@ -129,7 +165,7 @@ $('.choice_btn').click(function() {
 }) 
 
 //[타이핑형] 뭐라도 입력해야 제출 버튼 활성화됨
-$('.underline').on("input", function (e) {
+$('#input_text').on("input", function (e) {
     $('#input_text').attr('size', $('#input_text').val().length)
     if ($('#input_text').val() != '') {
         $('.submit_btn').attr("disabled", false);
@@ -138,6 +174,7 @@ $('.underline').on("input", function (e) {
     }
     
 })
+
 
 //[블록입력형] 블록 1: value에 버튼 id 누적 + 제출 버튼 활성화 + 버튼 한 번 클릭 시 input 하나의 placeholder 내용에 버튼 내용 띄우기 
 $('.block1').click(function () {
@@ -150,6 +187,9 @@ $('.block1').click(function () {
         $('#input_text1').attr("size", $('#input_text1').val().length)
 
     } else {
+        if (num === 1 || num === 6) {
+            return;
+        }
         var input_value = $('#input_text2').attr('value')
         if(input_value === "") {
             value += '1'
@@ -158,6 +198,9 @@ $('.block1').click(function () {
             $('#input_text2').attr("size", $('#input_text2').val().length)
 
         } else {
+            if(num === 2 || num === 7 || num === 11) {
+                return;
+            } else {
             var input_value = $('#input_text3').attr('value')
             if(input_value === "") {
                 value += '1'
@@ -167,7 +210,9 @@ $('.block1').click(function () {
             } else {
                 return;
             }
-        }      
+        }
+        
+    }      
     }   
 })
 
@@ -181,6 +226,9 @@ $('.block2').click(function () {
         $('#input_text1').attr("value", $('.block2').html())
         $('#input_text1').attr("size", $('#input_text1').val().length) 
     } else {
+        if (num === 1 || num === 6) {
+            return;
+        }
         var input_value = $('#input_text2').attr('value')
         if(input_value === "") {
             value += '2'
@@ -188,6 +236,9 @@ $('.block2').click(function () {
             $('#input_text2').attr("value", $('.block2').html())
             $('#input_text2').attr("size", $('#input_text2').val().length) 
         } else {
+            if (num === 2 || num === 7 || num === 11) {
+                return;
+            }
             var input_value = $('#input_text3').attr('value')
             if(input_value === "") {
                 value += '2'
@@ -211,6 +262,9 @@ $('.block3').click(function () {
         $('#input_text1').attr("value", $('.block3').html())
         $('#input_text1').attr("size", $('#input_text1').val().length) 
     } else {
+            if (num === 1 || num === 6) {
+            return;
+        }
         var input_value = $('#input_text2').attr('value')
         if(input_value === "") {
             value += '3'
@@ -219,6 +273,9 @@ $('.block3').click(function () {
             $('#input_text2').attr("size", $('#input_text2').val().length) 
 
         } else {
+            if (num === 2 || num === 7 || num === 11) {
+                return;
+            }
             var input_value = $('#input_text3').attr('value')
             if(input_value === "") {
                 value += '3'
@@ -241,7 +298,7 @@ $('.submit_btn').click(function() {
 
     //[타이핑형] 답 저장: 입력할 때마다 value값에 저장하려니 console 차는 게 싫어서, '제출'할 때 저장함 
     if (quiz_list[num]['type'] === 'typing') {
-        value = $('.underline').val()
+        value = $('#input_text').val()
         console.log('제출한 답?', value)
         console.log('진짜 답은?', quiz_list[num]['answer'])
     }
@@ -251,7 +308,7 @@ $('.submit_btn').click(function() {
         console.log('정답~')
         $('#correct').show();
     } else {
-        $('#not_correct').show();
+        $("#not_correct").show();
     }
     if (quiz_list[num]['type'] === 'multiple') {$('#choice'+value).attr("style", "border: 2px solid blue")}
 
@@ -261,16 +318,14 @@ $('.submit_btn').click(function() {
 $('.retry_btn').click(function() {
     $('#not_correct').hide();
     if (quiz_list[num]['type'] === 'typing') {
-        $('.underline').val('');
+        $('#input_text').val('');
     } else if (quiz_list[num]['type'] === 'block') {
         $('#input_text1').attr("value", "");
         $('#input_text3').attr("value", "");
-        $('#input_text1').attr("size", '2px')
-        $('#input_text3').attr("size", '2px')                    
-        if (num !== 4) {
-            $('#input_text2').attr("value", "");  
-            $('#input_text2').attr("size", '2px')           
-        }
+        $('#input_text1').attr("size", '1px')
+        $('#input_text3').attr("size", '1px')                    
+        $('#input_text2').attr("value", "");  
+        $('#input_text2').attr("size", '1px')           
     } else if (quiz_list[num]['type'] === 'multiple') {
         $('#choice'+value).attr("style", "border: 1px solid rgb(170, 170, 170)")
     }

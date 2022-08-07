@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h2>매일 파이썬 학습하기</h2>
+<p>~챌린지 설명~</p>
+
+{% if join %} 
+<a href="{% url 'my_challenge' %}">이미 참가중인 챌린지입니다</a>
+{% else %}
+<a href = "{% url 'python1_challenge' %}">챌린지 시작하기</a>
+{% endif %}
+
+{% endblock %}

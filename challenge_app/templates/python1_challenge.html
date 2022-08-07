@@ -20,11 +20,11 @@
 </style>
 
 
-<h2>{{ py_chal.title }}</h2>
-<p>기간: {{ start_date.month }}월 {{ start_date.day }}일 ~ {{ fin_date.month }}월 {{ fin_date.day }}일</p>
+<h2>매일 파이썬 학습하기 </h2>
+<p>기간: </p>
 
 <div class = "week">
-    {% for key, value in days.items %}
+    <!-- {% for key, value in days.items %}
     <div class="day">
         <h3>{{ key.month }}/{{ key.day }}</h3>
         {% if value == 'attend' %}
@@ -35,7 +35,7 @@
             <img src="{% static 'img/check_no.jpg' %}">
         {% endif %}
     </div>
-    {% endfor %}
+    {% endfor %} -->
 </div>
 
 {% endblock %}

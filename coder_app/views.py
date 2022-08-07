@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from account_app.models import User, Attend
-from challenge_app.models import Challenge
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 import datetime
 
 def home(request):
-    py_chals = Challenge.objects.filter(category='python')
+    
 
     try:
         User = get_user_model()
@@ -58,6 +57,6 @@ def home(request):
                 weekdays['토'] = 'attend'
             if date.weekday() == 6:
                 weekdays['일'] = 'attend'
-        return render(request, 'home.html', {'weekdays': weekdays, 'py_chals': py_chals})
+        return render(request, 'home.html', {'weekdays': weekdays})
     except Http404:
         return render(request, 'home.html')

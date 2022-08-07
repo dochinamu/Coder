@@ -11,10 +11,5 @@
 <h2>진행중</h2>
 <a href=""><h2>성공목록</h2></a>
 
-{% for my_chal in my_chals %}
-    <h2>{{ my_chal['chal'] }}</h2>
-    <p>기간: {{ my_chal['start'].month }}월 {{ my_chal['start'].day }}일 ~ {{ my_chal['fin'].month }}월 {{ my_chal['fin'].day }}일</p>
-    <a href="{% url 'python_challenge' chal.id %}"><p>></p></a>
-{% endfor %}
 
 {% endblock %}
