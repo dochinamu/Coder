@@ -70,7 +70,7 @@ def python_challenge(request, chal_id):
 
     obj = get_object_or_404(ChallengeUsers, pk=chal_id)
     print(obj)
-
+    
     objs = ChallengeUsers.objects.filter(challenge=py_chal, user=user)
     try:
         obj = objs[0]
@@ -85,20 +85,6 @@ def python_challenge(request, chal_id):
     days = {}
     for x in range(14):
         days.update({start_date + datetime.timedelta(x): ''})
-#    day1 = start_date
-#    day2 = start_date + datetime.timedelta(1)
-#    day3 = start_date + datetime.timedelta(2)
-#    day4 = start_date + datetime.timedelta(3)
-#    day5 = start_date + datetime.timedelta(4)
-#    day6 = start_date + datetime.timedelta(5)
-#    day7 = start_date + datetime.timedelta(6)
-#    day8 = start_date + datetime.timedelta(7)
-#    day9 = start_date + datetime.timedelta(8)
-#    day10 = start_date + datetime.timedelta(9)
-#    day11 = start_date + datetime.timedelta(10)
-#    day12 = start_date + datetime.timedelta(11)
-#    day13 = start_date + datetime.timedelta(12)
-#    day14 = start_date + datetime.timedelta(13)
     fin_date = start_date + datetime.timedelta(13)
     print(fin_date)
 
@@ -128,3 +114,6 @@ def python_challenge(request, chal_id):
     return render(request, 'python_challenge.html', {'start_date': start_date, 'fin_date': fin_date, 'days': days, 'py_chal': py_chal})
     #'days': [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14]
     #, 'pars': pars}
+
+
+    
