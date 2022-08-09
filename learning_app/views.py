@@ -26,5 +26,4 @@ def python1_1_finish(request):
     # PyStepAttend 객체 생성 (완료 날짜 기록)
     python1_1_object = PyStepAttend(attender=request.user)
     python1_1_object.save()
-    # print(python1_1_object) 확인용 
     return redirect('detail_python1')

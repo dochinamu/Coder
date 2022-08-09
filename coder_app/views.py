@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from account_app.models import User, Attend
+from challenge_app.models import PythonChallenge1
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
@@ -57,6 +58,13 @@ def home(request):
                 weekdays['토'] = 'attend'
             if date.weekday() == 6:
                 weekdays['일'] = 'attend'
-        return render(request, 'home.html', {'weekdays': weekdays})
+
+        # 진행 중인 챌린지 카운트
+        challenge = 0 
+        py1 = PythonChallenge1.objects.filter(participant_id=user.id)
+        if py1:
+            if py1[0].complete == False:
+                challenge += 1                
+        return render(request, 'home.html', {'weekdays': weekdays, 'challenge': challenge})
     except Http404:
         return render(request, 'home.html')

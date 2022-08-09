@@ -12,15 +12,20 @@ class PythonChallenge1(models.Model):
     # PythonChallenge1에 따른 챌린지 이름은 다 같을테니까 default로 값을 준다 
     # title을 따로 활용할 일은 없을 것 같다 혹시 몰라서 정의해둠 
     title = models.CharField(default="매일 파이썬 학습하기", max_length=200)
-    # 시작 날짜: 객체 생성 시 자동 추가  
-    start = models.DateField(auto_now_add=True)
+    # 시작 날짜 (day1) 
+    start_date = models.DateField(editable=True, auto_now_add=True, null = True)
+    # 마지막 날짜 (day7)
+    finish_date = models.DateField(editable=True, null = True)
     # 챌린지 완료 여부 
     complete = models.BooleanField(default=False)
-    # day1-day7까지 각각에 대한 완료 여부 
-    day1 = models.BooleanField(default=False)
-    day2 = models.BooleanField(default=False)
-    day3 = models.BooleanField(default=False)
-    day4 = models.BooleanField(default=False)
-    day5 = models.BooleanField(default=False)
-    day6 = models.BooleanField(default=False)
-    day7 = models.BooleanField(default=False)
+    # day1-day7까지 각각에 대한 완료 여부
+    # 0: 아직 오지 않은 날 (unchecked)
+    # 1: 학습하지 않음 (x)
+    # 2: 학습함 (o) 
+    day1 = models.IntegerField(default=0)
+    day2 = models.IntegerField(default=0)
+    day3 = models.IntegerField(default=0)
+    day4 = models.IntegerField(default=0)
+    day5 = models.IntegerField(default=0)
+    day6 = models.IntegerField(default=0)
+    day7 = models.IntegerField(default=0)

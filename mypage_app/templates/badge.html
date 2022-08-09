@@ -67,7 +67,23 @@
 
     <h2>챌린지 뱃지</h2>
     <article class = "badge-category">
-        
+        <div class = "badge">
+            {% if user.challenge_join == True %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% endif %}
+            <p>성공할 분</p>
+        </div>
+
+        <div class = "badge">
+            {% if user.challenge_complete == True %}
+            <img src="{% static 'img/check_on.jpg' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% else %}
+            <img src="{% static 'img/check_off.jpg' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+            {% endif %}
+            <p>성공한 분</p>
+        </div>
     </article>
 
 <section>

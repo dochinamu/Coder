@@ -1,15 +1,42 @@
 from re import X
+from time import time
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
-from account_app.models import User
+from account_app.models import User, PyStepAttend
 from .models import PythonChallenge1
+from django.utils import timezone
 import datetime
+from datetime import date, timedelta, datetime
 from django.contrib.auth.decorators import login_required
 
-# 나의 챌린지 
+# 나의 챌린지 (진행 중인 챌린지)
 @login_required(login_url='/account/login/')
 def my_challenge(request):
-    return render(request, 'my_challenge.html')
+    user = request.user
+    # 파이썬 챌린지 1 참가 여부
+    try:
+        py1 = PythonChallenge1.objects.get(participant_id=user.id)
+        py1_start = py1.start_date.strftime("%m월 %d일") 
+        py1_finish = py1.finish_date.strftime("%m월 %d일") 
+        return render(request, 'my_challenge.html', {'py1': py1, 'py1_start':py1_start, 'py1_finish':py1_finish})
+    
+    except:
+        return render(request,'my_challenge.html')
+        
+# 나의 챌린지 (완료 목록)
+@login_required(login_url='/account/login/')
+def my_challenge_complete(request):
+    user = request.user
+    # 파이썬 챌린지 1 참가 & 진행 중 여부 
+    try:
+        py1 = PythonChallenge1.objects.get(participant_id=user.id)
+        py1_start = py1.start_date.strftime("%m월 %d일") 
+        py1_finish = py1.finish_date.strftime("%m월 %d일") 
+        return render(request, 'my_challenge_complete.html', {'py1': py1, 'py1_start':py1_start, 'py1_finish':py1_finish})
+    except:
+        return render(request,'my_challenge_complete.html')
+
+
 
 # 파이썬 챌린지1 소개 페이지 
 # 챌린지에 대한 사용자의 참여 여부(join)를 함께 리턴 
@@ -32,13 +59,118 @@ def python1_challenge(request):
     user = request.user
     challenge = PythonChallenge1.objects.filter(participant_id=user.id)
     # 사용자가 이미 참가 중인 경우, challenge가 존재
+    # 오늘을 기준으로 그날 챌린지 진행도 확인 
     if challenge:
-        return redirect('my_challenge')
+        start_date = challenge[0].start_date.strftime("%m월 %d일") 
+        finish_date = challenge[0].finish_date.strftime("%m월 %d일") 
+        today = date.today()
+        
+        # 오늘이 챌린지 기간에 포함된다면 
+        if challenge[0].start_date <= today <= challenge[0].finish_date:
+            # 시작일~오늘까지 challenge 데이터를 우선 1로 변경 
+            x = (timedelta(days=7) - (challenge[0].finish_date - today)).days
+            # 효율적인 코드 고민하기... 
+            if x == 1: 
+                challenge[0].day1 = 1
+            if x == 2: 
+                challenge[0].day1 = 1
+                challenge[0].day2 = 1
+            if x == 3: 
+                challenge[0].day1 = 1
+                challenge[0].day2 = 1
+                challenge[0].day3 = 1
+            if x == 4: 
+                challenge[0].day1 = 1
+                challenge[0].day2 = 1
+                challenge[0].day3 = 1
+                challenge[0].day4 = 1
+            if x == 5: 
+                challenge[0].day1 = 1
+                challenge[0].day2 = 1
+                challenge[0].day3 = 1
+                challenge[0].day4 = 1
+                challenge[0].day5 = 1
+            if x == 6: 
+                challenge[0].day1 = 1
+                challenge[0].day2 = 1
+                challenge[0].day3 = 1
+                challenge[0].day4 = 1
+                challenge[0].day5 = 1
+                challenge[0].day6 = 1
+            if x == 7: 
+                challenge[0].day1 = 1
+                challenge[0].day2 = 1
+                challenge[0].day3 = 1
+                challenge[0].day4 = 1
+                challenge[0].day5 = 1
+                challenge[0].day6 = 1
+                challenge[0].day7 = 1
+
+            # 챌린지 시작일 ~ 오늘까지 PyStepAttend 객체 가져오기 
+            py_attends = PyStepAttend.objects.filter(attender = user, date__range=(challenge[0].start_date, today))
+            
+            # for문으로 py_attends 내 PyStepAttend 객체의 date값 따라 challenge 데이터를 2로 변경 
+            for i in py_attends: 
+                py_date = i.date
+                n = (timedelta(days=7) - (challenge[0].finish_date - py_date)).days
+                # 이 부분 좀 더 효율적인 코드 없을까 
+                if n == 1:
+                    challenge[0].day1 = 2
+                if n == 2:
+                    challenge[0].day2 = 2
+                if n == 3:
+                    challenge[0].day3 = 2
+                if n == 4:
+                    challenge[0].day4 = 2
+                if n == 5:
+                    challenge[0].day5 = 2
+                if n == 6:
+                    challenge[0].day6 = 2
+                if n == 7:
+                    challenge[0].day7 = 2
+                    # 챌린지 성공
+                    if (challenge[0].day1==2) and (challenge[0].day2==2) and (challenge[0].day3==2) and (challenge[0].day4==2) and (challenge[0].day5==2) and (challenge[0].day6==2) and (challenge[0].day7==2):
+                        challenge[0].complete = True
+                        challenge[0].save()
+                    # 유저 챌린지 첫 성공 데이터 True로 변경 (뱃지용)
+                    user.challenge_complete = True
+                    user.save()
+                challenge[0].save()
+            
+            # 작업 중 확인용 
+            print(challenge[0].day1,challenge[0].day2,challenge[0].day3,challenge[0].day4,challenge[0].day5,challenge[0].day6,challenge[0].day7)
+          
+        
+        # 오늘이 챌린지 종료일 다음날이라면, day1-day7 값에 따라 complete 변수 값을 수정한다   
+        if today == challenge[0].finish_date + timedelta(days=1):
+            # 챌린지 성공 
+            if (challenge[0].day1==2) and (challenge[0].day2==2) and (challenge[0].day3==2) and (challenge[0].day4==2) and (challenge[0].day5==2) and (challenge[0].day6==2) and (challenge[0].day7==2):
+                pass
+                
+            # 챌린지 실패 
+            else:
+                challenge[0].delete()
+                return redirect('home')
+
+        return render(request, 'python1_challenge.html', {'challenge': challenge[0],'start_date': start_date, 'finish_date': finish_date} )
+    
     # 사용자 미참가 상태
     # 참가시키기(객체 생성) + 챌린지 페이지로 이동 
     else:
-        new_challenge = PythonChallenge1.objects.create(participant = user) 
-        return render(request, 'python1_challenge.html')
+        new_challenge = PythonChallenge1(participant = user) # 괄호 안에 다 넣어보기  
+        new_challenge.start_date = date.today()
+        new_challenge.finish_date = new_challenge.start_date + timedelta(days=6)
+        new_challenge.save()
+        # string으로 변환
+        start_date = new_challenge.start_date.strftime("%m월 %d일") 
+        finish_date = new_challenge.finish_date.strftime("%m월 %d일") 
+        # 유저 챌린지 첫 참여 데이터 True로 변경 (뱃지용)
+        user.challenge_join = True
+        user.save()
+
+        return render(request, 'python1_challenge.html', {'challenge': new_challenge, 'start_date': start_date, 'finish_date': finish_date} )
+
+
 
 
 

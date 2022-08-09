@@ -7,7 +7,8 @@
     section   {padding:5%;}
     a   {text-decoration: none;}
 
-    .attend-challenge h3 {margin-bottom:0px;}
+    .attend-challenge h3 {margin-bottom:0px; color: black;}
+    
 
     .week   {display:flex;
             flex-direction:row;
@@ -98,10 +99,10 @@
         {% endfor %}
     </div>
     
-    <div class = "my-challenge">
+    <a href = "{% url 'my_challenge' %}"><div class = "my-challenge">
         <h3>참가 중인 챌린지</h3>
-        <h3 class = "challenge-number">0개</h3>
-    </div>
+        <h3 class = "challenge-number">{{ challenge }} 개</h3>
+    </div></a>
 </section>
 
 {% else %}

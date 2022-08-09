@@ -9,18 +9,15 @@
 
 <h2>나의 챌린지</h2>
 <a href = "{% url 'my_challenge' %}"><h2>진행중</h2></a>
-{% if py1 %}
-    {% if not py1.complete%}
-    <article>
-        <a href = "{% url 'python1_challenge' %}">매일 파이썬 학습하기</a>
-        <p>기간: {{ py1_start }} ~ {{ py1_finish }}</p>
-    </article>
-    {% endif %}
-{% endif %}
 
 
 <a href="{% url 'my_challenge_complete' %}"><h2>성공목록</h2></a>
-
+{% if py1.complete %}
+<article>
+    <a href = "{% url 'python1_challenge' %}">매일 파이썬 학습하기</a>
+    <p>기간: {{ py1_start }} ~ {{ py1_finish }}</p>
+</article>
+{% endif %}
 
 
 {% endblock %}

@@ -8,6 +8,9 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=20, blank=False)
     profile_photo = models.ImageField(upload_to="profile_photo", blank=True, null=True)
     profile_message = models.TextField(max_length=200, default='', blank=True, null=True)
+    challenge_join = models.BooleanField(default=False)
+    challenge_complete = models.BooleanField(default=False)
+    
     python0 = models.BooleanField(default=False)
     python1 = models.BooleanField(default=False)
     python2 = models.BooleanField(default=False)
@@ -34,7 +37,7 @@ class Attend(models.Model):
 
 class PyStepAttend(models.Model):
     attender = models.ForeignKey(User, on_delete=models.CASCADE)
-    datetime = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.attender.username + " " + str(self.datetime))
+        return str(self.attender.username + " " + str(self.date))

@@ -21,21 +21,82 @@
 
 
 <h2>매일 파이썬 학습하기 </h2>
-<p>기간: </p>
 
-<div class = "week">
-    <!-- {% for key, value in days.items %}
-    <div class="day">
-        <h3>{{ key.month }}/{{ key.day }}</h3>
-        {% if value == 'attend' %}
-            <img src="{% static 'img/check_yes.jpg' %}">
-        {% elif value == 'no_check' %}
-            <img src="{% static 'img/check_off.jpg' %}">
-        {% else %}
-            <img src="{% static 'img/check_no.jpg' %}">
-        {% endif %}
+<p>기간: {{ start_date }} ~ {{ finish_date }}</p>
+
+
+    <div class = "week">
+        <div class="day">
+            <h3>1</h3>
+            {% if challenge.day1 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day1 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="day">
+            <h3>2</h3>
+            {% if challenge.day2 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day2 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="day">
+            <h3>3</h3>
+            {% if challenge.day3 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day3 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="day">
+            <h3>4</h3>
+            {% if challenge.day4 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day4 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="day">
+            <h3>5</h3>
+            {% if challenge.day5 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day5 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="day">
+            <h3>6</h3>
+            {% if challenge.day6 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day6 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="day">
+            <h3>7</h3>
+            {% if challenge.day7 == 2 %}
+                <img src="{% static 'img/check_yes.jpg' %}">
+            {% elif challenge.day7 == 0 %}
+                <img src="{% static 'img/check_off.jpg' %}">
+            {% else %}
+                <img src="{% static 'img/check_no.jpg' %}">
+            {% endif %}
+        </div>
     </div>
-    {% endfor %} -->
-</div>
+
 
 {% endblock %}
