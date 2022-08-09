@@ -61,22 +61,25 @@
                     flex-direction: row;
                     justify-content: space-around;
                     flex-wrap: wrap;}
+    
+    .one-challenge  {color:black;}
 
-    .challenge-img  {border: 1px solid gray;
-                    border-radius: 15px;
+    .challenge-img  {border-radius: 15px;
                     width: 150px; height: 100px;
                     text-align: center;}
     
-    .challenge-title    {font-weight: bold;}
+    .challenge-title    {font-weight: bold; font-size:large;}
 
     .tag-list   {display:flex;
-                flex-direction: column;
+                flex-direction: row;
                 flex-wrap: wrap;}
     
-    .tag    {margin-top: 0px; margin-bottom: 3px;
+    .tag    {margin-top: 0px; 
+            margin-right: 5px;
             background-color: #D4D4D4;
-            border-radius: 6px;
-            width:fit-content; height: 25px;}
+            border-radius: 4px;
+            width:fit-content; height: 25px;
+            padding:5px;}
 
     
 </style>
@@ -141,11 +144,20 @@
     <div class = "one-category">
         
             <a href="{% url 'python1_explain' %}"><article class = "one-challenge"> 
-                <div class="challenge-img">챌린지1</div>
+                <img src="{% static 'img/python1_challenge.webp' %}" class="challenge-img" alt="파이썬 챌린지1">
                 <p class="challenge-title">매일 파이썬 학습하기</p>
                 <div class="tag-list">
                     <p class = "tag">매일</p>
                     <p class = "tag">일주일간</p>
+                </div>
+            </article></a>
+
+            <a href=""><article class = "one-challenge"> 
+                <img src="{% static 'img/attend1_challenge.png' %}" class="challenge-img" alt="출석 챌린지1">
+                <p class="challenge-title">매일 출석하기</p>
+                <div class="tag-list">
+                    <p class = "tag">매일</p>
+                    <p class = "tag">2주간</p>
                 </div>
             </article></a>
         

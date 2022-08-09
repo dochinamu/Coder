@@ -132,9 +132,9 @@ def python1_challenge(request):
                     if (challenge[0].day1==2) and (challenge[0].day2==2) and (challenge[0].day3==2) and (challenge[0].day4==2) and (challenge[0].day5==2) and (challenge[0].day6==2) and (challenge[0].day7==2):
                         challenge[0].complete = True
                         challenge[0].save()
-                    # 유저 챌린지 첫 성공 데이터 True로 변경 (뱃지용)
-                    user.challenge_complete = True
-                    user.save()
+                        # 유저 챌린지 첫 성공 데이터 True로 변경 (뱃지용)
+                        user.challenge_complete = True
+                        user.save()
                 challenge[0].save()
             
             # 작업 중 확인용 
@@ -145,7 +145,11 @@ def python1_challenge(request):
         if today == challenge[0].finish_date + timedelta(days=1):
             # 챌린지 성공 
             if (challenge[0].day1==2) and (challenge[0].day2==2) and (challenge[0].day3==2) and (challenge[0].day4==2) and (challenge[0].day5==2) and (challenge[0].day6==2) and (challenge[0].day7==2):
-                pass
+                challenge[0].complete = True
+                challenge[0].save()
+                # 유저 챌린지 첫 성공 데이터 True로 변경 (뱃지용)
+                user.challenge_complete = True
+                user.save()
                 
             # 챌린지 실패 
             else:
