@@ -139,3 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account_app.User'
 
 
+#Django Session Timeout Code
+SESSION_COOKIE_AGE = 30
+SESSION_SAVE_EVERY_REQUEST = True
