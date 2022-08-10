@@ -52,7 +52,7 @@
     {% if join %} 
     <a href="{% url 'my_challenge' %}"><h3 class="button">이미 참가중인 챌린지입니다</h3></a>
     {% else %}
-    <a href = "{% url 'python1_challenge' %}" onclick="tag()"><h3 class="button">챌린지 시작하기</h3></a>
+    <a href = "{% url 'python1_challenge' %}"><h3 class="button">챌린지 시작하기</h3></a>
     {% endif %}
 
 </section>
@@ -60,11 +60,5 @@
 
 
 
-<script>
-    function tag(){
-        FlareLane.setTags({ challenge: "true"});
-    }
-    
-</script>
 
 {% endblock %}
