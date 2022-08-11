@@ -12,14 +12,14 @@ var quiz_list = {
     'block1': `"`, 'block2': `_`, 'block3': `코딩의 시작은 CO:DER`, 'answer': '131'},
     6: {'type':'multiple', 'question1': ``, 'question2': `다음 중 변수는 무엇인가요?`, 
     'default_code': 'Id = "0921sean"','choice1': `Id`, 'choice2': `"0921sean"`, 'answer': '1'},
-    7: {'type':'multiple', 'question1': ``, 'question2': `Value가 문자열인지 어떻게 알 수 있나요?`, 
-    'choice1': `큰 따옴표 사이에 있기 때문에`, 'choice2': `= 표시가 있기 때문에`, 'answer': '1'},    
+    7: {'type':'multiple', 'question1': ``, 'question2': `value가 문자열인지 어떻게 알 수 있나요?`, 
+    'default_code': 'value = "watermelon"', 'choice1': `큰 따옴표 사이에 있기 때문에`, 'choice2': `= 표시가 있기 때문에`, 'answer': '1'},    
     8: {'type':'multiple', 'question1': ``, 'question2': `다음 코드에는 어떤 일이 일어나고 있나요?`, 
     'default_code': 'Measurement = "average"', 'choice1': `변수 "average"가 Measurement value를 저장하고 있다`, 'choice2': `변수 Measurement가 value "average"를 저장하고 있다.`, 'answer': '2'},
     9: {'type':'multiple', 'question1': ``, 'question2': `다음 중 변수의 이름은 무엇인가요?`, 
     'default_code': 'hobby = "tennis"', 'choice1': `hobby`, 'choice2': `"tennis"`, 'answer': '1'},
     10: {'type':'block', 'question1': ``, 'question2': `job 변수를 생성하고 "Developer" value를 지정해주세요.`, 
-    'bogi': 'Name = "Sojeong"','block1': `"Developer"`, 'block2': `=`, 'block3': "job", 'answer': '321'},
+    'bogi': 'name = "Sojeong"','block1': `"Developer"`, 'block2': `=`, 'block3': "job", 'answer': '321'},
     11: {'type':'block', 'question1': ``, 'question2': `job_title 변수에 문자열 값을 지정해주세요.`, 
     "bogi2":"job_title =",'block1': `"`, 'block2': `Marketer`, 'block3': `+`, 'block4': '"', 'answer': '121'},
     12: {'type': 'typing', 'question1': ``, 'question2': 'user_agent 변수에 문자열 값 "Mobile"을 지정해주세요.',
@@ -108,8 +108,6 @@ function next() {
     } 
     
     $("#"+quiz_list[num]['type']).show()
-    if (num === 7) {$(".code_background").hide()}
-    if (num === 8) {$(".code_background").show()}
     } 
 }
 
