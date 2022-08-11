@@ -35,8 +35,8 @@ def mypage(request, user_id):
     if user.python1_3 == True:
         python_clear += 1
     python_total += 1
-    if user.python1_4 == True:
-        python_clear += 1
+    # if user.python1_4 == True:
+    #     python_clear += 1
     python_total += 1
     print(python_clear)
     print(python_total)

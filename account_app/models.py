@@ -16,10 +16,18 @@ class User(AbstractUser):
     python2 = models.BooleanField(default=False)
     python3 = models.BooleanField(default=False)
     python4 = models.BooleanField(default=False)
+    python5 = models.BooleanField(default=False)
+
     python1_1 = models.BooleanField(default=False)
     python1_2 = models.BooleanField(default=False)
     python1_3 = models.BooleanField(default=False)
-    python1_4 = models.BooleanField(default=False)
+    python2_1 = models.BooleanField(default=False)
+    python2_2 = models.BooleanField(default=False)
+    python2_3 = models.BooleanField(default=False)
+    python3_1 = models.BooleanField(default=False)
+    python3_2 = models.BooleanField(default=False)
+    python3_3 = models.BooleanField(default=False)
+    
 
 class Attend(models.Model):
     attender = models.ForeignKey(User, on_delete=models.CASCADE)
