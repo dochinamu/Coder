@@ -1,6 +1,6 @@
-Pillow==9.2.0
-asgiref==3.5.2
+Pillow==9.2.0 
+asgiref==3.5.2 # django 
 Django==4.0.6
-psycopg2==2.9.3
-sqlparse==0.4.2
-tzdata==2022.1
+psycopg2==2.9.3  # django 
+sqlparse==0.4.2 # django 
+tzdata==2022.1 # django 
