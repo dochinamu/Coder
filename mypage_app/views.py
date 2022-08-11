@@ -4,6 +4,10 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 #from django_q.tasks import schedule
 import datetime
+from django.views.decorators.csrf import csrf_exempt
+
+
+
   
 @login_required(login_url='/account/login/')
 def mypage(request, user_id):
@@ -82,14 +86,8 @@ def mypage(request, user_id):
 
     return render(request, 'mypage.html', {'mon':mon, 'tue':tue, 'wed':wed, 'thu':thu, 'fri':fri, 'sat':sat, 'sun':sun, 'python_per':python_per})
 
-#user = User.objects.get(username=request.user.username)
-#now = datetime.datetime.now()
-#    if now.hour == 0:
-#        attend.clear()
 
-#def job():
-#    print("I am working...")
-
+@csrf_exempt
 @login_required(login_url='/account/login/')
 def update_mypage(request):
     user = request.user
