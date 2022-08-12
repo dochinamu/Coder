@@ -4,11 +4,13 @@
 {% block content %}
 
 <style>
+    * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
+
     .big-box {margin: 0px 15px 15px 15px;}
 
     h1 {color: black;
         font-size: 20px;
-        font-weight: bold;}
+        font-weight: 700;}
 
     .big-box section {display: flex;
                     flex-direction: row;
@@ -61,9 +63,7 @@
                     border-radius:100px; 
                     }
 
-    .curri-box {background-color: rgba(0, 0, 0, 0.05);
-                border-radius: 10px;
-                border: 2px solid rgba(0, 0, 0, 0.2); 
+    .curri-box {border-radius: 10px;
                 width: 350px; height: 100px;
                 display: flex; 
                 flex-direction: row;
@@ -71,9 +71,11 @@
                 padding-left: 10px;
                 }
     
-    .curri-explain  {margin-left:20px;}
-    
+    .curri-explain {margin-left:20px;}
 
+    .curri-explain h3 {font-weight: 700;}
+    
+    .curri-explain p {font-weight: 400;}
     
 
 </style>
@@ -107,14 +109,17 @@
         <section class="curri-box">
             <article>
                 {% if user.python1 == True %}
-                    <img src="{% static 'img/check_on.jpg' %}" alt="check_on">
+                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
                 {% else %}
                     <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
                 {% endif %}
             </article>
             <article class="curri-explain">
-                <p>Curri 1</p>
-                <p>파이썬 기초</p>
+                <h3>파이썬 기초</h3>
+                <p>파이썬의 기초에 대해 배워요</p>
+            </article>
+            <article>
+                <img src="{% static 'img/move.png' %}" alt="move">
             </article>
         </section>
     </a>
@@ -123,14 +128,17 @@
         <section class="curri-box">
             <article>
                 {% if user.python2 == True %}
-                    <img src="{% static 'img/check_on.jpg' %}" alt="check_on">
+                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
                 {% else %}
                     <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
                 {% endif %}
             </article>
             <article class="curri-explain">
-                <p>Curri 2</p>
-                <p>Type과 Comparison</p>
+                <h3>Type과 Comparison</h3>
+                <p>파이썬의 기초에 대해 배워요</p>
+            </article>
+            <article>
+                <img src="{% static 'img/move.png' %}" alt="move">
             </article>
         </section>
     </a>
@@ -139,14 +147,17 @@
         <section class="curri-box">
             <article>
                 {% if user.python3 == True %}
-                    <img src="{% static 'img/check_on.jpg' %}" alt="check_on">
+                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
                 {% else %}
                     <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
                 {% endif %}
             </article>
             <article class="curri-explain">
-                <p>Curri 3</p>
-                <p>루프(반복문)</p>
+                <h3>루프(반복문)</h3>
+                <p>파이썬의 기초에 대해 배워요</p>
+            </article>
+            <article>
+                <img src="{% static 'img/move.png' %}" alt="move">
             </article>
         </section>
     </a>
@@ -155,14 +166,17 @@
         <section class="curri-box">
             <article>
                 {% if user.python4 == True %}
-                    <img src="{% static 'img/check_on.jpg' %}" alt="check_on">
+                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
                 {% else %}
                     <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
                 {% endif %}
             </article>
             <article class="curri-explain">
-                <p>Curri 4</p>
-                <p>함수</p>
+                <h3>Coming Soon</h3>
+                <p>조금만 기다려주세요!</p>
+            </article>
+            <article>
+                <img src="{% static 'img/move.png' %}" alt="move">
             </article>
         </section>
     </a>
