@@ -13,15 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 def mypage(request, user_id):
     # Get user
     User = get_user_model()
-    user = get_object_or_404(User, pk=user_id)
+    user = get_object_or_404(User, username=request.user.username)
     # Set variable
-    mon = ''
-    tue = ''
-    wed = ''
-    thu = ''
-    fri = ''
-    sat = ''
-    sun = ''
     python_clear = 0
     python_total = 0
 
@@ -35,12 +28,27 @@ def mypage(request, user_id):
     if user.python1_3 == True:
         python_clear += 1
     python_total += 1
-    # if user.python1_4 == True:
-    #     python_clear += 1
+    if user.python2_1 == True:
+        python_clear += 1
+    python_total += 1
+    if user.python2_2 == True:
+        python_clear += 1
+    python_total += 1
+    if user.python2_3 == True:
+        python_clear += 1
+    python_total += 1
+    if user.python3_1 == True:
+        python_clear += 1
+    python_total += 1
+    if user.python3_2 == True:
+        python_clear += 1
+    python_total += 1
+    if user.python3_3 == True:
+        python_clear += 1
     python_total += 1
     print(python_clear)
     print(python_total)
-    python_per = python_clear*100/python_total
+    python_per = round(python_clear*100/python_total, 1)
 
     # Record this week
     date = datetime.date.today()
@@ -50,41 +58,40 @@ def mypage(request, user_id):
     print(start_week)
     attend = Attend.objects.filter(attender=user, datetime__gte=start_week, datetime__lte=tomorrow)
     print(attend)
+    weekdays = {'월': '', '화': '', '수': '', '목': '', '금': '', '토': '', '일': ''}
+    print(weekdays.values)
     if weekday <= 5:
-        sun = 'no_check'
+        weekdays['일'] = 'no_check'
     if weekday <= 4:
-        sat = 'no_check'
+        weekdays['토'] = 'no_check'
     if weekday <= 3:
-        fri = 'no_check'
+        weekdays['금'] = 'no_check'
     if weekday <= 2:
-        thu = 'no_check'
+        weekdays['목'] = 'no_check'
     if weekday <= 1:
-        wed = 'no_check'
+        weekdays['수'] = 'no_check'
     if weekday <= 0:
-        tue = 'no_check'
+        weekdays['화'] = 'no_check'
 
-    # Get attend queryset with filter
-
-    # Change weekday variable to true
     for obj in attend:
         field_name = 'datetime'
         date = getattr(obj, field_name)
         if date.weekday() == 0:
-            mon = 'attend'
+            weekdays['월'] = 'attend'
         if date.weekday() == 1:
-            tue = 'attend'
+            weekdays['화'] = 'attend'
         if date.weekday() == 2:
-            wed = 'attend'
+            weekdays['수'] = 'attend'
         if date.weekday() == 3:
-            thu = 'attend'
+            weekdays['목'] = 'attend'
         if date.weekday() == 4:
-            fri = 'attend'
+            weekdays['금'] = 'attend'
         if date.weekday() == 5:
-            sat = 'attend'
+            weekdays['토'] = 'attend'
         if date.weekday() == 6:
-            sun = 'attend'
+            weekdays['일'] = 'attend'
 
-    return render(request, 'mypage.html', {'mon':mon, 'tue':tue, 'wed':wed, 'thu':thu, 'fri':fri, 'sat':sat, 'sun':sun, 'python_per':python_per})
+    return render(request, 'mypage.html', {'weekdays': weekdays, 'python_per':python_per})
 
 
 @csrf_exempt

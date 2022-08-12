@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
+
+    .big-box {margin: 30px 20px 10px 20px;}
+
+    .big-box h1 {color: black;
+        font-size: 22px;
+        font-weight: 700;}
+
+    .big-box section {display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                    margin-top: 10px;}
+
+    .big-box article {display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;}
+
+    .lang_chosen h2   {color:#666EE8;}
+
+    h2 {color: black;
+        font-size: 15px;
+        margin-bottom: 0px; margin-top:3px;}
+
+    .big-box h3 {color: rgba(0, 0, 0, 0.2);
+        font-size: 12px;}
+
+
+    .big-box img    {width:60px; 
+                    height:60px; 
+                    object-fit:cover;
+                    border-radius:100px;
+                    margin-bottom: 10px;}
+
+    .big-box a  {text-decoration: none;}
+
+    .big-box a article  {margin-top:0px; margin-bottom:0px;
+                        padding:5px;}
+
+    hr  {width: 94%;
+        background-color: rgba(0, 0, 0, 0.05);
+        height: 5%;}
+
+    .big-box2   {display: flex;
+                flex-direction: column;
+                justify-content:center;
+                margin: 0px 20px;}
+
+    .big-box2 h1 {color: black;
+        font-size: 22px;
+        font-weight: 700;}
+    
+    .big-box2 a {text-decoration: none; color:black;
+                margin-bottom: 0px;}
+
+    .curri-box {border-radius: 10px;
+                width: 350px; height: 100px;
+                display: flex; 
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 10px;}
+
+    .curri {display: flex;
+            flex-direction: row;
+            align-items:center;}
+
+    .curri-check img {width: 35px; height: 35px;
+                    object-fit:cover;
+                    border-radius:100px;}
+
+    .curri-move img {width: 12px; height: 25px;
+                    float: right;}
+    
+    .curri-explain {margin-left:25px;
+                    line-height: 10px;}
+
+    .curri-explain h3 {font-weight: 700;}
+    
+    .curri-explain p {font-weight: 400;}
+    
+
+</style>
+
+
+<div class="big-box">
+    <h1>코스 선택</h1>
+    <section>
+        <a href="{% url 'learning' %}"><article class="lang_chosen">
+            <img src="{% static 'img/python.png' %}" alt="python" width="70px" height="70px">
+            <h2>Python</h2>
+        </article></a>
+        <a href="{% url 'learning_html' %}"><article>
+            <img src="{% static 'img/html_선택.png' %}" alt="html" width="70px" height="70px">
+            <h2>HTML</h2>
+        </article></a>
+        <a href="{% url 'learning_css' %}"><article>
+            <img src="{% static 'img/css.png' %}" alt="css" width="70px" height="70px">
+            <h2>CSS</h2>
+        </article></a>
+        <a href="{% url 'learning_java' %}"><article>
+            <img src="{% static 'img/Java.jpg' %}" alt="java" width="70px" height="70px">
+            <h2>Java</h2>
+        </article></a>
+    </section>
+</div>
+<hr>
+<div class="big-box2">
+    <h1>커리큘럼</h1>
+    <a href="">
+        <section class="curri-box">
+            <article class="curri">
+                <article class="curri-check">
+                    {% if user.html1 == True %}
+                        <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="check_off">
+                    {% endif %}
+                </article>
+                <article class="curri-explain">
+                    <h3>Coming Soon</h3>
+                    <p>조금만 기다려주세요!</p>
+                </article>
+            </article>
+            <article class="curri-move">
+                <img src="{% static 'img/move3.png' %}" alt="move">
+            </article>
+        </section>
+    </a>
+
+</div>
+{% endblock %}

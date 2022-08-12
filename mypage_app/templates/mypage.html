@@ -3,46 +3,83 @@
 {% block content %}
 
 <style>
+    * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
+
     .profile    {display: flex;
                 flex-direction: column;
-                align-items: center;
                 justify-content: center;
-                margin-top: 30px;}
+                margin-top: 30px;
+                margin-bottom: 0px;}
 
-    .message    {margin-top:0px;}
+    .user-profile   {display: flex;
+                    flex-direction: column;
+                    align-items: center;}
 
+    .user-profile h2    {font-size: 24px;
+                        font-weight: 400;
+                        margin-bottom: 0px;}
+
+    .user-profile h3    {font-size: 18px;
+                        font-weight: 400;
+                        margin-top: 5px;
+                        margin-bottom: 15px;}
+
+    .attend-challenge   {display: flex;
+                        flex-direction: column;
+                        margin: 0px 20px;}
     
-    .attend-challenge   {width: 80%;
-                        border: 2px solid rgb(0,0,0,0.3);
-                        border-radius: 10px;
-                        padding-right: 5%; padding-left: 5%;
-                        padding-bottom: 5%;
-                        }
-    .attend-title   {margin-bottom: 0px;}
+    .attend-challenge h3    {display: flex;
+                            flex-direction: row;
+                            justify-content: left;
+                            align-items: center;
+                            font-size: 20px;
+                            font-weight: 700;
+                            margin-bottom: 0px;}
 
     .week   {display:flex;
             flex-direction:row;
             justify-content:space-around;
-            margin-right:2%; margin-left:2%;}
+            margin-left: 2%; margin-right: 2%;}
 
-    .week img  {width:40px; 
-                height:40px; 
+    .week img  {width:35px; 
+                height:35px; 
                 object-fit:cover;
-                border-radius:100px;}
+                border-radius:100px;
+                margin-bottom: 5px;}
 
-    .day    {display:flex;
-            flex-direction:column;
-            align-items:center;
-            margin-right:2%;}
+    .day    {display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 2%; margin-right: 2%;}
 
-    .all-badge  {border: solid 2px rgb(0,0,0,0.3);
-                border-radius: 10px;
-                width: 80%; height: 30%;
-                padding:5%;
-                margin-top: 20px; margin-bottom: 20px;}
+    .day h3 {font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 5px;}
 
-    .all-badge a {text-decoration: none; 
+    hr  {width: 94%;
+        background-color: rgba(0, 0, 0, 0.05);
+        height: 5%;}
+
+    .badge  {width: 100%;
+            border-bottom: 10px solid rgba(0, 0, 0, 0.05);}
+
+    .badge-box {display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0px 40px 0px 20px;}
+
+    .badge-box h3   {font-size: 20px;
+                    font-weight: 700;}
+
+    .move img {width: 12px; height: 25px;}
+    
+    .badge a    {text-decoration: none; 
                 color: black;}
+
+    
+
+    
     
     /* progress bar: css */
     .progress-container {
@@ -87,17 +124,16 @@
 
     } */
 
-    .progress {border: solid 2px rgb(0,0,0,0.3);
-                border-radius: 10px;
-                width: 80%; height: 30%;
-                padding:5%;
-                margin-top: 20px; margin-bottom: 20px;}
+    .progress   {display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: left;
+                margin: 0px 20px;}
 
 
-    .progress img {width:80px; 
-                height:80px; 
-                object-fit:cover;
-                border-radius:100px;}
+    .progress img   {width:70px; height:70px; 
+                    object-fit:cover;
+                    border-radius:100px;}
 
     .submit-button  {text-decoration: none;
                     font-size: 15px;
@@ -106,121 +142,79 @@
                     border:none;
                     border-radius: 10px;
                     text-align: center;
+                    margin: auto;
                     width: 80px; height: 25px;}
 
     .one-course {display:flex; 
                 flex-direction: row;
-                justify-content: flex-start;}
+                justify-content: center;
+                align-items: center;
+                margin: 0px 20px;}
 
-    .course-progress    {width: 70%;
-                        margin-left: 10%; }
+    .course-progress    {display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 70%;
+                        margin-left: 5%; margin-right: 5%;}
 
     .explain    {display:flex; flex-direction: row;
-                justify-content: space-between;}
+                justify-content: space-between;
+                color:rgba(0, 0, 0, 0.3);}
 </style>
 
 
 <section class = "profile">
-    {% if user.profile_photo %}
-        <img src="{{ user.profile_photo.url}}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
-    {% else %}
-        <img src="{% static 'img/user.png' %}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
-    {% endif %}
+    <section class="user-profile">
+        {% if user.profile_photo %}
+            <img src="{{ user.profile_photo.url}}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
+        {% else %}
+            <img src="{% static 'img/user.png' %}" alt="profile" width="100px" height="100px" style="object-fit:cover;border-radius: 100px;">
+        {% endif %}
 
-    <h2>{{ user.nickname }}</h2>
-    <h3 class = "message">{{ user.profile_message }}</h3>
+        <h2>{{ user.nickname }}</h2>
+        <h3 class = "message">{{ user.profile_message }}</h3>
 
 
-    <a href="{% url 'update_mypage' %}">프로필 변경</a>
-    <br>
-    
-    <section class = "attend-challenge">
-        <h3 class = "attend-title">이번주 출석 현황</h3>
-        <div class = "week">
-            <div class="day">
-                <h3>월</h3>
-                {% if mon == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif mon == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-            <div class="day">
-                <h3>화</h3>
-                {% if tue == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif tue == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-            <div class="day">
-                <h3>수</h3>
-                {% if wed == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif wed == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-            <div class="day">
-                <h3>목</h3>
-                {% if thu == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif thu == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-            <div class="day">
-                <h3>금</h3>
-                {% if fri == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif fri == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-            <div class="day">
-                <h3>토</h3>
-                {% if sat == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif sat == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-            <div class="day">
-                <h3>일</h3>
-                {% if sun == 'attend' %}
-                    <img src="{% static 'img/check_yes.jpg' %}">
-                {% elif sun == 'no_check' %}
-                    <img src="{% static 'img/check_off.jpg' %}">
-                {% else %}
-                    <img src="{% static 'img/check_no.jpg' %}">
-                {% endif %}
-            </div>
-        </div>
+        <a href="{% url 'update_mypage' %}">프로필 변경</a>
     </section>
 
-    <article class = "all-badge">
-        <a href = "{% url 'badge' %}"><h3>획득한 뱃지 보기</h3></a>
+    <section class = "attend-challenge">
+        <h3>이번주 출석 현황</h3>
+        
+        <article class = "week">
+            {% for key,value in weekdays.items %}
+            <div class="day">
+                <h3>{{ key }}</h3>
+                {% if value == 'attend' %}
+                    <img src="{% static 'img/correct.png' %}">
+                {% elif value == 'no_check' %}
+                    <img src="{% static 'img/코스선택_체크x.png' %}">
+                {% else %}
+                    <img src="{% static 'img/대시보드_미출석.png' %}">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </article>
+    </section>
 
-    </article>
+    <hr>
 
-   
+    <section class = "badge">
+        <a href = "{% url 'badge' %}">
+            <article class="badge-box">
+                <h3>획득한 뱃지 개수</h3>
+                <article class="move">
+                    <img src="{% static 'img/move3.png' %}" alt="move">
+                </article>
+            </article>
+        </a>
+    </section>
+
     <section class="progress">
         <h3>코스 진행도</h3>
         
         <article class="one-course">
-            <img src="{% static 'img/python.jpg' %}">
+            <img src="{% static 'img/python2.png' %}">
             <div class = "course-progress">   
                 <div class = "explain">
                     <h3>Python</h3>

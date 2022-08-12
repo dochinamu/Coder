@@ -66,35 +66,47 @@
                 </article>
             </article>
             <article class="move">
-                <img src="{% static 'img/move2.png' %}" alt="move">
+                <img src="{% static 'img/move3.png' %}" alt="move">
             </article>
         </article>
     </a>
     <hr>
     <a href="{% url 'python1_2' %}">
         <article class = "one-step">
-            {% if user.python1_2 == True %}
-                <img src="{% static 'img/correct.png' %}" alt="no image">
-            {% else %}
-                <img src="{% static 'img/코스선택_체크x.png' %}" alt="no image">
-            {% endif %}
-            <h3>Step 2</h3>
-            <article class="curri-move">
-                <img src="{% static 'img/move2.png' %}" alt="move">
+            <article class="step">
+                <article class="step-check">
+                    {% if user.python1_2 == True %}
+                        <img src="{% static 'img/correct.png' %}" alt="no image">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="no image">
+                    {% endif %}
+                </article>
+                <article class="step-explain">
+                    <h3>Step 2</h3>
+                </article>
+            </article>
+            <article class="move">
+                <img src="{% static 'img/move3.png' %}" alt="move">
             </article>
         </article>
     </a>
     <hr>
     <a href="{% url 'python1_3' %}">
         <article class = "one-step">
-            {% if user.python1_3 == True %}
-                <img src="{% static 'img/correct.png' %}" alt="no image">
-            {% else %}
-                <img src="{% static 'img/코스선택_체크x.png' %}" alt="no image">
-            {% endif %}
-            <h3>Step 3</h3>
-            <article class="curri-move">
-                <img src="{% static 'img/move2.png' %}" alt="move">
+            <article class="step">
+                <article class="step-check">
+                    {% if user.python1_3 == True %}
+                        <img src="{% static 'img/correct.png' %}" alt="no image">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="no image">
+                    {% endif %}
+                </article>
+                <article class="step-explain">
+                    <h3>Step 3</h3>
+                </article>
+            </article>
+            <article class="move">
+                <img src="{% static 'img/move3.png' %}" alt="move">
             </article>
         </article>
     </a>
