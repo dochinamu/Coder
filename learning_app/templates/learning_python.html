@@ -6,10 +6,10 @@
 <style>
     * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
 
-    .big-box {margin: 0px 15px 15px 15px;}
+    .big-box {margin: 30px 20px 10px 20px;}
 
-    h1 {color: black;
-        font-size: 20px;
+    .big-box h1 {color: black;
+        font-size: 22px;
         font-weight: 700;}
 
     .big-box section {display: flex;
@@ -23,55 +23,64 @@
                     align-items: center;
                     justify-content: center;}
 
-    .lang_chosen {background-color: royalblue;}
-
-    .lang_chosen h2   {color:white;}
+    .lang_chosen h2   {color:#666EE8;}
 
     h2 {color: black;
         font-size: 15px;
-        margin-bottom: 5px; margin-top:3px;}
+        margin-bottom: 0px; margin-top:3px;}
 
     .big-box h3 {color: rgba(0, 0, 0, 0.2);
         font-size: 12px;}
 
 
-    .big-box img    {width:70px; 
-                    height:70px; 
+    .big-box img    {width:60px; 
+                    height:60px; 
                     object-fit:cover;
-                    border-radius:100px;}
+                    border-radius:100px;
+                    margin-bottom: 10px;}
 
     .big-box a  {text-decoration: none;}
 
     .big-box a article  {margin-top:0px; margin-bottom:0px;
                         padding:5px;}
 
-    hr  {width: 96%;
-        color: rgba(0, 0, 0, 0.2);}
+    hr  {width: 94%;
+        background-color: rgba(0, 0, 0, 0.05);
+        height: 5%;}
 
     .big-box2   {display: flex;
                 flex-direction: column;
                 justify-content:center;
-                align-items: center;}
+                margin: 0px 20px;}
 
-
+    .big-box2 h1 {color: black;
+        font-size: 22px;
+        font-weight: 700;}
     
     .big-box2 a {text-decoration: none; color:black;
-                margin-bottom: 10px;}
-
-    .big-box2 img   {width: 40px; height: 40px;
-                    object-fit:cover;
-                    border-radius:100px; 
-                    }
+                margin-bottom: 0px;}
 
     .curri-box {border-radius: 10px;
                 width: 350px; height: 100px;
                 display: flex; 
                 flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
-                padding-left: 10px;
-                }
+                padding-left: 10px;}
+
+    .curri {display: flex;
+            flex-direction: row;
+            align-items:center;}
+
+    .curri-check img {width: 35px; height: 35px;
+                    object-fit:cover;
+                    border-radius:100px;}
+
+    .curri-move img {width: 12px; height: 25px;
+                    float: right;}
     
-    .curri-explain {margin-left:20px;}
+    .curri-explain {margin-left:25px;
+                    line-height: 10px;}
 
     .curri-explain h3 {font-weight: 700;}
     
@@ -85,7 +94,7 @@
     <h1>코스 선택</h1>
     <section>
         <a href="{% url 'learning' %}"><article class="lang_chosen">
-            <img src="{% static 'img/Python.jpg' %}" alt="python" width="70px" height="70px">
+            <img src="{% static 'img/Python_선택2.jpg' %}" alt="python" width="70px" height="70px">
             <h2>Python</h2>
         </article></a>
         <a href=""><article>
@@ -107,76 +116,84 @@
     <h1>커리큘럼</h1>
     <a href="{% url 'detail_python1' %}">
         <section class="curri-box">
-            <article>
-                {% if user.python1 == True %}
-                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
-                {% else %}
-                    <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
-                {% endif %}
+            <article class="curri">
+                <article class="curri-check">
+                    {% if user.python1 == True %}
+                        <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="check_off">
+                    {% endif %}
+                </article>
+                <article class="curri-explain">
+                    <h3>파이썬 기초</h3>
+                    <p>파이썬의 기초에 대해 배워요</p>
+                </article>
             </article>
-            <article class="curri-explain">
-                <h3>파이썬 기초</h3>
-                <p>파이썬의 기초에 대해 배워요</p>
-            </article>
-            <article>
-                <img src="{% static 'img/move.png' %}" alt="move">
-            </article>
-        </section>
-    </a>
-
-    <a href="">
-        <section class="curri-box">
-            <article>
-                {% if user.python2 == True %}
-                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
-                {% else %}
-                    <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
-                {% endif %}
-            </article>
-            <article class="curri-explain">
-                <h3>Type과 Comparison</h3>
-                <p>파이썬의 기초에 대해 배워요</p>
-            </article>
-            <article>
-                <img src="{% static 'img/move.png' %}" alt="move">
+            <article class="curri-move">
+                <img src="{% static 'img/move2.png' %}" alt="move">
             </article>
         </section>
     </a>
 
     <a href="">
         <section class="curri-box">
-            <article>
-                {% if user.python3 == True %}
-                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
-                {% else %}
-                    <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
-                {% endif %}
+            <article class="curri">
+                <article class="curri-check">
+                    {% if user.python2 == True %}
+                        <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="check_off">
+                    {% endif %}
+                </article>
+                <article class="curri-explain">
+                    <h3>Type과 Comparison</h3>
+                    <p>파이썬의 기초에 대해 배워요</p>
+                </article>
             </article>
-            <article class="curri-explain">
-                <h3>루프(반복문)</h3>
-                <p>파이썬의 기초에 대해 배워요</p>
+            <article class="curri-move">
+                <img src="{% static 'img/move2.png' %}" alt="move">
             </article>
-            <article>
-                <img src="{% static 'img/move.png' %}" alt="move">
+        </section>
+    </a>
+
+    <a href="">
+        <section class="curri-box">
+            <article class="curri">
+                <article class="curri-check">
+                    {% if user.python3 == True %}
+                        <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="check_off">
+                    {% endif %}
+                </article>
+                <article class="curri-explain">
+                    <h3>루프(반복문)</h3>
+                    <p>파이썬의 기초에 대해 배워요</p>
+                </article>
+            </article>
+            <article class="curri-move">
+                <img src="{% static 'img/move2.png' %}" alt="move">
             </article>
         </section>
     </a>
     
     <a href="">
         <section class="curri-box">
-            <article>
-                {% if user.python4 == True %}
-                    <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
-                {% else %}
-                    <img src="{% static 'img/check_off.jpg' %}" alt="check_off">
-                {% endif %}
+            <article class="curri">
+                <article class="curri-check">
+                    {% if user.python4 == True %}
+                        <img src="{% static 'img/코스선택_체크.png' %}" alt="check_on">
+                    {% else %}
+                        <img src="{% static 'img/코스선택_체크x.png' %}" alt="check_off">
+                    {% endif %}
+                </article>
+                <article class="curri-explain">
+                    <h3>Coming Soon</h3>
+                    <p>조금만 기다려주세요!</p>
+                </article>
             </article>
-            <article class="curri-explain">
-                <h3>Coming Soon</h3>
-                <p>조금만 기다려주세요!</p>
-            </article>
-            <article>
-                <img src="{% static 'img/move.png' %}" alt="move">
+            <article class="curri-move">
+                <img src="{% static 'img/move2.png' %}" alt="move">
             </article>
         </section>
     </a>
