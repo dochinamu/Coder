@@ -29,3 +29,23 @@ class PythonChallenge1(models.Model):
     day5 = models.IntegerField(default=0)
     day6 = models.IntegerField(default=0)
     day7 = models.IntegerField(default=0)
+
+class PyChal1_Blog(models.Model):
+    title = models.CharField(max_length=30)
+    body = models.TextField()
+    photo = models.ImageField(blank=True, null=True, upload_to="blog_photo")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
+
+class PyChal1_Comment(models.Model):
+    post = models.ForeignKey(PyChal1_Blog, on_delete = models.CASCADE)
+    content = models.TextField()
+    photo = models.ImageField(blank=True, null=True, upload_to="comment_photo")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.content

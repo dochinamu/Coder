@@ -6,16 +6,15 @@
 <style>
     .big-box {margin: 0px 15px 15px 15px;}
 
-    .big-box    h1 {color: rgba(0, 0, 0, 0.5);
-        font-size: 20px;}
+    h1 {color: black;
+        font-size: 20px;
+        font-weight: bold;}
 
     .big-box section {display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: space-around;
-                    margin-top: 10px;
-                    border: 2px solid rgba(0, 0, 0, 0.2);
-                    border-radius: 10px;}
+                    margin-top: 10px;}
 
     .big-box article {display: flex;
                     flex-direction: column;
@@ -26,7 +25,7 @@
 
     .lang_chosen h2   {color:white;}
 
-    h2 {color: rgba(0, 0, 0, 0.5);
+    h2 {color: black;
         font-size: 15px;
         margin-bottom: 5px; margin-top:3px;}
 
@@ -43,6 +42,9 @@
 
     .big-box a article  {margin-top:0px; margin-bottom:0px;
                         padding:5px;}
+
+    hr  {width: 96%;
+        color: rgba(0, 0, 0, 0.2);}
 
     .big-box2   {display: flex;
                 flex-direction: column;
@@ -78,18 +80,18 @@
 
 
 <div class="big-box">
-    <h1>프로그래밍 언어</h1>
+    <h1>코스 선택</h1>
     <section>
         <a href="{% url 'learning' %}"><article class="lang_chosen">
             <img src="{% static 'img/Python.jpg' %}" alt="python" width="70px" height="70px">
             <h2>Python</h2>
         </article></a>
         <a href=""><article>
-            <img src="{% static 'img/HTML.jpg' %}" alt="html" width="70px" height="70px">
+            <img src="{% static 'img/html.png' %}" alt="html" width="70px" height="70px">
             <h2>HTML</h2>
         </article></a>
         <a href=""><article>
-            <img src="{% static 'img/CSS.jpg' %}" alt="css" width="70px" height="70px">
+            <img src="{% static 'img/css.png' %}" alt="css" width="70px" height="70px">
             <h2>CSS</h2>
         </article></a>
         <a href=""><article>
@@ -98,9 +100,9 @@
         </article></a>
     </section>
 </div>
-
+<hr>
 <div class="big-box2">
-    
+    <h1>커리큘럼</h1>
     <a href="{% url 'detail_python1' %}">
         <section class="curri-box">
             <article>

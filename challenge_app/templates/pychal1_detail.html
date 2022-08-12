@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="detail_box">
+    <div class="detail_box1">
+        <div class="detail_blog">
+            <p class="post_title">{{ blog_detail.title }}</p>
+            <p class="post_writer">{{ blog_detail.author }}</p>
+            <p class="post_date">{{ blog_detail.date | date:"m.d H:i" }}</p>
+        </div>
+        <div>
+            <p>{{ blog_detail.body }}</p>
+        </div>
+        <div>
+            {% if blog_detail.photo %}
+            <img src="{{ blog_detail.photo.url }}" alt="no image" width="300">
+            {% endif %}
+        </div>
+        <div>
+            {% if user.is_authenticated and user.username == blog_detail.author.username %}
+                <a href="{% url 'pychal1_edit' blog_detail.id %}">수정하기</a>
+                <a href="{% url 'pychal1_del' blog_detail.id %}">삭제하기</a>
+            {% endif %}
+        </div>
+    </div>
+    <form action="{% url 'pychal1_comment' blog_detail.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea name="content" id="content" cols="30" rows="5" placeholder="댓글을 입력하세요."></textarea>
+        <p>주제와 무관한 댓글은 삭제될 수 있어요.</p>
+        <input type="file" name="comment_image">
+        <button type="submit">등록</button>
+    </form>
+    {% for comment in blog_detail.pychal1_comment_set.all %}
+        <div class="post">
+            <p class="post_writer">{{ comment.author }}</p>
+            <p class="post_date">{{ comment.date | date:"m.d H:i" }}</p>
+            <p class="post_title">{{ comment }}</p></a>
+            {% if comment.photo %}
+                <img src="{{ comment.photo.url }}" alt="no image" width="300">
+            {% endif %}
+            {% if user.username == comment.author.username %}
+                <a href="{% url 'pychal1_del_comment' comment.id %}"><button>삭제하기</button></a>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
