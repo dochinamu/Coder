@@ -43,8 +43,24 @@
 
     .all-badge a {text-decoration: none; 
                 color: black;}
+    
+    /* progress bar: css */
+    .progress-container {
+        width: 100%;
+        height: 10px;
+        background-color: #ffffff;
+        border: 2px solid #BFBFBF;
+        border-radius: 10px;
+        z-index: 10;
+    }
 
-    .gauge {
+    .progress-bar {
+        border-radius: 10px;
+        width: 25%;
+        height: 10px;
+        background-color: rgb(98,118,222);
+    }
+    /* .gauge {
         width: 100%;
         max-width: 750px;
     }
@@ -69,7 +85,7 @@
         transform: rotate(0.25turn);
         transition: transform 0.2s ease-out;
 
-    }
+    } */
 
     .progress {border: solid 2px rgb(0,0,0,0.3);
                 border-radius: 10px;
@@ -101,7 +117,6 @@
 
     .explain    {display:flex; flex-direction: row;
                 justify-content: space-between;}
-
 </style>
 
 
@@ -211,14 +226,23 @@
                     <h3>Python</h3>
                     <h4>{{ python_per }}%</h4>
                 </div>
-                <div class="gauge">
+                
+                <!-- *progress-bar 구현 파트: progress-bar의 style - width 값을 조정하면 fill이 바뀜 -->
+                <div class="progress-container">
+                    <div class="progress-bar" id="abboScrollBar"></div>
+                </div>
+                <!-- <div class="gauge">
                     <div class="gauge-body">
                         <div class="gauge-fill"></div>
                     </div>
-                </div>
+                </div> -->
+
             </div> 
         </article>
         
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
         <script>
             const gaugeElement = document.querySelector(".gauge");
             function setGaugeValue(gauge, value) {

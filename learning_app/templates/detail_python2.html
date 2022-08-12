@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+   
+    
+    h1  {font-size: 20px; margin:20px;}
+ 
+
+    .step-list  {display:flex;
+                flex-direction: row;
+                flex-wrap:wrap;
+                justify-content: center;}
+
+    .one-step   {display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid gray;
+                border-radius: 10px;
+                width: 130px;
+                padding: 20px;
+                margin:10px;
+                color: black;
+                }
+
+    .one-step img   {width: 40px; height: 40px;
+                    object-fit:cover;
+                    border-radius:100px; }
+
+    a   {text-decoration: none;}
+
+</style>
+
+
+<h1>커리2</h1>
+
+<section class="step-list">
+    <a href="{% url 'python2_1' %}">
+        <article class = "one-step">
+            {% if user.python2_1 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+            <h3>Step 1</h3>
+        </article>
+    </a>
+    <a href="{% url 'python2_2' %}">
+        <article class = "one-step">
+            {% if user.python2_2 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+            <h3>Step 2</h3>
+        </article>
+    </a>
+    <a href="{% url 'python2_3' %}">
+        <article class = "one-step">
+            {% if user.python2_3 == True %}
+                <img src="{% static 'img/check_on.jpg' %}" alt="no image">
+            {% else %}
+                <img src="{% static 'img/check_off.jpg' %}" alt="no image">
+            {% endif %}
+            <h3>Step 3</h3>
+        </article>
+    </a>
+    
+
+</section>
+
+{% endblock %}

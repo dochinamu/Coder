@@ -1,52 +1,59 @@
 var num=1;
 var quiz_list = {
-    1: {'type':'block', 'question1': "print()는 특별한 명령어예요. 컴퓨터가 콘솔(또는 shell)이라는 공간에 value를 출력하게끔 하죠.", 'question2': `콘솔에 Hello, World!를 출력하여 반갑게 인사해볼까요?`, 
-    'block1': `1`, 'block': 'print','answer': '1'},
-    2: {'type':'block', 'question1': "", 'question2': `‘print()’ 명령어를 사용하면, 컴퓨터는 콘솔에 값을 한 줄씩 출력해요.`, 
-    'block1': `(`, 'block2': `)`, 'answer': '12'},
-    3: {'type':'block', 'question1': "greeting과 같은 변수(Variable)를 출력할 때에도, print()를 사용할 수 있어요.", 'question2': `콘솔에 변수를 출력하면, 변수명 대신 값(value)이 출력됩니다`, 
-    'bogi': `greeting = "Hello, World!`, 'bogi2': 'print', 'block1': `)`, 'block2': `greeting`, 'block3': `(`, 'answer': '321'},
-    4: {'type':'multiple', 'question1': `콘솔에 대한 설명으로 옳은 것을 고르세요.`, 'question2': ``, 
-    'choice1': `코드를 작성하는 공간`, 'choice2': `코드의 결과물이 출력되는 공간`, 'answer': '2'},
-    5: {'type':'multiple', 'question1': `print()는 무슨 역할을 하나요?`, 'question2': ``, 
-    'choice1': `콘솔에 값(value)을 출력한다.`, 'choice2': `변수를 생성한다.`, 'answer': '1'},
-    6: {'type':'multiple', 'question1': `아래의 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'default_code': 'sport = "B-ball" <br/> print(sport)', 'choice1': `sport`, 'choice2': `B-ball`, 'answer': '2'},
-    7: {'type':'typing', 'question1': `변수 major의 값을 출력해보세요.`, 'question2': ``, 
-    'pre_blank': `major = "computer engineering" <br/>`, 'after_blank': '', 'answer': 'print(major)'},    
-    8: {'type':'block', 'question1': `변수는 저장하는 값이 바뀔 수 있기 때문에, 변수(Variable)라고 부릅니다.`, 'question2': `‘=’를 사용하여 새 값을 저장하면, 새로운 값을 변수에 저장할 수 있어요. 변수의 값을 새롭게 저장하고 나면, 이전 값은 잊혀집니다.`,
-    'block1': `=`, 'block2': `:`, 'answer': '1'},
-    9: {'type':'block', 'question1': `변수에 다른 변수의 값을 저장할 수도 있어요.`, 'question2': `아래의 코드에서 변수 new_status에 default_option의 값을 저장해볼까요? `, 
-    'block1': `default_option`, 'block2': `( )`, 'block3': 'print', 'answer': '1'},
-    10: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'choice1': 'Watching a moive', 'choice2': 'status', 'default_code': 'status = "Watching a movie" <br/> print(status)', 'answer': '1'},
-    11: {'type':'typing', 'question1': `변수 status의 값을 “Writing code”로 바꿔보세요.`, 'question2': ``, 
-    "pre_blank":`status = "Completing spreadsheet" <br/>`,'after_blank': `print(status)`, 'answer': 'status = "Writing code"' || 'status= "Writing code"' || 'status ="Writing code"' || 'status="Writing code"'},
-    12: {'type': 'typing', 'question1': `변수 status의 값을 “Complete”로 바꾸고 그 값을 출력해보세요.`, 'question2': '',
-    'pre_blank': 'status = "Loading" <br>', 'after_blank': '', 'answer': `status = "Complete"`, 'answer2': 'print(status)'}   
+    1: {'type':'block', 'question1': `문자열(string)은 따옴표 <span class = "highlight_text">“</span>로 처음과 끝을 감싸서 표현합니다.`, 'question2': '변수 sugar에 문자열 값을 저장해볼까요? <br/> (이렇게 변수에 값을 저장하는 것을 변수에 값을  <span class = "highlight_text">할당</span>한다고 표현해요.)',
+    'bogi2': 'sugar = ', 'bogi3': 'sweet','block1': `"`, 'answer': '11', 'input_text1': true, 'input_text2': true},
+    2: {'type':'block', 'question1': "정수형(integer)도 이미 배웠던 자료형이에요! ", 'question2': `정수형은 42와 같이, 소수점 아래 자리가 없는 숫자를 의미해요.`, 
+    'bogi2': 'score = ', 'block1': `"43"`, 'block2': `42`, 'block3': `True`, 'answer': '2', 'input_text1': true},
+    3: {'type':'block', 'question1': `실수형(float) 역시 정수형과 같은 숫자형이에요.`, 'question2': `그러나 정수형과 달리 소수점 아래 자리가 있는 숫자를 표현한답니다.`, 
+    'bogi2': `pie = `, 'block1': '3', 'block2': '"3"', 'block3': '.14150', 'answer': '13', 'input_text1': true, 'input_text2': true},
+    4: {'type':'typing', 'question1': `불린(Boolean) 타입은 True 와 False라는 2가지 값만 존재해요, <span class="highlight_text">received_message</span>에 <span class="highlight_text">True</span>를 저장해봅시다`, 'question2': `(True, False는 대문자 / 소문자를 구분하여, 첫 글자는 대문자로 작성해야 합니다!)`, 
+    'pre_blank': 'received_message = ', 'after_blank': '', 'answer': 'True'},
+    5: {'type':'multiple', 'question1': `result가 저장하는 값의 자료형은 무엇일까요?`, 'question2': ``, 
+    'default_code': 'result = 3.33', 'choice1': '정수', 'choice2': `실수`, 'answer': '2'},
+    6: {'type':'multiple', 'question1': `다음 중 불린 값은 무엇일까요?`, 'question2': ``, 
+    'choice1': `True, False`, 'choice2': `"true", "false"`, 'answer': '1'},
+    7: {'type': 'multiple', 'question1': '<span class="highlight_text">변수 할당(variable assignment)</span>은 무엇을 의미하나요?', 'question2': '',
+    'choice1': `변수에 이름을 붙이는 것`, 'choice2': '변수 안에 값을 저장하는 것', 'answer': '2'}, 
+    8: {'type': 'block', 'question1': '<span class="highlight_text">name</span>에는 문자열(string) 값을, <span class="highlight_text">age</span>에는 정수형(integer) 값을, <span class="highlight_text">is_active<span>에는 불린형(Boolean) 값을 할당해주세요.', 'question2': '',
+    'bogi2': `name = `, 'bogi3': '<br/> &nbsp Age =', 'bogi4': '<br/> &nbsp is_active =', 'block1': `44`, 'block2': `"PSY"`, 'block3': `True`, 'input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '213'}, 
 };
+const num_list = ["","2","3","4","5"]
+const num_list_for_input = ["1", "2", "3"]
+const num_list_for_block = ["1", "2", "3"]
+
 var value='';
-var value2='';
+$('#text1').html(quiz_list[num]['question1'])
+$('#text2').html(quiz_list[num]['question2'])
+$('.block1').html(quiz_list[num]['block1'])
+$('.block2').html(quiz_list[num]['block2'])
+$('.block3').html(quiz_list[num]['block3'])
+
 $('.bogi2').hide()
 $('.bogi3').hide()
-
+$('.bogi4').hide()
+$('.bogi5').hide()
+$('.block2').hide()
+$('.block3').hide()
 if (num === 1) {
     $('.bogi2').show()
-    $('.bogi2').html('print(')
+    $('.bogi2').html(quiz_list[num]['bogi2'])
     $('.bogi3').show()
-    $('.bogi3').html(')')
-    $('#input_text2').hide(); $('#input_text3').hide();
-    $('.block3').hide();
+    $('.bogi3').html(quiz_list[num]['bogi3'])
+    $('#input_text3').hide();
 }
 
 function next() {
+    //output 숨기기
+    $('#output').hide()
+    $('.output_t').hide()
+    $('.output_m').hide()
     //번호 키우기
     num++;
     value='';
     if (num > Object.keys(quiz_list).length) {
         console.log(num);
-        location.href='complete_p1_2.html';
-        
+        location.href='complete_p2_3.html';
+        //location.href="{% url 'python1_1_complete' %}";
 
     } else {
         console.log('quiz num: ', num)
@@ -64,7 +71,7 @@ function next() {
     }
 
     //progress bar fill
-    $(".progress-bar").attr("style", "width: calc(100/12*" + num + "%)");
+    $(".progress-bar").attr("style", "width: calc(100/8*" + num + "%)");
     //객관식형: 테두리 색상 없애고 선지 바꾸고, 해당 틀 띄우기
     if (quiz_list[num]['type'] === 'multiple') {
         // for (var i=1; i < quiz_list[num]['choice_num']+1; i++) {
@@ -86,14 +93,11 @@ function next() {
     } //타이핑형: 입력된 내용 지우기 + 빈칸 앞 뒤 내용 바꾸고 틀 띄우기
     else if (quiz_list[num]['type'] === 'typing') {
         $('#input_text').val("");
-        $('#input_text_b').val("");
+        $('#input_text').show("");
+
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 
-        if (num === 12) {
-            $('#input_text').attr('size', '1px')
-            $('#input_text_b').attr('size', '1px')
-            $('#input_text_b').show()
-        }
+        
 
         // $("#"+quiz_list[num]['type']).show() 
     } 
@@ -102,57 +106,57 @@ function next() {
         $('.bogi').html('')
         $('.bogi2').html('')
         $('.bogi3').html('')
+        $('.bogi4').html('')
+        $('.bogi4').html('')
         $('.underline').attr("value", "");
         $('.underline').attr("size", '1px')          
 
+        num_list.map((it) =>
+          {if (("bogi" + it) in quiz_list[num]) {
+            console.log('있네~', it);
+            $('.bogi' + it).show();
+            $(".bogi" + it).html(quiz_list[num]["bogi" + it]);
+          } else {
+            console.log('없음', it);
+            $('.bogi' + it).hide();
+          }})
+        
+        num_list.map((it) =>
+          {if (("input_text" + it) in quiz_list[num]) {
+            console.log('있네~', it);
+            $('#input_text' + it).show();
+          } else {
+            console.log('없음', it);
+            $('#input_text' + it).hide();
+          }})
+        
+    
         if (num === 2) {
-            $('.bogi').html(`print("Wind")`);
-            $('#input_text2').show();
-
-            $('.bogi2').show()
-            $('.bogi2').html('print')
-            $('.bogi3').show()
-            $('.bogi3').html('"Breaker"')
-
-        } else if (num === 3) {
-            $('.bogi').html('greeting = "Hello, World!"')
-            $('.bogi2').html('print')
-
-            $('#input_text3').show();
+            $('.block2').show();
             $('.block3').show();
-        } else if (num === 8) {
-            $('.code_background').attr('style', 'height: 40%')
-            $('.bogi').html('status = "Studying Python"')
-            $('.bogi2').html('status')
-            $('.bogi3').html('"Drinking a cup of coffee" <br/> &nbsp; print(status)')
-            $('#input_text2').hide();
-            $('#input_text3').hide();
-            $('.block3').hide()
-        } else if (num == 9) {
-            $('.code_background').attr('style', 'height: 40%')
-            $('.bogi').html('default_option = "upload" <br/> new_status = "download" <br/>')
-            $('.bogi2').html('new_status = ')
-            $('.bogi3').html('<br/> &nbsp; print(new_status)')
-            $('.block3').show()
-        }
+        } 
+        // else if (num === 10) {
+        //     $('.code_background').attr('style', 'height: 50%')
+        // }
 
         $('.block1').html(quiz_list[num]['block1'])
         $('.block2').html(quiz_list[num]['block2'])
         $('.block3').html(quiz_list[num]['block3'])
-        // $("#"+quiz_list[num]['type']).show() 
+        $('.blocks').show()
     } 
     
     $("#"+quiz_list[num]['type']).show()
-    if (num === 4 || num === 5) {$(".code_background").hide()}
-    if (num === 6) {$(".code_background").show()}
+    if (num === 6 || num === 7) {$(".code_background").hide()}
+    if (num === 8) {$(".code_background").show()}
+
     } 
 }
 
 $('.first_next_btn').click(function() {
+    setTimeout(() => $(".progress-bar").attr("style", "width: calc(100/10*1%)"), 500);
     $('.explanation').hide();
     $('.question').show();
 })
-$('#input_text_b').hide()
 
 //[객관식형] 선지 선택 시, 제출 버튼 활성화 + 값 받아와서 콘솔에 출력
 $('.choice_btn').click(function() {
@@ -175,9 +179,6 @@ $('#input_text').on("input", function (e) {
     
 })
 
-$('#input_text_b').on("input", function (e) {
-    $('#input_text_b').attr('size', $('#input_text_b').val().length)
-})
 
 //[블록입력형] 블록 1: value에 버튼 id 누적 + 제출 버튼 활성화 + 버튼 한 번 클릭 시 input 하나의 placeholder 내용에 버튼 내용 띄우기 
 $('.block1').click(function () {
@@ -186,13 +187,19 @@ $('.block1').click(function () {
     if (input_value === "") {
         value += '1'
         console.log(value)
-        $('#input_text1').attr("value", $('.block1').html())
+        //만약 block 내용이 >=이라면 >=를 입력해줘!
+        if ($('.block1').html() === '&gt;=') {
+            $('#input_text1').attr("value", '>=')            
+        } else {
+            $('#input_text1').attr("value", $('.block1').html())
+        }
+        
         $('#input_text1').attr("size", $('#input_text1').val().length)
 
     } else {
-        if (num === 1 || num === 8) {
+        if (num === 2) {
             return;
-        } else {
+        }
         var input_value = $('#input_text2').attr('value')
         if(input_value === "") {
             value += '1'
@@ -201,7 +208,7 @@ $('.block1').click(function () {
             $('#input_text2').attr("size", $('#input_text2').val().length)
 
         } else {
-            if(num === 2) {
+            if(num === 1 || num === 3) {
                 return;
             } else {
             var input_value = $('#input_text3').attr('value')
@@ -214,7 +221,7 @@ $('.block1').click(function () {
                 return;
             }
         }
-        }
+        
     }      
     }   
 })
@@ -226,20 +233,30 @@ $('.block2').click(function () {
     if (input_value === "") {
         value += '2'
         console.log(value)
-        $('#input_text1').attr("value", $('.block2').html())
+        //만약 block 내용이 >=이라면 >=를 입력해줘!
+        if ($('.block2').html() === '&gt;=') {
+            $('#input_text1').attr("value", '>=')            
+        } else {
+            $('#input_text1').attr("value", $('.block2').html())
+        }
         $('#input_text1').attr("size", $('#input_text1').val().length) 
     } else {
-        if (num === 1 || num === 8) {
+        if (num === 2) {
             return;
         }
         var input_value = $('#input_text2').attr('value')
         if(input_value === "") {
             value += '2'
             console.log(value)
-            $('#input_text2').attr("value", $('.block2').html())
+            // 만약 블럭 내용이 >=이라면 >=를 입력해줘
+            if ($('.block2').html() === '&gt;=') {
+                $('#input_text2').attr("value", '>=')            
+            } else {
+                $('#input_text2').attr("value", $('.block2').html())
+            }
             $('#input_text2').attr("size", $('#input_text2').val().length) 
         } else {
-            if (num === 2 ) {
+            if(num === 1 || num === 3) {
                 return;
             }
             var input_value = $('#input_text3').attr('value')
@@ -262,17 +279,34 @@ $('.block3').click(function () {
     if (input_value === "") {
         value += '3'
         console.log(value)
+        //만약 block 내용이 <=이라면 <=를 입력해줘!        
+        if ($('.block3').html() === '&lt;=') {
+            $('#input_text1').attr("value", )                        
+        } else {
+            $('#input_text1').attr("value", $('.block3').html())
+        }
         $('#input_text1').attr("value", $('.block3').html())
         $('#input_text1').attr("size", $('#input_text1').val().length) 
     } else {
+        if (num === 2) {
+            return;
+        }
         var input_value = $('#input_text2').attr('value')
         if(input_value === "") {
             value += '3'
             console.log(value)
-            $('#input_text2').attr("value", $('.block3').html())
+            //만약 block 내용이 <=이라면 <=를 입력해줘!        
+            if ($('.block3').html() === '&lt;=') {
+                $('#input_text2').attr("value", '<=')            
+            } else {
+                $('#input_text2').attr("value", $('.block3').html())
+            }
             $('#input_text2').attr("size", $('#input_text2').val().length) 
 
         } else {
+            if(num === 1 || num === 3) {
+                return;
+            }
             var input_value = $('#input_text3').attr('value')
             if(input_value === "") {
                 value += '3'
@@ -290,20 +324,30 @@ $('.block3').click(function () {
 $('.submit_btn').click(function() {
     $('#submit').hide();
     
-    // 선지 버튼들 비활성화 하는 거 뭐 때문인지는 모르는데 안 됨 ㅠㅋ
-    // $(".choice_btn").attr("disalbed", true);
-
     //[타이핑형] 답 저장: 입력할 때마다 value값에 저장하려니 console 차는 게 싫어서, '제출'할 때 저장함 
     if (quiz_list[num]['type'] === 'typing') {
         value = $('#input_text').val()
-        value2 = $('#input_text_b').val()
         console.log('제출한 답?', value)
         console.log('진짜 답은?', quiz_list[num]['answer'])
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (((num !== 12) && (value === quiz_list[num]['answer'])) || ((num === 12) && ((value === quiz_list[num]['answer']) && (value2 === quiz_list[12]['answer2'])))) {
+    if (value === quiz_list[num]['answer']) {
         console.log('정답~')
+        $('.blocks').hide();
+        if ('output' in quiz_list[num]) {
+            console.log('output 있어~')
+            $('.output-code').html(quiz_list[num]['output'])
+            console.log(quiz_list[num]['output'])
+            if (quiz_list[num]['type'] === 'block') {
+                console.log('뷰')
+                $('#output').show();
+            } else if (quiz_list[num]['type'] === 'typing') {
+                $('.output_t').show();
+            } else if (quiz_list[num]['type'] === 'multiple') {
+                $('.output_m').show();
+            }
+        }
         $('#correct').show();
     } else {
         $("#not_correct").show();
@@ -317,7 +361,6 @@ $('.retry_btn').click(function() {
     $('#not_correct').hide();
     if (quiz_list[num]['type'] === 'typing') {
         $('#input_text').val('');
-        $('#input_text_b').val('');
     } else if (quiz_list[num]['type'] === 'block') {
         $('#input_text1').attr("value", "");
         $('#input_text3').attr("value", "");
