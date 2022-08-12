@@ -99,4 +99,22 @@
     </div>
 
 
+<h2>챌린지 교류방</h2>
+
+<p>궁금한 건 고민하지 말고 물어보세요!</p>
+
+
+    {% for blog in blogs %}
+    <div class="post">
+        <a href="{% url 'pychal1_detail' blog.id %}"><p class="post_title">{{ blog.title }}</p></a>
+        <p>[ ]</p>
+        <p class="post_writer">{{ blog.author }}</p>
+        <p class="post_date">{{ blog.date | date:"m.d H:i" }}</p>
+        {% if blog.photo %}
+            <img src="{{ blog.photo.url }}" alt="no image" width="300">
+        {% endif %}
+    </div>
+    {% endfor %}
+    <a href="{% url 'pychal1_new' %}" class="button" role="button" data-bs-toggle="button">글 작성하기</a>
+
 {% endblock %}

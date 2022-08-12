@@ -3,7 +3,8 @@ from time import time
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 from account_app.models import User, PyStepAttend
-from .models import PythonChallenge1
+from .models import PythonChallenge1, PyChal1_Blog, PyChal1_Comment
+from .forms import PyChal1_CommentForm
 from django.utils import timezone
 import datetime
 from datetime import date, timedelta, datetime
@@ -156,7 +157,10 @@ def python1_challenge(request):
                 challenge[0].delete()
                 return redirect('home')
 
-        return render(request, 'python1_challenge.html', {'challenge': challenge[0],'start_date': start_date, 'finish_date': finish_date} )
+        # 게시글 모두 출력
+        blogs = PyChal1_Blog.objects.filter().order_by('-date')
+
+        return render(request, 'python1_challenge.html', {'challenge': challenge[0],'start_date': start_date, 'finish_date': finish_date, 'blogs': blogs} )
     
     # 사용자 미참가 상태
     # 참가시키기(객체 생성) + 챌린지 페이지로 이동 
@@ -173,6 +177,63 @@ def python1_challenge(request):
         user.save()
 
         return render(request, 'python1_challenge.html', {'challenge': new_challenge, 'start_date': start_date, 'finish_date': finish_date} )
+
+# 새 글 작성
+def pychal1_new(request):
+    if (request.method == 'POST' or request.method == 'FILES'):
+        post = PyChal1_Blog()
+        post.title = request.POST['title']
+        post.body = request.POST['body']
+        post.photo = request.FILES['blog_image']
+        post.author = request.user
+        post.date = timezone.now()
+        post.save()
+        return redirect('python1_challenge')
+    return render(request, 'pychal1_new.html')
+
+# 해당글의 자세한 내용
+def pychal1_detail(request, blog_id):
+    blog_detail = get_object_or_404(PyChal1_Blog, pk=blog_id)
+    return render(request, 'pychal1_detail.html', {'blog_detail': blog_detail})
+
+# 글 수정
+def pychal1_edit(request, blog_id):
+    if (request.method == "POST" or request.method == 'FILES'):
+        post = get_object_or_404(PyChal1_Blog, pk=blog_id)
+        post.title = request.POST['title']
+        post.body = request.POST['body']
+        post.photo = request.FILES['blog_image']
+        post.author = request.user
+        post.date = timezone.now()
+        post.save()
+        return redirect('pychal1_detail', blog_id)
+    return render(request, 'pychal1_edit.html')
+
+# 글 삭제
+def pychal1_del(request, blog_id):
+    blog = PyChal1_Blog.objects.get(id=blog_id)
+    blog.delete()
+    return redirect('python1_challenge')
+
+# 댓글 작성
+def pychal1_comment(request, blog_id):
+    filled_form = PyChal1_CommentForm(request.POST)
+    if filled_form.is_valid():
+        finished_form = filled_form.save(commit=False)
+        finished_form.post = get_object_or_404(PyChal1_Blog, pk=blog_id)
+        if request.FILES:
+            finished_form.photo = request.FILES['comment_image']
+        finished_form.author = request.user
+        finished_form.date = timezone.now()
+        finished_form.save()
+    return redirect('pychal1_detail', blog_id)
+
+# 댓글 삭제
+def pychal1_del_comment(request, comment_id):
+    comment = PyChal1_Comment.objects.get(pk=comment_id)
+    blog_id = comment.post.id
+    comment.delete()
+    return redirect('pychal1_detail', blog_id)
 
 
 

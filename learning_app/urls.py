@@ -3,6 +3,11 @@ from .views import *
 
 urlpatterns = [
    path('', learning, name="learning"),
+   path('learning_html', learning_html, name="learning_html"),
+   path('learning_css', learning_css, name="learning_css"),
+   path('learning_java', learning_java, name="learning_java"),
+
+
    path('python1', detail_python1, name="detail_python1"),
    path('python2', detail_python2, name="detail_python2"),
    path('python3', detail_python3, name="detail_python3"),

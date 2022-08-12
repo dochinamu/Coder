@@ -2,9 +2,18 @@ from django.shortcuts import render,redirect
 from account_app.models import User, PyStepAttend
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+# 언어별 페이지
 def learning(request):
     return render(request, 'learning_python.html')
+
+def learning_html(request):
+    return render(request, 'learning_HTML.html')
+
+def learning_css(request):
+    return render(request, 'learning_CSS.html')
+
+def learning_java(request):
+    return render(request, 'learning_Java.html')
 
 # 파이썬 커리 
 def detail_python1(request):
