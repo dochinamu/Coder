@@ -24,23 +24,21 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: flex-start;
                     margin-top: 5%; margin-bottom: 0%;}
 
     .post-header h2 {font-size: 22px; font-weight: 700;
-                    margin-top: 5%; margin-bottom: 1%; margin-left: 5%;}
+                    margin-top: 5%; margin-bottom: 0%; margin-left: 6%;}
 
-    .post-header p {margin-top: 1%; margin-bottom: 8%; margin-left: 5%;}
+    .post-header p {margin-top: 1%; margin-bottom: 7%; margin-left: 6%;}
 
-    .post {border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-            height: 5%;}
+    .post   {border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            width: 100%; height: 70px;}
 
-    .post-box   {width: 90%;
-                display: flex;
+    .post-box   {display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                margin: auto;}
+                margin-left: 5%; margin-right: 8%;}
 
     .post-left {display: flex;
                 flex-direction: column;
@@ -49,16 +47,21 @@
     .post-topic {display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-top: 0%; margin-bottom: 0%;
-                font-size: 16px; font-weight: 400;}
+                margin-top: 5%; margin-bottom: 5%;
+                font-size: 16px; font-weight: 400;
+                width: 100%; height: 16px;}
+
+    .post_title {margin-right: 2%;}
+
+    .post_comment   {color: #666EE8;
+                    margin-left: 2%;}
 
     .post-info {display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-top: 0%; margin-bottom: 0%;
-                font-size: 15px; font-weight: 400;}
-
-    .post_comment   {color: #666EE8; margin-left: 5%;}
+                margin-top: 5%; margin-bottom: 5%;
+                font-size: 15px; font-weight: 400;
+                width: 100%; height: 15px;}
 
     .post_date {width: 20%; margin-left: 15%;}
 
@@ -196,9 +199,11 @@
                         <p class="post_date">{{ user.date | date:"m.d" }}</p>
                     </article>
                 </section>
-                {% if user.photo %}
-                    <img src="{{ user.photo.url }}" alt="no image" height="70">
-                {% endif %}
+                <section class="post-right">
+                    {% if user.photo %}
+                        <img src="{{ user.photo.url }}" alt="no image" height="60">
+                    {% endif %}
+                </section>
             </div>
         </a>
     </div>

@@ -161,7 +161,7 @@ def python1_challenge(request):
         # 게시글 페이지로 나누기
         blogs = PyChal1_Blog.objects.filter().order_by('-date')
         page = request.GET.get('page', 1)
-        paginator = Paginator(blogs, 3)
+        paginator = Paginator(blogs, 5)
         try:
             users = paginator.page(page)
         except PageNotAnInteger:
