@@ -50,8 +50,11 @@
 
 
 <a href="{% url 'learning' %}"><section class = "learning">
-    <h2>데일리 코딩</h2>
-    <p>매일매일 꾸준히 하는 코딩학습</p>
+    <div> 
+        <h2>데일리 코딩</h2>
+        <p>매일매일 꾸준히 하는 코딩학습</p>
+    </div>   
+    <img class = "learning-button" src="{% static 'img/이동.png' %}" alt="화살표">
 </section></a>
 
 <section class="challenge">
@@ -69,8 +72,8 @@
                 </div>
             </article></a>
 
-            <article class = "one-challenge"> 
-                <img src="{% static 'img/coming-soon.png' %}" class="challenge-img coming-soon" alt="coming soon">
+            <article class = "one-challenge no-challenge"> 
+                <img src="{% static 'img/comingsoon.png' %}" class="challenge-img coming-soon" alt="coming soon">
                 
             </article>
         
@@ -79,7 +82,7 @@
 </section>
 
 <footer>
-    <a href="https://co-der.notion.site/">코더 서비스 소개 (co-der.notion.site) </a>
+    <a href="https://co-der.notion.site/">서비스 소개: co-der.notion.site </a>
     <p>문의 :  카카오톡 채널 @coder</p>
 </footer>
 

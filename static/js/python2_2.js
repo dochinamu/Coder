@@ -155,6 +155,33 @@ function next() {
     } 
 }
 
+function delete_key() {
+    if ($('#input_text3').attr('value') !== "") {
+        $('#input_text3').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('3번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text2').attr('value') !== "") {
+        $('#input_text2').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('2번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text1').attr('value') !== "") {
+        $('#input_text1').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('1번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else {
+        return;
+    }
+}
+
 $('.first_next_btn').click(function() {
     setTimeout(() => $(".progress-bar").attr("style", "width: calc(100/10*1%)"), 500);
     $('.explanation').hide();
@@ -394,3 +421,6 @@ $('.correct_btn').click(function() {
     next();
 })
 
+$('.block_delete').click(function() {
+    delete_key();
+})

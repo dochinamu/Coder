@@ -92,8 +92,12 @@
 <section class="header">
     <div>
         <h2>매일 파이썬 학습하기</h2>
-        <span class="period">기간: {{ start_date }} ~ {{ finish_date }}</span>
-        <span class="success">챌린지 성공</span> 
+        <div class ="tag-list">
+            <p class="period">기간: {{ start_date }} ~ {{ finish_date }}</p>
+            {% if challenge.complete == True %}
+            <p class="success">챌린지 성공</p>
+            {% endif %} 
+        </div>
     </div>
     
 </section>

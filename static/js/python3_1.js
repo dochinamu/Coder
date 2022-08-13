@@ -1,7 +1,7 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': `두 문자열을 이어 붙여서 출력할 때, <span class="highlight_text">+</span>를 사용한다고 배웠어요.`, 'question2': '',
-    'bogi2': 'print("초당"', 'bogi3': '"두부")','block1': `+`, 'answer': '1', 'input_text1': true, 'output': '초당 두부'},
+    'bogi2': 'print("초당"', 'bogi3': '"두부")','block1': `+`, 'answer': '1', 'input_text1': true, 'output': '초당두부'},
     2: {'type':'block', 'question1': `하지만 숫자형 자료 <span class="highlight_text">2</span>와 문자열 <span class="highlight_text">“ice cream”</span>을 결합하려고 <span class="highlight_text">+</span>를 쓰면, 어떻게 될까요? `, 'question2': `아래처럼 두 가지의 타입(‘int’ and ‘str’)이 서로 다르기 때문에 연산을 수행할 수 없다는 내용의 에러가 뜨게 되죠.`, 
     'bogi2': 'print(2', 'bogi3': '"apples")', 'block1': `+`, 'answer': '1', 'input_text1': true, 'output': 'Traceback(most recent call last): <br> &nbsp &nbsp &nbsp File “script.py”, line 1, in <module> <br> &nbsp &nbsp &nbsp Print(2 + “ice cream”) <br/> TypeError: unsupported operand type(s) for +: ‘int’ and ‘str’'},
     3: {'type':'block', 'question1': `이번 시간에는 <span class="highlight_text">문자열 포맷팅</span>이라는 기능을 통해 서로 다른 종류의 값을 콘솔에 함께 출력하는 방법을 배워볼 거예요.`, 'question2': `<span class="highlight_text">f-string(서식 문자 리터럴)</span>을 사용하면, 숫자와 문자열을 에러 없이 함께 출력할 수 있습니다.`, 
@@ -35,6 +35,7 @@ $('#text2').html(quiz_list[num]['question2'])
 $('.block1').html(quiz_list[num]['block1'])
 $('.block2').html(quiz_list[num]['block2'])
 $('.block3').html(quiz_list[num]['block3'])
+
 
 $('.bogi2').hide()
 $('.bogi3').hide()
@@ -155,6 +156,34 @@ function next() {
         $(".code_background").show()}
     } 
 }
+
+function delete_key() {
+    if ($('#input_text3').attr('value') !== "") {
+        $('#input_text3').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('3번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text2').attr('value') !== "") {
+        $('#input_text2').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('2번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text1').attr('value') !== "") {
+        $('#input_text1').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('1번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else {
+        return;
+    }
+}
+
 
 //[객관식형] 선지 선택 시, 제출 버튼 활성화 + 값 받아와서 콘솔에 출력
 $('.choice_btn').click(function() {
@@ -384,3 +413,6 @@ $('.correct_btn').click(function() {
     next();
 })
 
+$('.block_delete').click(function() {
+    delete_key();
+})

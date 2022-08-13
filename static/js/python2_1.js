@@ -155,15 +155,40 @@ function next() {
     
     $("#"+quiz_list[num]['type']).show()
     if (num === 4 ||  num === 10) {
-        $(".quiz").attr('style', 'margin-bottom: 10%')
         $(".code_background").hide()
         $(".file_name").hide()
     } else if (num === 5 || num === 11) {
-        $(".quiz").attr('style', 'margin-bottom: 0')
         $(".code_background").show()
         $(".file_name").show()
     }
     } 
+}
+
+function delete_key() {
+    if ($('#input_text3').attr('value') !== "") {
+        $('#input_text3').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('3번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text2').attr('value') !== "") {
+        $('#input_text2').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('2번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text1').attr('value') !== "") {
+        $('#input_text1').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('1번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else {
+        return;
+    }
 }
 
 $('.first_next_btn').click(function() {
@@ -402,3 +427,6 @@ $('.correct_btn').click(function() {
     next();
 })
 
+$('.block_delete').click(function() {
+    delete_key();
+})
