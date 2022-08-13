@@ -139,13 +139,9 @@ function next() {
     
         if (num === 5 || num === 6) {
             $('.block3').hide();
-        } else if (num===6||num === 7) {
-            $('.quiz').attr('style', 'margin-top: 5px')
         } else if (num===8){
             $('.block3').show();
-        } else if (num===9){
-            $('.code_background').attr('style', 'height: 35%')        
-        }
+        } 
 
         $('.block1').html(quiz_list[num]['block1'])
         $('.block2').html(quiz_list[num]['block2'])
@@ -369,8 +365,10 @@ $('.submit_btn').click(function() {
 
     //정답 비교하고, 각 문구/버튼 띄움
     if (value === quiz_list[num]['answer']) {
-        if (quiz_list[num]['answer'] === 'typing') {
-            if(value_add !== quiz_list[num]['answer2']) {
+        if (quiz_list[num]['answer'] === value) {
+            if('answer2' in quiz_list[num] && value_add !== quiz_list[num]['answer2']) {
+                console.log('제발제발')
+                $("#not_correct").show();
                 return;
             }
         }

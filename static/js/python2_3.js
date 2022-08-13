@@ -146,8 +146,14 @@ function next() {
     } 
     
     $("#"+quiz_list[num]['type']).show()
-    if (num === 6 || num === 7) {$(".code_background").hide()}
-    if (num === 8) {$(".code_background").show()}
+    if (num === 6 || num === 7) {
+        $(".code_background").hide()
+        $(".file_name").hide()
+    }
+    if (num === 8) {
+        $(".code_background").show()
+        $(".file_name").show()
+    }
 
     } 
 }
