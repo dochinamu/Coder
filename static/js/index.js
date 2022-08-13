@@ -34,7 +34,7 @@ function next() {
     value='';
     if (num > Object.keys(quiz_list).length) {
         console.log(num);
-        location.href='complete.html';
+        location.href='complete_p1_1.html';
         
 
     } else {

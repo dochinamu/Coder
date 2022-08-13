@@ -22,7 +22,7 @@ urlpatterns = [
    path('python1/python1_2/finish', python1_2_finish, name="python1_2_finish"),
 
    path('python1/python1_3', python1_3, name="python1_3"),
-   path('python1/complete_p1_3', python1_3_complete, name="python1_3_complete"),
+   path('python1/complete_p1_3.html', python1_3_complete, name="python1_3_complete"),
    path('python1/python1_3/finish', python1_3_finish, name="python1_3_finish"),
 
    # 파이썬 커리2
@@ -31,11 +31,11 @@ urlpatterns = [
    path('python2/python2_1/finish', python2_1_finish, name="python2_1_finish"),
    
    path('python2/python2_2', python2_2, name="python2_2"),
-   path('python2/complete_p2_2', python2_2_complete, name="python2_2_complete"),
+   path('python2/complete_p2_2.html', python2_2_complete, name="python2_2_complete"),
    path('python2/python2_2/finish', python2_2_finish, name="python2_2_finish"),
 
    path('python2/python2_3', python2_3, name="python2_3"),
-   path('python2/complete_p2_3', python2_3_complete, name="python2_3_complete"),
+   path('python2/complete_p2_3.html', python2_3_complete, name="python2_3_complete"),
    path('python2/python2_3/finish', python2_3_finish, name="python2_3_finish"),
 
    # 파이썬 커리3
@@ -44,11 +44,11 @@ urlpatterns = [
    path('python3/python3_1/finish', python3_1_finish, name="python3_1_finish"),
    
    path('python3/python3_2', python3_2, name="python3_2"),
-   path('python3/complete_p3_2', python3_2_complete, name="python3_2_complete"),
+   path('python3/complete_p3_2.html', python3_2_complete, name="python3_2_complete"),
    path('python3/python3_2/finish', python3_2_finish, name="python3_2_finish"),
 
    path('python3/python3_3', python3_3, name="python3_3"),
-   path('python3/complete_p3_3', python3_3_complete, name="python3_3_complete"),
+   path('python3/complete_p3_3.html', python3_3_complete, name="python3_3_complete"),
    path('python3/python3_3/finish', python3_3_finish, name="python3_3_finish"),
    
 ]

@@ -50,7 +50,7 @@ function next() {
     value='';
     if (num > Object.keys(quiz_list).length) {
         console.log(num);
-        location.href='complete.html';
+        location.href='complete_p1_3.html';
         //location.href="{% url 'python1_1_complete' %}";
 
     } else {
