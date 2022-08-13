@@ -28,7 +28,14 @@ var quiz_list = {
 var value='';
 $('.bogi2').hide()
 $('.code_background').attr('style', 'height: 25%')
+$('.output_t').hide()
+
+
 function next() {
+    //output 숨기기
+    $('#output').hide()
+    $('.output_t').hide()
+    $('.output_m').hide()
     //번호 키우기
     num++;
     value='';
@@ -104,12 +111,40 @@ function next() {
         $('.block1').html(quiz_list[num]['block1'])
         $('.block2').html(quiz_list[num]['block2'])
         $('.block3').html(quiz_list[num]['block3'])
-        // $("#"+quiz_list[num]['type']).show() 
+        $('.blocks').show()
     } 
     
     $("#"+quiz_list[num]['type']).show()
     } 
 }
+
+function delete_key() {
+    if ($('#input_text3').attr('value') !== "") {
+        $('#input_text3').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('3번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text2').attr('value') !== "") {
+        $('#input_text2').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('2번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else if ($('#input_text1').attr('value') !== "") {
+        $('#input_text1').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('1번 지움', value)
+        if (value === "") {
+            $('.submit_btn').attr("disabled", true)
+        }
+    } else {
+        return;
+    }
+}
+
 
 $('.first_next_btn').click(function() {
     $('.explanation').hide();
@@ -247,6 +282,20 @@ $('.submit_btn').click(function() {
     //정답 비교하고, 각 문구/버튼 띄움
     if (value === quiz_list[num]['answer']) {
         console.log('정답~')
+        $('.blocks').hide();
+        if ('output' in quiz_list[num]) {
+            console.log('output 있어~')
+            $('.output-code').html(quiz_list[num]['output'])
+            console.log(quiz_list[num]['output'])
+            if (quiz_list[num]['type'] === 'block') {
+                console.log('뷰')
+                $('#output').show();
+            } else if (quiz_list[num]['type'] === 'typing') {
+                $('.output_t').show();
+            } else if (quiz_list[num]['type'] === 'multiple') {
+                $('.output_m').show();
+            }
+        }
         $('#correct').show();
     } else {
         $('#not_correct').show();
@@ -289,3 +338,7 @@ $('.correct_btn').click(function() {
     next();
 })
 
+
+$('.block_delete').click(function() {
+    delete_key();
+})

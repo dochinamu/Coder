@@ -2,7 +2,7 @@ var num=1;
 var quiz_list = {
     1: {'type':'typing', 'question1': `이 프로그램은 <span class = "highlight_text">==</span> 연산자를 사용해서 유저가 제출한 답과 퀴즈 정답을 비교해요.`, 'question2': '',
     'pre_blank': 'answer = "바흐" <br/> if answer','after_blank': '"바흐": <br/> &nbsp &nbsp &nbsp print(answer + "가 정답입니다!")', 'answer': '==', 'input_text1': true, 'output': '바흐가 정답입니다!'},
-    2: {'type':'block', 'question1': `또한 <span class = "highlight_text">!=</span> 연산자를 사용하면  <span class = "highlight_text">answer</span>가 “바흐”와 다른지 확인할 수 있어요.`, 'question2': ``, 
+    2: {'type':'block', 'question1': `또한 <span class = "highlight_text">!=</span> 연산자를 사용하면 <span class = "highlight_text">answer</span>가 “바흐”와 다른지 확인할 수 있어요.`, 'question2': ``, 
     'bogi': 'answer = "쇼팽"', 'bogi2': 'if answer', 'bogi3': `"바흐": <br/> &nbsp &nbsp &nbsp print(answer + "은 오답입니다!)`, 'block1': `= =`, 'block2': `!=`, 'block3': '=', 'answer': '2', 'input_text1': true, 'output': '쇼팽은 오답입니다!'},
     3: {'type':'block', 'question1': `지난 시간에 배웠던 비교 연산자는 if문에서도 사용할 수 있어요!  <span class = "highlight_text">age</span>가 20보다 크거나 같은지 확인해볼까요?`, 'question2': ``, 
     'bogi': 'age = 50', 'bogi2': `if`, 'bogi5': `: <br/> &nbsp &nbsp &nbsp print("성인입니다")`, 'block1': `>=`, 'block2': `age`, 'block3': `20`, 'answer': '213', 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': '성인입니다'},
@@ -15,12 +15,12 @@ var quiz_list = {
     7: {'type': 'multiple', 'question1': '조건식에 <span class = "highlight_text">==</span>을 사용해서 비교할 수 있는 자료형은 무엇일까요?', 'question2': '',
     'choice1': `정수형과 문자열만`,'choice2': '정수형, 실수형, 문자열, 불린형', 'answer': '2'}, 
     8: {'type': 'block', 'question1': '<span class = "highlight_text">replay_times</span>의 값이 300보다 크거나 같다면 코드를 실행시키도록 조건식을 완성하세요', 'question2': '',
-    'bogi': `song = "A lot" <br/> replay_times = 345`, 'bogi2': 'if', 'bogi5': ': <br/> &nbsp &nbsp &nbsp print("Your top song this week: "+song)', 'block1': '300', 'block2': '>=', 'block3': 'replay_times','input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '321', 'output': 'Your top song this week: A lot!'}, 
+    'bogi': `song = "A lot" <br/> replay_times = 345`, 'bogi2': 'if', 'bogi5': ': <br/> &nbsp &nbsp &nbsp print("Your top song this week: "+song)', 'block1': '300', 'block2': '>=', 'block3': 'replay_times','input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '321', 'output': 'Your top song this week: A lot'}, 
     9: {'type': 'typing', 'question1': '변수 <span class = "highlight_text">today</span>의 값이 "Saturday"와 다르다면 코드 블록을 실행시키도록 조건식을 완성하세요', 'question2': '',
     'pre_blank': `today = "Sunday" <br/> if`, 'after_blank': '<br/> &nbsp &nbsp &nbsp print("Ring the alarm at 7:00")', 'answer': 'today != "Saturday":', 'answer2': 'today!= "Saturday":', 'output': 'Ring the alarm at 7:00'}, 
     10: {'type': 'typing', 'question1': '<span class = "highlight_text">age</span>가 18보다 큰지 비교해봅시다!', 'question2': '',
     'pre_blank': `can_drive = False <br/> age = 20 <br/> if`,  'after_blank': '<br/> &nbsp &nbsp &nbsp can_drive = True <br/> print(can_drive)', 'answer': 'age > 18:', 'answer2': 'age>18:', 'output': 'True'}, 
-    11: {'type': 'block', 'question1': '<span class = "highlight_text">bag_full</span>의 값이 True와 같은지 비교하는 연산을 변수 show_alert에 저장해주세요.', 'question2': '',
+    11: {'type': 'block', 'question1': '<span class = "highlight_text">bag_full</span>의 값이 True와 같은지 비교하는 연산을 변수 <span class = "highlight_text">show_alert</span>에 저장해주세요.', 'question2': '',
     'bogi2': `bag_full = True <br/>`, 'bogi2': '&nbsp' , 'bogi5': '<br/> &nbsp &nbsp if show_alert: <br/> &nbsp &nbsp &nbsp &nbsp print("bag_full")', 'block1': 'bag_full = = True', 'block2': '=', 'block3': 'show_alert', 'input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '321', 'output': 'bag_full'}, 
 };
 const num_list = ["","2","3","4","5"]
@@ -154,6 +154,25 @@ function next() {
     if (num === 8) {$(".code_background").show()}
 
     } 
+}
+
+function delete_key() {
+    if ($('#input_text3').attr('value') !== "") {
+        $('#input_text3').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('3번 지움', value)
+    } else if ($('#input_text2').attr('value') !== "") {
+        $('#input_text2').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('2번 지움', value)
+    } else if ($('#input_text1').attr('value') !== "") {
+        $('#input_text1').attr('value', "")
+        value = value.slice(0, -1);
+        console.log('1번 지움', value)
+
+    } else {
+        return;
+    }
 }
 
 $('.first_next_btn').click(function() {
@@ -417,11 +436,9 @@ $('.project_button1').click(function() {
         $('.project_button1').hide()
         $('.project_button2').show()
         if (quiz_answer === 'Bach') {
-            $('.project_correct').show()
-            $('.project_notCorrect').hide()
+            $('.project_correct').html('정답!')
         } else {
-            $('.project_notCorrect').show()
-            $('.project_correct').hide()
+            $('.project_correct').html('오답!')
         } 
     } else {
         return;
@@ -432,7 +449,11 @@ $('.project_button2').click(function() {
     $('.project_button2').hide()
     $("input[type=radio]:checked")[0].checked = false;
     $('.project_button1').show()
-    $('.project_correct').hide()
-    $('.project_notCorrect').hide()
+    $('.project_correct').html('')
     clicked = false
+})
+
+
+$('.block_delete').click(function() {
+    delete_key();
 })

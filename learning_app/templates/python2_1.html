@@ -15,45 +15,45 @@
 </head>
 
 <body>
+    <!-- Header 구현 -->
+    <header class="header pt-2 pb-2">
+        <div class="start-header">
+            <a href = "{% url 'detail_python2' %}">
+                <img src="../../static/img/전으로 이동.png" class="back_button" alt=back/>
+                </a>
+        </div>
+        <div class="main-text-container">숫자형 비교하기</div>
+        <div class="end-header"></div>
+    </header>
+    
     <article class="explanation">
-        <!-- Header 구현 -->
-        <header class="question_header pt-2">
-            <button class="back_button">&#60;</button>
-            <p class="head_text">숫자형 비교하기_비교연산자</p>
-        </header>
-            <!-- progress bar 구현 -->
+        <!-- progress bar 구현 -->
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: calc(100/12*0%)"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: calc(100/12*0%)"></div>
         </div>
         <!-- explain part 구현 -->
         <div class="explain" style="height: 30%;">
-            <div class="mt-5 ml-4 mr-4">
+            <div class="mt-5 ml-4 mr-4 mb-5">
                 <p class="explain_text">우리는 &#60;, >, >=, &#60;= 등의 ‘비교 연산자’를 사용하여 여러 숫자의 크기를 비교할 수 있어요.</p>
                 <p class="explain_text pt-3">예제를 통해 비교 연산자를 익혀봅시다!</p>
-                <!-- <p class="explain_text pt-3"></p> -->
             </div>
         </div>
 
         <!-- 다음으로 part 구현 -->
-        <div id="next" class="">
+        <div id="next" class="" style="position: fixed; bottom: 0; margin-bottom: 25px; width: 90%; margin-left: 5%;">
             <!-- 값 유무에 따른 활성화/비활성화 구분 필요 -->
             <button type="button" class="btn btn-primary first_next_btn">다음으로</button>
         </div>
     </article>
 
     <article class="question">
-        <!-- Header 구현 -->
-       <header class="question_header pt-2">
-            <button class="back_button">&#60;</button>
-            <p class="head_text">숫자형 비교하기_비교연산자</p>
-        </header>
         <!-- progress bar 구현 -->
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: calc(100/12*0%)"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: calc(100/12*0%)"></div>
         </div>
         <!-- quiz part 구현 -->
         <div class="quiz">
-            <div class="mt-4 ml-4 mr-4 mb-2">
+            <div class="mt-3 ml-4 mr-4 mb-2">
                 <p id=text1 class="quiz_text"></p>
                 <p id=text2 class="quiz_text"></p>
             </div>
@@ -67,11 +67,11 @@
 
         <!-- [객관식형] 틀 구현 -->
         <div id="multiple" class="choice_num4">
-            <div class="code_background pt-3 pl-2" style="height: 25%">
+            <div class="code_background pt-2 pl-2" style="height: 25%">
                 <span id="default_code">기존코드</span>
             </div>
             <div class="output_m pb-2">
-                <div class="output-title pl-2 mt-2 mb-2">Output</div>
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2">True</div>
             </div>
@@ -79,25 +79,23 @@
         
             <button value=1 type="button" id="choice1" class="choice_btn btn btn-light text-left">선지1</button>
             <button value=2 type="button" id="choice2" class="choice_btn btn btn-light text-left">선지2</button>
-            <!-- <button value=3 type="button" id="choice3" class="choice_btn btn btn-light text-left">선지3</button>
-            <button value=4 type="button" id="choice4" class="choice_btn btn btn-light text-left">선지4</button> -->
             </div>
         </div>
 
         <!-- [타이핑형] 틀 구현 -->
         <div id="typing">
-            <div class="code_background pl-3">
-                <div class="code pt-3">
+            <div class="code_background pt-2 pb-2">
+                <div class="code pl-2">
                     <span id="pre_blank"></span>
-                    <input id="input_text" size="2px" class="underline text-center" type="text">                      
+                    <input id="input_text" size="1px" class="underline text-center" type="text">                      
                     <span id="after_blank">"apple")</span>
-                    <input id="input_text_add" size="2px" class="underline text-center" type="text">                      
+                    <input id="input_text_add" size="1px" class="underline text-center" type="text">                      
                     <span id="after_addblank">"apple")</span>
                 </div>
             </div>
             
             <div class="output_t pb-5">
-                <div class="output-title pl-3 mt-2 mb-2">Output</div>
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2">True</div>
             </div>
@@ -105,7 +103,7 @@
 
         <!--[블록입력형] 틀 구현 -->
         <div id="block" style="height: 50%">
-            <div class="code_background pt-2">
+            <div class="code_background pt-2 pb-2">
                 <div class="ml-2">
                     <span class="bogi"></span>
                 </div>
@@ -122,7 +120,7 @@
             </div>
 
             <div id = "output" class="pb-5">
-                <div class="output-title pl-3 mt-2 mb-2">Output</div>
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2">True</div>
             </div>
@@ -131,12 +129,13 @@
                 <button class="block_btn block1" value="1">235</button>
                 <button class="block_btn block2" value="2">1</button>
                 <button class="block_btn block3" value="3">=</button>
+                <img src="../../static/img/delete.png" class="block_delete" alt="delete"/>
             </div>
         </div>
         
 
         <!-- 제출 part 구현 -->
-        <div id="submit" class="">
+        <div id="submit" class="submit" style="position: absolute; bottom: 0; margin-bottom: 25px; width: 100%;">
             <button type="button" disabled class="btn btn-primary submit_btn">제출하기</button>
         </div>
         
