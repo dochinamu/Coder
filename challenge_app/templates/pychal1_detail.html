@@ -4,21 +4,23 @@
 {% block content %}
 
 <style>
+    * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
+
     .post_title {margin-left: 5%; margin-bottom: 0%;
                 font-size: 20px; font-weight: 700;}
 
-    .post_info  {display: flex;
+    .post_info, .comment_info  {display: flex;
                 flex-direction: row;
                 align-items: center;}
 
-    .post_writer    {margin-left: 8%; margin-right: 6%;
-                    font-size: 16px; font-weight: 700;}
+    .post_writer, .comment_writer    {margin-left: 8%; margin-right: 6%;
+                    font-size: 16px; font-weight: 400;}
 
-    .post_body {margin-left: 8%; margin-top: 0%;
+    .post_body, .comment_body {margin-left: 8%; margin-top: 0%;
                 font-size: 15px; font-weight: 400;
                 color: rgba(0, 0, 0, 0.5);}
 
-    .detail_blog img {margin-left: 8%;}
+    .detail_blog img, .comment img {margin-left: 8%;}
 
     .edit-box   {text-align:right;
                 margin-right: 8%;}
@@ -32,9 +34,43 @@
 
     .comment-topic p    {font-size: 20px; font-weight: 700;}
 
-    textarea    {width: 85%;
-                margin-left: 5%;
-                padding-top: 2%; padding-left: 3%;}
+    form    {height: 153.24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;}
+
+    textarea    {width: 330px; height: 100px;
+                margin-left: 5%; margin-bottom: 0px;
+                padding-top: 2%; padding-left: 20px; padding-right: 0px;
+                border: 2px solid rgba(0, 0, 0, 0.2);}
+
+    .form-down {display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 354px;
+                margin-left: 5%; margin-top: 0px;}
+
+    .form-down1 {width: 250px; height: 35px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                text-align: center;}
+
+    .form-down p    {font-size: 12px; font-weight: 400;
+                    color:rgba(0, 0, 0, 0.6);
+                    margin-left: 3%; margin-top: 7px;}
+
+    .form-down2 {width: 50px; height: 35px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                text-align: center;
+                vertical-align: middle;}
+
+    .form-down2 img {margin-top: 4px;}
+
+    .button {width: 50px; height: 39px;
+            color: white;
+            background-color: grey;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            text-align: center;
+            vertical-align: middle;}
 </style>
 
 
@@ -43,7 +79,7 @@
         <div class="detail_blog">
             <h1 class="post_title">{{ blog_detail.title }}</h1>
             <section class="post_info">
-                <p class="post_writer">{{ blog_detail.author }}</p>
+                <p class="post_writer">{{ blog_detail.author.nickname }}</p>
                 <p class="post_date">{{ blog_detail.date | date:"m.d" }}</p>
             </section>
             {% if blog_detail.photo %}
@@ -61,27 +97,44 @@
 
     <div class="comment-topic">
         <h1>댓글</h1>
-        <p>[ ]</p>
     </div>
     
     <form action="{% url 'pychal1_comment' blog_detail.id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <textarea name="content" id="content" cols="30" rows="5" placeholder="댓글을 입력하세요."></textarea>
-        <p>주제와 무관한 댓글은 삭제될 수 있어요.</p>
-        <input type="file" name="comment_image">
-        <button type="submit">등록</button>
+        <section class="form-down">
+            <article class="form-down1">
+                <p>주제와 무관한 댓글은 삭제될 수 있어요.</p>
+            </article>
+            <article class="form-down2">
+                <label className="input-file-button" for="input-file">
+                    <img src="{% static 'img/image.png' %}" alt="no image" width="25">
+                </label>
+                <input type="file" name="comment_image" id="input-file" style="display:none" onchange="imageView(this);">
+                <script type="text/javascript">
+                    document.getElementById('input-file').addEventListener('change', (e) => {
+                        readImage(e.target);
+                    })
+                </script>
+            </article>
+            <input type="submit" value="등록" class="button">
+        </section>
     </form>
     {% for comment in blog_detail.pychal1_comment_set.all %}
-        <div class="post">
-            <p class="post_writer">{{ comment.author }}</p>
-            <p class="post_date">{{ comment.date | date:"m.d H:i" }}</p>
-            <p class="post_title">{{ comment }}</p></a>
+        <div class="comment">
+            <section class="comment_info">
+                <p class="comment_writer">{{ comment.author.nickname }}</p>
+                <p class="comment_date">{{ comment.date | date:"m.d" }}</p>
+            </section>
             {% if comment.photo %}
                 <img src="{{ comment.photo.url }}" alt="no image" width="300">
             {% endif %}
-            {% if user.username == comment.author.username %}
-                <a href="{% url 'pychal1_del_comment' comment.id %}"><button>삭제하기</button></a>
-            {% endif %}
+            <p class="comment_body">{{ comment }}</p></a>
+            <section class="edit-box">
+                {% if user.username == comment.author.username %}
+                    <a href="{% url 'pychal1_del_comment' comment.id %}">삭제하기</a>
+                {% endif %}
+            </section>
         </div>
     {% endfor %}
 </div>
