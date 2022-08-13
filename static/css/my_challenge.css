@@ -39,9 +39,11 @@ body    {margin: 0px;}
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;}
+            align-items: center;
+            color:black;}
 
-.challenge img  {width: 70%;}
+.challenge-list a  {text-decoration: none;}
+.challenge img  {width: 7%;}
 
 .period {background-color: rgba(0, 0, 0, 0.08);
         border-radius: 4px;

@@ -32,10 +32,15 @@
                         flex-wrap: wrap;}
 
         .badge  {margin: 5%;
-                width: 23%;}
+                width: 23%;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                }
         
         .badge p {text-align: center;
-                line-height: 2px;}
+                line-height: 2px;
+                margin-bottom:1px;}
         
     </style>
 
@@ -68,7 +73,7 @@
                 {% if user.python1_1 or user.python1_2 or user.python1_3 or user.python2_1 or user.python2_2 or user.python2_3 or user.python3_1 or user.python3_2 or user.python3_3 %}
                 <img src="{% static 'img/badge/checked.png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
-                <img src="{% static 'img/badge/padlock.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+                <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% endif %}
                 <p>첫 학습</p>
             </div>
@@ -77,7 +82,7 @@
                 {% if user.python1_1 and user.python1_2 and user.python1_3 and user.python2_1 and user.python2_2 and user.python2_3 and user.python3_1 and user.python3_2 and user.python3_3 %}
                 <img src="{% static 'img/badge/python2.png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
-                <img src="{% static 'img/badge/padlock.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+                <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% endif %}
                 <p>파이썬</p>
                 <p>완료</p>
@@ -88,7 +93,7 @@
                 {% if user.python0 == True %}
                 <img src="{% static 'img/badge/html.png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
-                <img src="{% static 'img/badge/padlock.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+                <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% endif %}
                 <p>HTML</p>
                 <p>완료</p>
@@ -102,7 +107,7 @@
                 {% if user.challenge_join == True %}
                 <img src="{% static 'img/badge/rocket.png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
-                <img src="{% static 'img/badge/padlock.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+                <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% endif %}
                 <p>성공할 분</p>
             </div>
@@ -111,7 +116,7 @@
                 {% if user.challenge_complete == True %}
                 <img src="{% static 'img/badge/success (1).png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
-                <img src="{% static 'img/badge/padlock.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+                <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% endif %}
                 <p>성공한 분</p>
             </div>
@@ -120,7 +125,7 @@
                 {% if user.challenge_complete == True %}
                 <img src="{% static 'img/badge/뱃지_아이스브레이커.png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
-                <img src="{% static 'img/badge/padlock.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
+                <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% endif %}
                 <p>아이스</p>
                 <p>브레이커</p>
