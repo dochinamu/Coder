@@ -53,4 +53,10 @@ def logout(request):
 
 def searchpw(request):
     return render(request, 'searchpw.html')
+
+def account_delete(request):
+    if request.user.is_authenticated:
+        request.user.delete()
+        auth.logout(request) 
+    return redirect('home')
     
