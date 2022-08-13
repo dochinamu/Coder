@@ -7,16 +7,6 @@
 
     a {text-decoration: none; color: black;}
 
-    .week   {display:flex;
-            flex-direction:row;
-            justify-content:space-around;
-            margin-right:2%; margin-left:2%;}
-
-    .day    {display:flex;
-            flex-direction:column;
-            align-items:center;
-            margin-right:2%;}
-
 
     .post-header   {height: 20%;
                     background-color: #666EE8;
@@ -24,64 +14,45 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    margin-top: 5%; margin-bottom: 0%;}
+                    align-items: flex-start;
+                    margin-top: 5%; margin-bottom: 0px;}
 
     .post-header h2 {font-size: 22px; font-weight: 700;
                     margin-top: 5%; margin-bottom: 0%; margin-left: 6%;}
 
     .post-header p {margin-top: 1%; margin-bottom: 7%; margin-left: 6%;}
 
-    .post   {border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-            width: 100%; height: 70px;}
-
-    .post-box   {display: flex;
+    .post-box   {padding: 15px 20px;
+                display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                margin-left: 5%; margin-right: 8%;}
-
-    .post-left {display: flex;
-                flex-direction: column;
-                justify-content: center;}
-
-    .post-topic {display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin-top: 5%; margin-bottom: 5%;
-                font-size: 16px; font-weight: 400;
-                width: 100%; height: 16px;}
-
-    .post_title {margin-right: 2%;}
-
-    .post_comment   {color: #666EE8;
-                    margin-left: 2%;}
-
-    .post-info {display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin-top: 5%; margin-bottom: 5%;
-                font-size: 15px; font-weight: 400;
-                width: 100%; height: 15px;}
-
-    .post_date {width: 20%; margin-left: 15%;}
+                border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+                }
+    
+    .post-box img   {height: 70px; width: 60px;}
+    
+    .post-left p   {margin:0px; padding-bottom: 3px;}
 
     ul {list-style-type: none;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;}
+        align-items: center;
+        padding:0px;}
 
     li {margin: 0px 10px;
         font-size: 15px;}
 
     .current-page {color: blue;}
 
-    .button {font-size: 25px;
+    .button {font-size: 20px;
             color: white;
             background-color: #666EE8;
             border-radius: 4px;
-            width: 90%;
-            float: center;
+            text-align: center;
+            margin:auto;
+            width: 100px;
             padding: 2% 30%;}
 </style>
 
@@ -186,28 +157,21 @@
 
 
     {% for user in users %}
-    <div class="post">
+    
         <a href="{% url 'pychal1_detail' user.id %}">
             <div class="post-box">
                 <section class="post-left">
-                    <article class="post-topic">
-                        <p class="post_title">{{ user.title }}</p>
-                        <p class="post_comment">[ ]</p>
-                    </article>
-                    <article class="post-info">
-                        <p class="post_writer">{{ user.author }}</p>
-                        <p class="post_date">{{ user.date | date:"m.d" }}</p>
-                    </article>
+                    <p class="post-title">{{ user.title }}</p>
+                    <p class="post_writer">{{ user.author.nickname }} &nbsp;&nbsp;&nbsp; {{ user.date | date:"m.d" }}</p>
                 </section>
-                <section class="post-right">
-                    {% if user.photo %}
-                        <img src="{{ user.photo.url }}" alt="no image" height="60">
-                    {% endif %}
-                </section>
+                {% if user.photo %}
+                    <img src="{{ user.photo.url }}" alt="no image" height="70">
+                {% endif %}
             </div>
         </a>
-    </div>
+    
     {% endfor %}
+
 
     {% if users.has_other_pages %}
         <ul class="pagination">
@@ -231,7 +195,7 @@
         </ul>
     {% endif %}
 
-    <a href="{% url 'pychal1_new' %}" class="button" role="button">글 작성하기</a>
+    <a href="{% url 'pychal1_new' %}"><div class="button">글 작성하기</div></a>
 
 </body>
 {% endblock %}

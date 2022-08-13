@@ -5,9 +5,9 @@ from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 import datetime
+from account_app.models import User
 
 def home(request):
-    
 
     try:
         User = get_user_model()

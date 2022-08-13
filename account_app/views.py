@@ -8,10 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-def account(request):
+def account(request): 
     return render(request, 'account.html')
 
-@csrf_exempt
 def signup(request):
     if request.method == 'POST':
         if request.POST['password'] == request.POST['repeat']:
@@ -27,7 +26,6 @@ def signup(request):
     # GET 요청
     return render(request, 'signup.html') 
 
-@csrf_exempt
 def login(request):
     # POST 요청
     if request.method == 'POST':

@@ -122,7 +122,7 @@
             </div>
 
             <div class = "badge">
-                {% if user.challenge_complete == True %}
+                {% if user.first_post == True %}
                 <img src="{% static 'img/badge/뱃지_아이스브레이커.png' %}" alt="badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
                 {% else %}
                 <img src="{% static 'img/badge/padlock_gray.png' %}" alt="no badge" width="70px" height="70px" style="object-fit:cover; border-radius: 100px;">
