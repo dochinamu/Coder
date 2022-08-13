@@ -1,0 +1,107 @@
+
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+
+section   {padding:5%;}
+a   {text-decoration: none;}
+hr  {margin:0px;}
+
+.attend-challenge   {padding-bottom: 0px;}
+.attend-challenge h3 {color: black;}
+.attend-title   {margin-bottom:0px;}
+
+
+.week   {display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        margin-right:2%; margin-left:2%;
+        margin-bottom: 5%;}
+
+.week img  {width:40px; 
+            height:40px; 
+            object-fit:cover;
+            border-radius:100px;}
+
+.day    {display:flex;
+        flex-direction:column;
+        align-items:center;
+        margin-right:2%;}
+
+.day p  {margin-bottom: 0px;}
+
+.challenge-button   {height:18px;}
+
+.my-challenge  {margin-bottom: 0px;
+            margin-top: 0%;
+            display:flex;
+            align-items: baseline;
+            justify-content: space-between;
+            }
+
+.logout {background-color: rgba(0,0,0,80%);}
+.need-login {background-color: #666EE8;
+            border:none;
+            border-radius: 15px;
+            width:90%; height: 80px;}
+
+
+.need-login a   {color:white;
+                font-size: 15px;
+                font-weight: bold;}    
+
+.logout .challenge  {margin-top:0%;}      
+.logout .week   {padding-top: 10px;
+                margin-bottom:0px;}
+
+
+.learning   {background-color: #666EE8;
+            color: white;
+            padding-top: 3%; padding-bottom: 3%;}
+.learning a {color:white;}
+
+.challenge  {padding-top: 0px;}
+.challenge h2   {margin-bottom: 0px;}
+
+.challenge-explain  {font-size: 15px;}
+
+.one-category   {display:flex;
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                margin-top:20px;}
+
+.one-challenge  {color:black;}
+
+.challenge-img  {border-radius: 15px;
+                width: 150px; height: 140px;
+                text-align: center;}
+
+.challenge-title    {font-weight: bold; font-size:large;
+                    margin-bottom: 10px;}
+
+.tag-list   {display:flex;
+            flex-direction: row;
+            }
+
+.tag    {margin-top: 0px; 
+        margin-right: 5px;
+        background-color: rgb(240,240,240);
+        border-radius: 4px;
+        height: 25px;
+        padding:5px;
+        display:flex;
+        justify-content: center;
+        align-items: center;}
+
+.coming-soon {height:130px; margin-top: 10px;}
+
+/* footer  */
+footer  {padding: 5%;
+        background-color: #babdef;
+        margin:0px;}
+
+footer a    {text-decoration: none;
+            color:black;}
+
+footer p    {margin: 0px;}

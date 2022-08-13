@@ -158,10 +158,9 @@ def python1_challenge(request):
                 challenge[0].delete()
                 return redirect('home')
 
-        # 게시글 모두 출력
+        # 게시글 페이지로 나누기
         blogs = PyChal1_Blog.objects.filter().order_by('-date')
         page = request.GET.get('page', 1)
-
         paginator = Paginator(blogs, 3)
         try:
             users = paginator.page(page)
@@ -169,6 +168,11 @@ def python1_challenge(request):
             users = paginator.page(1)
         except EmptyPage:
             users = paginator.page(paginator.num_pages)
+
+#        count_list = []
+#        for user in users:
+#            count = PyChal1_Comment.objects.filter(post=user).count()
+#            count_list.append(count)
 
         return render(request, 'python1_challenge.html', {'challenge': challenge[0],'start_date': start_date, 'finish_date': finish_date, 'blogs': blogs, 'users': users } )
     
@@ -211,7 +215,6 @@ def pychal1_detail(request, blog_id):
 def pychal1_edit(request, blog_id):
     post = get_object_or_404(PyChal1_Blog, pk=blog_id)
     if (request.method == "POST" or request.method == 'FILES'):
-        post = get_object_or_404(PyChal1_Blog, pk=blog_id)
         post.title = request.POST['title']
         post.body = request.POST['body']
         if request.FILES:

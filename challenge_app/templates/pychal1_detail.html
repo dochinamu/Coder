@@ -2,28 +2,68 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+    .post_title {margin-left: 5%; margin-bottom: 0%;
+                font-size: 20px; font-weight: 700;}
+
+    .post_info  {display: flex;
+                flex-direction: row;
+                align-items: center;}
+
+    .post_writer    {margin-left: 8%; margin-right: 6%;
+                    font-size: 16px; font-weight: 700;}
+
+    .post_body {margin-left: 8%; margin-top: 0%;
+                font-size: 15px; font-weight: 400;
+                color: rgba(0, 0, 0, 0.5);}
+
+    .detail_blog img {margin-left: 8%;}
+
+    .edit-box   {text-align:right;
+                margin-right: 8%;}
+
+    .comment-topic {display: flex;
+                    flex-direction: row;
+                    align-items: center;}
+
+    .comment-topic h1   {font-size: 20px; font-weight: 700;
+                        margin-left: 5%; margin-right: 3%;}
+
+    .comment-topic p    {font-size: 20px; font-weight: 700;}
+
+    textarea    {width: 85%;
+                margin-left: 5%;
+                padding-top: 2%; padding-left: 3%;}
+</style>
+
+
 <div class="detail_box">
     <div class="detail_box1">
         <div class="detail_blog">
-            <p class="post_title">{{ blog_detail.title }}</p>
-            <p class="post_writer">{{ blog_detail.author }}</p>
-            <p class="post_date">{{ blog_detail.date | date:"m.d H:i" }}</p>
-        </div>
-        <div>
-            <p>{{ blog_detail.body }}</p>
-        </div>
-        <div>
+            <h1 class="post_title">{{ blog_detail.title }}</h1>
+            <section class="post_info">
+                <p class="post_writer">{{ blog_detail.author }}</p>
+                <p class="post_date">{{ blog_detail.date | date:"m.d" }}</p>
+            </section>
             {% if blog_detail.photo %}
             <img src="{{ blog_detail.photo.url }}" alt="no image" width="300">
             {% endif %}
+            <p class="post_body">{{ blog_detail.body }}</p>
         </div>
-        <div>
+        <div class="edit-box">
             {% if user.is_authenticated and user.username == blog_detail.author.username %}
                 <a href="{% url 'pychal1_edit' blog_detail.id %}">수정하기</a>
                 <a href="{% url 'pychal1_del' blog_detail.id %}">삭제하기</a>
             {% endif %}
         </div>
     </div>
+
+    <div class="comment-topic">
+        <h1>댓글</h1>
+        <p>[ ]</p>
+    </div>
+    
     <form action="{% url 'pychal1_comment' blog_detail.id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <textarea name="content" id="content" cols="30" rows="5" placeholder="댓글을 입력하세요."></textarea>

@@ -12,11 +12,6 @@
             justify-content:space-around;
             margin-right:2%; margin-left:2%;}
 
-    .week img  {width:40px; 
-                height:40px; 
-                object-fit:cover;
-                border-radius:100px;}
-
     .day    {display:flex;
             flex-direction:column;
             align-items:center;
@@ -37,9 +32,10 @@
 
     .post-header p {margin-top: 1%; margin-bottom: 8%; margin-left: 5%;}
 
-    .post {border-bottom: 2px solid rgba(0, 0, 0, 0.05);}
+    .post {border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            height: 5%;}
 
-    .post-box   {width: 90%; height: 10%;
+    .post-box   {width: 90%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -53,27 +49,54 @@
     .post-topic {display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-top: 0%; margin-bottom: 0%;}
+                margin-top: 0%; margin-bottom: 0%;
+                font-size: 16px; font-weight: 400;}
 
     .post-info {display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
                 align-items: center;
-                margin-top: 0%; margin-bottom: 0%;}
+                margin-top: 0%; margin-bottom: 0%;
+                font-size: 15px; font-weight: 400;}
 
-    .post-title {font-size: 18px; font-weight: 400; margin-right: 5%;}
+    .post_comment   {color: #666EE8; margin-left: 5%;}
 
-    .post-comment   {color: #666EE8;}
+    .post_date {width: 20%; margin-left: 15%;}
 
-    .post img {width: 8%; height: 5%;}
+    ul {list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;}
+
+    li {margin: 0px 10px;
+        font-size: 15px;}
+
+    .current-page {color: blue;}
+
+    .button {font-size: 25px;
+            color: white;
+            background-color: #666EE8;
+            border-radius: 4px;
+            width: 90%;
+            float: center;
+            padding: 2% 30%;}
 </style>
 
 
-    <div class="challenge-header">
-        <h2>매일 파이썬 학습하기 </h2>
+<head>
+    <link rel="stylesheet" href="{% static 'css/challenge.css' %}">
+</head>
 
-        <p>기간: {{ start_date }} ~ {{ finish_date }}</p>
+<body>
+
+<section class="header">
+    <div>
+        <h2>매일 파이썬 학습하기</h2>
+        <span class="period">기간: {{ start_date }} ~ {{ finish_date }}</span>
+        <span class="success">챌린지 성공</span> 
     </div>
+    
+</section>
 
     <div class = "week">
         <div class="day">
@@ -157,23 +180,26 @@
 
     {% for user in users %}
     <div class="post">
-        <div class="post-box">
-            <section class="post-left">
-                <article class="post-topic">
-                    <a href="{% url 'pychal1_detail' user.id %}"><p class="post_title">{{ user.title }}</p></a>
-                    <p class="post-comment">[ ]</p>
-                </article>
-                <article class="post-info">
-                    <p class="post_writer">{{ user.author }}</p>
-                    <p class="post_date">{{ user.date | date:"m.d H:i" }}</p>
-                </article>
-            </section>
-            {% if user.photo %}
-                <img src="{{ user.photo.url }}" alt="no image" width="300">
-            {% endif %}
-        </div>
+        <a href="{% url 'pychal1_detail' user.id %}">
+            <div class="post-box">
+                <section class="post-left">
+                    <article class="post-topic">
+                        <p class="post_title">{{ user.title }}</p>
+                        <p class="post_comment">[ ]</p>
+                    </article>
+                    <article class="post-info">
+                        <p class="post_writer">{{ user.author }}</p>
+                        <p class="post_date">{{ user.date | date:"m.d" }}</p>
+                    </article>
+                </section>
+                {% if user.photo %}
+                    <img src="{{ user.photo.url }}" alt="no image" height="70">
+                {% endif %}
+            </div>
+        </a>
     </div>
     {% endfor %}
+
     {% if users.has_other_pages %}
         <ul class="pagination">
             {% if users.has_previous %}
@@ -183,7 +209,7 @@
             {% endif %}
             {% for i in users.paginator.page_range %}
                 {% if users.number == i %}
-                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                    <li class="active"><span class="current-page">{{ i }}</span></li>
                 {% else %}
                     <li><a href="?page={{ i }}">{{ i }}</a></li>
                 {% endif %}
@@ -195,6 +221,8 @@
             {% endif %}
         </ul>
     {% endif %}
-    <a href="{% url 'pychal1_new' %}" class="button" role="button" data-bs-toggle="button">글 작성하기</a>
 
+    <a href="{% url 'pychal1_new' %}" class="button" role="button">글 작성하기</a>
+
+</body>
 {% endblock %}

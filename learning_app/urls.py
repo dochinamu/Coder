@@ -14,7 +14,7 @@ urlpatterns = [
 
 
    path('python1/python1_1', python1_1, name="python1_1"),
-   path('python1/complete.html', python1_1_complete, name="python1_1_complete"),
+   path('python1/complete_p1_1.html', python1_1_complete, name="python1_1_complete"),
    path('python1/python1_1/finish', python1_1_finish, name="python1_1_finish"),
    
    path('python1/python1_2', python1_2, name="python1_2"),

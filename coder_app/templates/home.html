@@ -2,87 +2,12 @@
 
 {% block content %}
 {% load static %}
-    
-<style>
-    section   {padding:5%;}
-    a   {text-decoration: none;}
 
-    .attend-challenge h3 {margin-bottom:0px; color: black;}
-    
+<head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"></head>
+</head>
 
-    .week   {display:flex;
-            flex-direction:row;
-            justify-content:space-around;
-            margin-right:2%; margin-left:2%;}
-
-    .week img  {width:40px; 
-                height:40px; 
-                object-fit:cover;
-                border-radius:100px;}
-    
-    .day    {display:flex;
-            flex-direction:column;
-            align-items:center;
-            margin-right:2%;}
-    
-    .my-challenge  {margin-bottom: 0px;
-                margin-top: 5%;
-                display:flex;
-                align-items: baseline;
-                justify-content: space-between;}
-    
-    .logout {background-color: rgba(0,0,0,80%);}
-    .need-login {background-color: rgb(98,118,222);
-                border:none;
-                border-radius: 15px;
-                width:90%; height: 80px;}
-    .need-login a   {color:white;
-                    font-size: 15px;
-                    font-weight: bold;}            
-    .logout .challenge  {margin-top:0%;}      
-    
-    .learning   {background-color: rgb(98,118,222);
-                color: white;}
-    .learning a {color:white;}
-    
-    .challenge-category {display:flex;
-                        flex-direction: row;
-                        justify-content: space-around;}
-    .challenge-explain  {font-size: 15px;}
-
-    .challenge-category p   {margin-bottom: 0px;}
-    .selected-category  {background-color:rgb(98,118,222);
-                        border-radius: 15px;
-                        width:75px; height:25px;
-                        text-align: center;
-                        color:white;}
-
-    .one-category   {display:flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    flex-wrap: wrap;}
-    
-    .one-challenge  {color:black;}
-
-    .challenge-img  {border-radius: 15px;
-                    width: 150px; height: 100px;
-                    text-align: center;}
-    
-    .challenge-title    {font-weight: bold; font-size:large;}
-
-    .tag-list   {display:flex;
-                flex-direction: row;
-                flex-wrap: wrap;}
-    
-    .tag    {margin-top: 0px; 
-            margin-right: 5px;
-            background-color: #D4D4D4;
-            border-radius: 4px;
-            width:fit-content; height: 25px;
-            padding:5px;}
-
-    
-</style>
+<body>
 
 {% if user.is_authenticated %}
 <section class = "attend-challenge login">
@@ -90,7 +15,7 @@
     <div class = "week">
         {% for key,value in weekdays.items %}
         <div class="day">
-            <h3>{{ key }}</h3>
+            <p>{{ key }}</p>
             {% if value == 'attend' %}
                 <img src="{% static 'img/check_yes.jpg' %}">
             {% elif value == 'no_check' %}
@@ -102,9 +27,11 @@
         {% endfor %}
     </div>
     
+    <hr>
+
     <a href = "{% url 'my_challenge' %}"><div class = "my-challenge">
-        <h3>참가 중인 챌린지</h3>
-        <h3 class = "challenge-number">{{ challenge }} 개</h3>
+        <h3>참가 중인 챌린지 {{ challenge }} 개</h3>
+        <img class = "challenge-button" src="{% static 'img/move3.png' %}" alt="화살표">
     </div></a>
 </section>
 
@@ -114,33 +41,23 @@
     <div class="week">
         <button class="need-login"><a href="{% url 'login' %}">로그인이 필요합니다</a></button>
     </div>
+    
     <div class = "my-challenge">
-        <h3>참가 중인 챌린지</h3>
-        <h3 class = "challenge-number">0개</h3>
+        <h3>참가 중인 챌린지 &nbsp; 0개</h3>
     </div>
 </section>
 {% endif %}
 
 
-<section class = "learning">
-    <a href="{% url 'learning' %}"><h2>데일리 코딩</h2></a>
+<a href="{% url 'learning' %}"><section class = "learning">
+    <h2>데일리 코딩</h2>
     <p>매일매일 꾸준히 하는 코딩학습</p>
-</section>
+</section></a>
 
 <section class="challenge">
     <h2>챌린지</h2>
     <p class="challenge-explain">동일한 학습목표를 갖고 있는 사람들과 함께 공부해요!</p>
-
-
-    <div class="challenge-category">
-        <a href="{% url 'home' %}"><p class="selected-category">python</p></a>
-        <p>HTML</p>
-        <p>CSS</p>
-        <p>JAVA</p>
-        <p>출석</p>
-    </div>
-    <hr>
-
+    
     <div class = "one-category">
         
             <a href="{% url 'python1_explain' %}"><article class = "one-challenge"> 
@@ -152,19 +69,21 @@
                 </div>
             </article></a>
 
-            <a href=""><article class = "one-challenge"> 
-                <img src="{% static 'img/attend1_challenge.png' %}" class="challenge-img" alt="출석 챌린지1">
-                <p class="challenge-title">매일 출석하기</p>
-                <div class="tag-list">
-                    <p class = "tag">매일</p>
-                    <p class = "tag">2주간</p>
-                </div>
-            </article></a>
+            <article class = "one-challenge"> 
+                <img src="{% static 'img/coming-soon.png' %}" class="challenge-img coming-soon" alt="coming soon">
+                
+            </article>
         
     </div>
 
 </section>
 
+<footer>
+    <a href="https://co-der.notion.site/">코더 서비스 소개 (co-der.notion.site) </a>
+    <p>문의 :  카카오톡 채널 @coder</p>
+</footer>
+
+</body>
 
 
 {% endblock %}

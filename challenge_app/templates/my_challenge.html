@@ -1,26 +1,43 @@
-{% extends 'base.html' %}
+
 {% load static %}
 
-{% block content %}
-<style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <title>나의 챌린지</title>
+    
+    <link rel="stylesheet" href="{% static 'css/my_challenge.css' %}">
+</head>
 
-</style>
+<body>
+    
+<header class = "header">
+    <a href="{% url 'home' %}"><img src="{% static 'img/전으로 이동_2.png' %}" alt="move"></a>
+    <h2>나의 챌린지</h2>
+</header>
 
+<section class = category>
+    <a href = "{% url 'my_challenge' %}" class="selected"><h3>진행중</h3></a>
+    <a href="{% url 'my_challenge_complete' %}" class="unselected"><h3>성공목록</h3></a>
+</section>
 
-<h2>나의 챌린지</h2>
-<a href = "{% url 'my_challenge' %}"><h2>진행중</h2></a>
-{% if py1 %}
-    {% if not py1.complete%}
-    <article>
-        <a href = "{% url 'python1_challenge' %}">매일 파이썬 학습하기</a>
-        <p>기간: {{ py1_start }} ~ {{ py1_finish }}</p>
-    </article>
+<section class = "challenge-list">
+    {% if py1 %}
+        {% if not py1.complete%}
+        <article class = "challenge">
+            <div class = "explain">
+            <h3 class="title">매일 파이썬 학습하기</h3>
+            <p class="period">기간: {{ py1_start }} ~ {{ py1_finish }}</p>
+            </div>
+            <a href = "{% url 'python1_challenge' %}"><img src="{% static 'img/move3.png' %}" alt="move"></a>
+        </article>
+        {% endif %}
     {% endif %}
-{% endif %}
+</section>
+
+</body>
 
 
-<a href="{% url 'my_challenge_complete' %}"><h2>성공목록</h2></a>
 
-
-
-{% endblock %}
