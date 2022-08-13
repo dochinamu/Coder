@@ -9,6 +9,7 @@ from django.utils import timezone
 import datetime
 from datetime import date, timedelta, datetime
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # 나의 챌린지 (진행 중인 챌린지)
 @login_required(login_url='/account/login/')
@@ -159,8 +160,17 @@ def python1_challenge(request):
 
         # 게시글 모두 출력
         blogs = PyChal1_Blog.objects.filter().order_by('-date')
+        page = request.GET.get('page', 1)
 
-        return render(request, 'python1_challenge.html', {'challenge': challenge[0],'start_date': start_date, 'finish_date': finish_date, 'blogs': blogs} )
+        paginator = Paginator(blogs, 3)
+        try:
+            users = paginator.page(page)
+        except PageNotAnInteger:
+            users = paginator.page(1)
+        except EmptyPage:
+            users = paginator.page(paginator.num_pages)
+
+        return render(request, 'python1_challenge.html', {'challenge': challenge[0],'start_date': start_date, 'finish_date': finish_date, 'blogs': blogs, 'users': users } )
     
     # 사용자 미참가 상태
     # 참가시키기(객체 생성) + 챌린지 페이지로 이동 
@@ -184,7 +194,8 @@ def pychal1_new(request):
         post = PyChal1_Blog()
         post.title = request.POST['title']
         post.body = request.POST['body']
-        post.photo = request.FILES['blog_image']
+        if request.FILES:
+            post.photo = request.FILES['blog_image']
         post.author = request.user
         post.date = timezone.now()
         post.save()
@@ -198,16 +209,18 @@ def pychal1_detail(request, blog_id):
 
 # 글 수정
 def pychal1_edit(request, blog_id):
+    post = get_object_or_404(PyChal1_Blog, pk=blog_id)
     if (request.method == "POST" or request.method == 'FILES'):
         post = get_object_or_404(PyChal1_Blog, pk=blog_id)
         post.title = request.POST['title']
         post.body = request.POST['body']
-        post.photo = request.FILES['blog_image']
+        if request.FILES:
+            post.photo = request.FILES['blog_image']
         post.author = request.user
         post.date = timezone.now()
         post.save()
         return redirect('pychal1_detail', blog_id)
-    return render(request, 'pychal1_edit.html')
+    return render(request, 'pychal1_edit.html', {'post': post})
 
 # 글 삭제
 def pychal1_del(request, blog_id):
