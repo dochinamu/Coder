@@ -94,7 +94,6 @@ def mypage(request, user_id):
     return render(request, 'mypage.html', {'weekdays': weekdays, 'python_per':python_per})
 
 
-@csrf_exempt
 @login_required(login_url='/account/login/')
 def update_mypage(request):
     user = request.user

@@ -184,10 +184,13 @@ def pychal1_new(request):
         post = PyChal1_Blog()
         post.title = request.POST['title']
         post.body = request.POST['body']
-        post.photo = request.FILES['blog_image']
         post.author = request.user
         post.date = timezone.now()
-        post.save()
+        try:
+            post.photo = request.FILES['blog_image']
+            post.save()
+        except:
+            post.save()
         return redirect('python1_challenge')
     return render(request, 'pychal1_new.html')
 
@@ -198,16 +201,19 @@ def pychal1_detail(request, blog_id):
 
 # 글 수정
 def pychal1_edit(request, blog_id):
+    post = get_object_or_404(PyChal1_Blog, pk=blog_id)
     if (request.method == "POST" or request.method == 'FILES'):
-        post = get_object_or_404(PyChal1_Blog, pk=blog_id)
         post.title = request.POST['title']
         post.body = request.POST['body']
-        post.photo = request.FILES['blog_image']
         post.author = request.user
         post.date = timezone.now()
-        post.save()
+        try:
+            post.photo = request.FILES['blog_image']
+            post.save()
+        except:
+            post.save()
         return redirect('pychal1_detail', blog_id)
-    return render(request, 'pychal1_edit.html')
+    return render(request, 'pychal1_edit.html', {'post': post})
 
 # 글 삭제
 def pychal1_del(request, blog_id):
