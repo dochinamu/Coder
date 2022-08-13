@@ -15,19 +15,25 @@
 </head>
 
 <body>
+    <!-- Header 구현 -->
+    <header class="header pt-2 pb-2">
+        <div class="start-header">
+            <a href = "{% url 'detail_python1' %}">
+                <img src="../../static/img/전으로 이동.png" class="back_button" alt=back/>
+            </a>
+        </div>
+        <div class="main-text-container">변수 사용하기_표현식과 숫자형</div>
+        <div class="end-header"></div>
+    </header>
+
     <article class="explanation">
-        <!-- Header 구현 -->
-        <header class="question_header pt-2">
-            <button class="back_button">&#60;=</button>
-            <p class="head_text">변수 사용하기_표현식과 숫자형</p>
-        </header>
             <!-- progress bar 구현 -->
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: calc(100/12*0%)"></div>
+            <div class="progress-bar  bg-success" role="progressbar" style="width: calc(100/12*0%)"></div>
         </div>
         <!-- explain part 구현 -->
-        <div class="explain" style="height: 50%;">
-            <div class="mt-5 ml-4 mr-5">
+        <div class="explain" style="height: 70vh;">
+            <div class="mt-5 ml-4 mr-4 mb-5">
                 <p class="explain_text">파이썬에는 다양한 자료형이 있어요. 그 중 숫자형을 사용하면 간단한 사칙연산(+, -, *, /)을 간편하게 할 수 있어요.</p>
                 <p class="explain_text pt-3">또 다른 자료형인 문자열에서도 +(더하기)를 사용할 수 있는데, 기능이 숫자형과는 약간은 다르답니다. 이번 시간엔 이 둘이 어떻게 다른지 알아보도록 해요!</p>
                 <p class="explain_text pt-3">(더 많은 자료형에 대해선 이어지는 Currri2에서 배울 거예요!)</p>
@@ -35,21 +41,16 @@
         </div>
 
         <!-- 다음으로 part 구현 -->
-        <div id="next" class="">
+        <div id="next" class="" style="position: fixed; bottom: 0; margin-bottom: 25px; width: 90%; margin-left: 5%;">
             <!-- 값 유무에 따른 활성화/비활성화 구분 필요 -->
             <button type="button" class="btn btn-primary first_next_btn">다음으로</button>
         </div>
     </article>
 
     <article class="question">
-        <!-- Header 구현 -->
-       <header class="question_header pt-2">
-            <button class="back_button">&#60;=</button>
-            <p class="head_text">변수 사용하기_표현식과 숫자형</p>
-        </header>
         <!-- progress bar 구현 -->
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: calc(100/12*0%)"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: calc(100/12*0%)"></div>
         </div>
         <!-- quiz part 구현 -->
         <div class="quiz">
@@ -67,31 +68,39 @@
 
         <!-- [객관식형] 틀 구현 -->
         <div id="multiple" class="choice_num4">
-            <div class="code_background pt-4 pl-3">
+            <div class="code_background pt-2 pl-2">
                 <span id="default_code">기존코드</span>
+            </div>
+            <div class="output_m mb-3">
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
+                <hr class="line mt-0 mb-0"/>
+                <div class="output-code pl-3 pt-2">True</div>
             </div>
             <div class="flex-column ml-4 mr-4 mt-3">
             <button value=1 type="button" id="choice1" class="choice_btn btn btn-light text-left">선지1</button>
             <button value=2 type="button" id="choice2" class="choice_btn btn btn-light text-left">선지2</button>
-            <!-- <button value=3 type="button" id="choice3" class="choice_btn btn btn-light text-left">선지3</button>
-            <button value=4 type="button" id="choice4" class="choice_btn btn btn-light text-left">선지4</button> -->
             </div>
         </div>
 
         <!-- [타이핑형] 틀 구현 -->
         <div id="typing">
-            <div class="code_background pl-3">
-            <div class="code pt-3">
+            <div class="code_background pt-2 pb-2">
+            <div class="code pl-2">
                 <span id="pre_blank">print("apple"</span>
-                <input id="input_text" size="2px" class="underline text-center" type="text">                      
+                <input id="input_text" size="1px" class="underline text-center" type="text">                      
                 <span id="after_blank">"apple")</span>
             </div>
+        </div>
+        <div class="output_t pb-5">
+            <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
+            <hr class="line mt-0 mb-0"/>
+            <div class="output-code pl-3 pt-2">True</div>
         </div>
     </div>
 
         <!--[블록입력형] 틀 구현 -->
         <div id="block">
-            <div class="code_background pt-2">
+            <div class="code_background pt-2 pb-2">
                 <div class="ml-2">
                     <span class="bogi"></span>
                 </div>
@@ -106,15 +115,22 @@
                 <span class="bogi5"></span>
 
             </div>
+            <div id = "output" class="pb-5">
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
+                <hr class="line mt-0 mb-0"/>
+                <div class="output-code pl-3 pt-2">True</div>
+            </div>
             <div class="blocks mt-5 ml-2 mr-2">
                 <button class="block_btn block1" value="1">-</button>
                 <button class="block_btn block2" value="2">+</button>
                 <button class="block_btn block3" value="3">*</button>
+                <img src="../../static/img/delete.png" class="block_delete" alt="delete"/>
+                
             </div>
         </div>
 
         <!-- 제출 part 구현 -->
-        <div id="submit" class="">
+        <div id="submit" class="submit" style="position: absolute; bottom: 0; margin-bottom: 25px; width: 100%;">
             <button type="button" disabled class="btn btn-primary submit_btn">제출하기</button>
         </div>
 

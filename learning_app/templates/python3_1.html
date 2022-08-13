@@ -15,20 +15,26 @@
 </head>
 
 <body>
-
-    <article class="question">
+    <article class="question3-1" sytle="display: block;">
         <!-- Header 구현 -->
-       <header class="question_header pt-2">
-            <button class="back_button">&#60;</button>
-            <p class="head_text">문자열 포맷팅</p>
-        </header>
+        <div class="header pt-2 pb-2">
+            <div class="start-header">
+                <a href = "{% url 'detail_python3' %}">
+                <img src="../../static/img/전으로 이동.png" class="back_button" alt=back/>
+                </a>
+            </div>
+            <div class="main-text-container">문자열 포맷팅</div>
+            <div class="end-header"></div>
+
+        </div>
+        
         <!-- progress bar 구현 -->
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: calc(100/12*0%)"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: calc(100/12*0%)"></div>
         </div>
         <!-- quiz part 구현 -->
         <div class="quiz">
-            <div class="mt-4 ml-4 mr-4">
+            <div class="mt-3 ml-4 mr-4">
                 <p id=text1 class="quiz_text"></p>
                 <p id=text2 class="quiz_text"></p>
             </div>
@@ -42,11 +48,11 @@
 
         <!-- [객관식형] 틀 구현 -->
         <div id="multiple" class="choice_num4">
-            <div class="code_background pt-4 pl-3">
+            <div class="code_background pt-2 pl-2">
                 <span id="default_code">기존코드</span>
             </div>
             <div class="output_m mb-3">
-                <div class="output-title pl-2 mt-2 mb-2">Output</div>
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2">True</div>
             </div>
@@ -60,15 +66,15 @@
 
         <!-- [타이핑형] 틀 구현 -->
         <div id="typing">
-            <div class="code_background pl-3">
-                <div class="code pt-3">
+            <div class="code_background pt-2">
+                <div class="code pl-2">
                     <span id="pre_blank"></span>
                     <input id="input_text" size="1px" class="underline text-center" type="text">                      
                     <span id="after_blank"></span>
                 </div>
             </div>
             <div class="output_t pb-5">
-                <div class="output-title pl-3 mt-2 mb-2">Output</div>
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2">True</div>
             </div>
@@ -81,7 +87,7 @@
                     <span class="bogi"></span>
                 </div>
                 <span class="bogi2 ml-2 mb-2"></span>
-                <input id="input_text1" readonly size="1px" value="" class="underline text-center" type="text" placeholder="">
+                <input id="input_text1" readonly size="1" value="" class="underline text-center" type="text" placeholder="">
                 <span class="bogi3"></span>
 
                 <input id="input_text2" readonly size="1px" value="" class="underline text-center" type="text" placeholder="">
@@ -92,25 +98,27 @@
 
             </div>
             <div id = "output" class="pb-5">
-                <div class="output-title pl-3 mt-2 mb-2">Output</div>
+                <div class="output-title pl-3 mt-2 mb-2">Terminal</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2 pr-3">True</div>
             </div>
             <div class="blocks mt-5 ml-2 mr-2">
+                <!--  style="font-size: 22px; padding-top: 0; padding-bottom: 0; padding-left: 15px; padding-right: 15px; font-weight: 400;" -->
                 <button class="block_btn block1" value="1"></button>
                 <button class="block_btn block2" value="2"></button>
                 <button class="block_btn block3" value="3"></button>
+                <img src="../../static/img/delete.png" class="block_delete" alt="delete"/>
             </div>
         </div>
-
+        
         <!-- 제출 part 구현 -->
-        <div id="submit" class="">
+        <div id="submit" class="submit" style="position: absolute; bottom: 0; margin-bottom: 25px; width: 100%;">
             <button type="button" disabled class="btn btn-primary submit_btn">제출하기</button>
         </div>
 
         <!-- 정답 화면 구현 -->
         <div id="correct" class="correct">
-            <p class="text-center">정답입니다!</p>
+            <p class="text-center result_text">정답입니다!</p>
             <div class="flex-row">
             <button type="button" class="btn btn-primary correct_btn">다음으로</button>
             </div>
@@ -118,9 +126,9 @@
         
         <!-- 오답 화면 구현 -->
         <div id="not_correct" class="not_correct ">
-            <p class="text-center">오답입니다</p>
+            <p class="text-center result_text">오답입니다</p>
             <div class="flex-row">
-                <button type="button" class="btn btn-secondary skip_btn">skip</button>
+                <button type="button" class="btn btn-secondary skip_btn">Skip</button>
                 <button type="button" class="btn btn-primary retry_btn">재도전</button>
             </div>
         </div>

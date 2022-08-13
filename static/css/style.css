@@ -1,18 +1,59 @@
+/* @font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 700;
+    src: local('Spoqa Han Sans Bold'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansBold.woff2') format('woff2'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansBold.woff') format('woff'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 400;
+    src: local('Spoqa Han Sans Regular'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansRegular.woff2') format('woff2'),
+    url('../fonts/spoqa-han-sans/SpoqaHanSans/SpoqaHanSansRegular.woff') format('woff'),
+    url('../fonts/spoqa-han-sans/SpoqaHanSans/SpoqaHanSansRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 300;
+    src: local('Spoqa Han Sans Light'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansLight.woff2') format('woff2'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansLight.woff') format('woff'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 100;
+    src: local('Spoqa Han Sans Thin'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansThin.woff2') format('woff2'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansThin.woff') format('woff'),
+    url('../fonts/SpoqaHanSans/SpoqaHanSansThin.ttf') format('truetype');
+} */
+/* @import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; } */
 * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+
 html, body, .question, .explanation {
     height: 100%;
+  }
+  * {
+    font-size: 20px;
   }
 
 article {
     display: flex;
     flex-direction: column;
 }
-.explanation{
-    /* display: none; */
-}
+/* .explanation{
+    display: none;
+} */
 .explain {
-    background-color: black;
-    height: 45%;
+    background-color: #343E56;
+    height: 45vh;
 }
 
 .explain_text {
@@ -22,40 +63,84 @@ article {
 .question{
     display: none;
 }
-.question_header {
+/* .question_header {
+    top: 0;
+    height: 15vh;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     position: relative;
-    background-color: #6E84DD;
+    background-color: #666EE8;
+}
+.back_button_div{
+    height: 100%;
+} */
+/* 
+.head_text {
+ font-size: 22px;
+ color: aliceblue;
+ height: 90%;
+} */
+
+.header {
+display: flex;
+align-items: center;
+justify-content: center;
+top: 0;
+height: 7vh;
+background-color: #666EE8
 }
 
+.start-header {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
 .back_button {
-    position: absolute;
+    top: 0;
     cursor: pointer;
-    background-color: #6E84DD;
     border-width: 0;
     left: 0;
-    font-size: 20px;
-    color: rgb(219, 215, 215);
+    height: 4vh;
 }
 
-.head_text {
- font-size: 20px;
- color: aliceblue;
+.main-text-container {
+    font-size: 22px;
+    color: aliceblue;   
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.end-header {
+flex: 1;
+}
+
+
+/* 프로그레스 */
 .progress {
     border-radius: 0;
+    background-color: #FFFFFF;
 }
+/* 질문 */
 .quiz {
-    background-color: black;
-    height: 25%;
+    background-color: #343E56;
+    min-height: 25vh;
 }
-
+.highlight_text {
+    background-color: white;
+    color: black;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 
 .quiz_text {
     color: aliceblue;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 #multiple {
@@ -64,8 +149,8 @@ article {
 }
 
 .file_name {
-    background-color: #292D79;
-    
+    background-color: #666EE8;
+    font-size: smaller;
 }
 .btn:focus{
     outline: none;
@@ -84,9 +169,8 @@ article {
     display: none;
 }
 
-#block {
-    /* display: none; */
-}
+
+
 
 .underline {
     background-color: #F2F2F2;
@@ -98,13 +182,6 @@ article {
 
 .text-blue {color: rgb(60, 95, 212)};
 
-#submit {
-    /* 왜 가운데 정렬 안 되는 거닝닝 */
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 25px;
-    width: 100%;
-}
 
 #next{
     position: fixed;
@@ -115,7 +192,7 @@ article {
 }
 .first_next_btn {
     width: 100%;
-    background-color: #6E84DD;
+    background-color: #666EE8;
     border: 1.5px solid rgb(170, 170, 170);
     font-size: 17px;
 }
@@ -128,6 +205,10 @@ article {
     width: 90%;
     margin-left: 5%;
 }
+.result_text {
+    color: #666EE8;
+    font-size: larger;
+}
 
 .center {
     display: flex;
@@ -138,7 +219,7 @@ article {
 .submit_btn, .correct_btn {
     width: 90%;
     margin-left: 5%;
-    background-color: #6E84DD;
+    background-color: #666EE8;
     border: 1.5px solid rgb(170, 170, 170);
     font-size: 17px;
 }
@@ -146,27 +227,50 @@ article {
     width: 100%;
     margin-left: 0;
 }
+.btn-primary{
+    font-size: 20px;
+}
 
 #block {
-    height: 50%;
+    height: 50vh;
+}
+.block_btn {
+    font-size: 22px; 
+    padding-top: 0; 
+    padding-bottom: 0; 
+    padding-left: 15px; 
+    padding-right: 15px; 
+    font-weight: 400;
 }
 
 .code_background {
     background-color: #F2F2F2;
-    height: 35%
+    min-height: 30%;
+}
+#output {
+    height: 20%;
+    display: none;
+}
+.output-title {
+ color: gray;
+ font-weight: 400;   
+}
+
+.line {
 }
 
 .blocks {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    height: 20%;
 }
 
 .block_btn {
     color: white;
     border: 1.5px solid rgb(170, 170, 170);
     border-radius: 8px;
-    background-color: #6E84DD;
+    background-color: #666EE8;
     font-size: 15px;
     padding-left: 20px;
     padding-right: 20px;
@@ -181,6 +285,13 @@ article {
     box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
     position: relative;
     top:2px; 
+}
+.block_delete {
+    width: 35px;
+}
+.block_delete:active {
+    position: relative;
+    top:2px;
 }
 
 .flex-row {
@@ -203,19 +314,30 @@ article {
 
 
 .skip_btn{
-    background-color: gray;
+    background-color: #A6A6A6;
 }
 .retry_btn{
-    background-color: #6E84DD;
+    background-color: #666EE8;
 }
 .bogi {
-    line-height: 175%
+    line-height: 150%;
+    size: 22px;
+}
+.bogi2 {
+    line-height: 150%;
+    size: 22px;
 }
 .bogi3{
-    line-height: 175%;
+    line-height: 150%;
+    size: 22px;
+}
+.bogi4{
+    line-height: 150%;
+    size: 22px;
 }
 .bogi5{
     line-height: 175%;
+    size: 22px;
 }
 
 /* complete */
@@ -236,9 +358,9 @@ article {
     width: 100%;
   }
   .subInfo {
-    color: rgb(180, 180, 180);
-    font-weight: 400;
-    font-size: 12px;
+    color: black;
+    font-weight: 600;
+    font-size: 15px;
   }
   .complete_button {
     margin-top: 3px;
@@ -255,5 +377,41 @@ article {
     top:2px; 
 }
 
-a {text-decoration: none;
-  color: white;}
+/* Project형 explain 구현 */
+.small_project {
+    height: 40%;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project_button1 {
+    cursor: pointer;
+    background-color: #666EE8;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-width: 0;
+    left: 0;
+    font-size: 20px;
+    color: #F2F2F2;
+}
+
+.project_button2 {
+    display: none;    
+    cursor: pointer;
+    background-color: #666EE8;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-width: 0;
+    left: 0;
+    font-size: 18px;
+    color: #F2F2F2;
+}
+.block_btn:active {
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+    position: relative;
+    top:2px; 
+}
