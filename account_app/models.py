@@ -10,6 +10,7 @@ class User(AbstractUser):
     profile_message = models.TextField(max_length=200, default='', blank=True, null=True)
     challenge_join = models.BooleanField(default=False)
     challenge_complete = models.BooleanField(default=False)
+    first_post = models.BooleanField(default=False)
     
     python0 = models.BooleanField(default=False)
     python1 = models.BooleanField(default=False)
@@ -28,6 +29,8 @@ class User(AbstractUser):
     python3_2 = models.BooleanField(default=False)
     python3_3 = models.BooleanField(default=False)
     
+    def __str__(self):
+        return self.username + ' ' + str(self.phone_number)
 
 class Attend(models.Model):
     attender = models.ForeignKey(User, on_delete=models.CASCADE)

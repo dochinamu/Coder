@@ -190,7 +190,18 @@ def python1_challenge(request):
         user.challenge_join = True
         user.save()
 
-        return render(request, 'python1_challenge.html', {'challenge': new_challenge, 'start_date': start_date, 'finish_date': finish_date} )
+        # 게시글 페이지로 나누기
+        blogs = PyChal1_Blog.objects.filter().order_by('-date')
+        page = request.GET.get('page', 1)
+        paginator = Paginator(blogs, 3)
+        try:
+            users = paginator.page(page)
+        except PageNotAnInteger:
+            users = paginator.page(1)
+        except EmptyPage:
+            users = paginator.page(paginator.num_pages)        
+
+        return render(request, 'python1_challenge.html', {'challenge': new_challenge, 'start_date': start_date, 'finish_date': finish_date, 'blogs': blogs, 'users': users} )
 
 # 새 글 작성
 def pychal1_new(request):
@@ -203,6 +214,10 @@ def pychal1_new(request):
         post.author = request.user
         post.date = timezone.now()
         post.save()
+        # 아이스브레이커 뱃지용 
+        user = request.user 
+        user.first_post = True
+        user.save()
         return redirect('python1_challenge')
     return render(request, 'pychal1_new.html')
 
