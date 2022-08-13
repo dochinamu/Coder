@@ -2,28 +2,21 @@
 {% load static %}
 
 {% block content %}
-<style>
-    .week   {display:flex;
-            flex-direction:row;
-            justify-content:space-around;
-            margin-right:2%; margin-left:2%;}
 
-    .week img  {width:40px; 
-                height:40px; 
-                object-fit:cover;
-                border-radius:100px;}
+<head>
+    <link rel="stylesheet" href="{% static 'css/challenge.css' %}">
+</head>
 
-    .day    {display:flex;
-            flex-direction:column;
-            align-items:center;
-            margin-right:2%;}
-</style>
+<body>
 
-
-<h2>매일 파이썬 학습하기 </h2>
-
-<p>기간: {{ start_date }} ~ {{ finish_date }}</p>
-
+<section class="header">
+    <div>
+        <h2>매일 파이썬 학습하기</h2>
+        <span class="period">기간: {{ start_date }} ~ {{ finish_date }}</span>
+        <span class="success">챌린지 성공</span> 
+    </div>
+    
+</section>
 
     <div class = "week">
         <div class="day">
@@ -117,4 +110,5 @@
     {% endfor %}
     <a href="{% url 'pychal1_new' %}" class="button" role="button" data-bs-toggle="button">글 작성하기</a>
 
+</body>
 {% endblock %}

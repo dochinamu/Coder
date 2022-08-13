@@ -32,7 +32,7 @@ def python1_1(request):
 
 @login_required(login_url='/account/login/')
 def python1_1_complete(request):
-    return render(request, 'complete.html')
+    return render(request, 'complete_p1_1.html')
 
 @login_required(login_url='/account/login/')
 def python1_1_finish(request):

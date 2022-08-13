@@ -1,0 +1,52 @@
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+body    {margin: 0px;}
+            
+.header {display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 0px;
+        }
+        
+.header h2  {font-weight: 500;}
+
+.header img {width: 12px; height: 25px;
+            margin: 0px 20px;}
+
+.category   {display: flex;
+            flex-direction: row;
+            padding: 0px;
+            }
+        
+.category a    {flex-basis: 50%;
+                text-align: center;
+                text-decoration: none;
+                border-top: 3px solid rgba(0, 0, 0, 0.08); }
+
+.category h3    {padding:0px;
+                margin: 10px;
+                font-weight: 500;}
+
+.selected   {border-bottom: 3px solid black;
+            color: black;}
+.unselected {border-bottom: 3px solid rgba(0, 0, 0, 0.08);
+            color: rgba(0, 0, 0, 0.3);}
+
+.challenge  { padding: 10px 30px;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;}
+
+.challenge img  {width: 70%;}
+
+.period {background-color: rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        padding: 3px;
+        margin-top: 10px;}
+
+.title  {margin-bottom: 10px;
+        font-weight: 500;}

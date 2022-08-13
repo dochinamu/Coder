@@ -1,34 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+<head>
+        <link rel="stylesheet" href="{% static 'css/account_form.css' %}">
+</head>
 
-<style>
-    .form-section   {display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;}
-    
-    h1  {margin-top: 10%; margin-bottom: 10%;}
-    form    {display:flex;
-            flex-direction: column;}
-    input   {width: 250px;
-            height: 40%;
-            border: gray 3px solid;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 15px;
-            background-color: #fafafa;
-            }
-  
-    .submit-button   {font-size: 15px;
-                    color: white;
-                    background-color: rgb(98,118,222);
-                    border:none;
-                    width: 275px;}
 
-    
-</style>
-
+<body>
 
 <secton class="form-section">
 <h1>로그인</h1>
@@ -36,8 +15,7 @@
     {% csrf_token %}
     <input type="text" name="username" required placeholder="아이디" id = "id-input"><br>
     <input type="password" name="password" required placeholder="비밀번호">
-    <p id = "serch-pw"><a href = "{% url 'searchpw' %}">비밀번호를 잊으셨나요?</a></p>
-    <input type="button" onclick="login()" value="로그인" class="submit-button">
+    <input type="button" onclick="login()" value="로그인" class="submit-button login-button">
 </form>
 
 <p>코더 계정이 없으신가요? <a href="{% url 'signup' %}">회원가입</a></p> <br/>
@@ -58,4 +36,5 @@
 
 </script>
 
+</body>
 {% endblock %} 

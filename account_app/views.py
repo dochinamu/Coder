@@ -51,12 +51,11 @@ def logout(request):
     auth.logout(request)
     return redirect('home') 
 
-def searchpw(request):
-    return render(request, 'searchpw.html')
-
 def account_delete(request):
     if request.user.is_authenticated:
         request.user.delete()
         auth.logout(request) 
     return redirect('home')
     
+def account_policy(request):
+    return render(request, 'account_policy.html')
