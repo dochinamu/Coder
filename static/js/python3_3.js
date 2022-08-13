@@ -17,7 +17,7 @@ var quiz_list = {
     8: {'type': 'block', 'question1': '<span class = "highlight_text">replay_times</span>의 값이 300보다 크거나 같다면 코드를 실행시키도록 조건식을 완성하세요', 'question2': '',
     'bogi': `song = "A lot" <br/> replay_times = 345`, 'bogi2': 'if', 'bogi5': ': <br/> &nbsp &nbsp &nbsp print("Your top song this week: "+song)', 'block1': '300', 'block2': '>=', 'block3': 'replay_times','input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '321', 'output': 'Your top song this week: A lot'}, 
     9: {'type': 'typing', 'question1': '변수 <span class = "highlight_text">today</span>의 값이 "Saturday"와 다르다면 코드 블록을 실행시키도록 조건식을 완성하세요', 'question2': '',
-    'pre_blank': `today = "Sunday" <br/> if`, 'after_blank': '<br/> &nbsp &nbsp &nbsp print("Ring the alarm at 7:00")', 'answer': 'today != "Saturday":', 'answer2': 'today!= "Saturday":', 'output': 'Ring the alarm at 7:00'}, 
+    'pre_blank': `today = "Sunday" <br/> if`, 'after_blank': '<br/> &nbsp &nbsp &nbsp print("Ring the alarm at 7:00")', 'answer': 'today != "Saturday":', 'answer2': 'today!="Saturday":', 'answer3': 'today!= "Saturday":', 'answer4': 'today !="Saturday":','output': 'Ring the alarm at 7:00'}, 
     10: {'type': 'typing', 'question1': '<span class = "highlight_text">age</span>가 18보다 큰지 비교해봅시다!', 'question2': '',
     'pre_blank': `can_drive = False <br/> age = 20 <br/> if`,  'after_blank': '<br/> &nbsp &nbsp &nbsp can_drive = True <br/> print(can_drive)', 'answer': 'age > 18:', 'answer2': 'age>18:', 'output': 'True'}, 
     11: {'type': 'block', 'question1': '<span class = "highlight_text">bag_full</span>의 값이 True와 같은지 비교하는 연산을 변수 <span class = "highlight_text">show_alert</span>에 저장해주세요.', 'question2': '',
@@ -150,8 +150,14 @@ function next() {
     } 
     
     $("#"+quiz_list[num]['type']).show()
-    if (num === 6) {$(".code_background").hide()}
-    if (num === 8) {$(".code_background").show()}
+    if (num === 6) {
+        $(".code_background").hide()
+        $(".file_name").hide()        
+    }
+    if (num === 8) {
+        $(".code_background").show()
+        $(".file_name").show()
+    }
 
     } 
 }
@@ -364,7 +370,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer'] ||value === quiz_list[num]['answer2']) {
+    if (value === quiz_list[num]['answer'] ||value === quiz_list[num]['answer2']  ||value === quiz_list[num]['answer3']  ||value === quiz_list[num]['answer4']) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {

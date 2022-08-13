@@ -32,9 +32,9 @@
             <div class="progress-bar bg-success" role="progressbar" style="width: calc(100/12*0%)"></div>
         </div>
         <!-- explain part 구현 -->
-        <div class="explain" style="height: 30%;">
+        <div class="explain"">
             <div class="mt-5 ml-4 mr-4 mb-5">
-                <p class="explain_text">우리는 &#60;, >, >=, &#60;= 등의 ‘비교 연산자’를 사용하여 여러 숫자의 크기를 비교할 수 있어요.</p>
+                <p class="explain_text">우리는 <span class='highlight_text'>&#60;, >, >=, &#60;=</span> 등의 ‘비교 연산자’를 사용하여 여러 숫자의 크기를 비교할 수 있어요.</p>
                 <p class="explain_text pt-3">예제를 통해 비교 연산자를 익혀봅시다!</p>
             </div>
         </div>
@@ -67,7 +67,7 @@
 
         <!-- [객관식형] 틀 구현 -->
         <div id="multiple" class="choice_num4">
-            <div class="code_background pt-2 pl-2" style="height: 25%">
+            <div class="code_background pt-2 pl-2 pb-2">
                 <span id="default_code">기존코드</span>
             </div>
             <div class="output_m pb-2">
@@ -84,8 +84,8 @@
 
         <!-- [타이핑형] 틀 구현 -->
         <div id="typing">
-            <div class="code_background pt-2 pb-2">
-                <div class="code pl-2">
+            <div class="code_background">
+                <div class="code  pt-2 pb-2 pl-2">
                     <span id="pre_blank"></span>
                     <input id="input_text" size="1px" class="underline text-center" type="text">                      
                     <span id="after_blank">"apple")</span>

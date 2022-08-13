@@ -1,6 +1,6 @@
 var num=1;
 var quiz_list = {
-    1: {'type':'block', 'question1': `두 문자열을 이어 붙여서 출력할 때, <span class="highlight_text">+</span>를 사용한다고 배웠어요.`, 'question2': '',
+    1: {'type':'block', 'question1': `두 문자열을 이어 붙여서 출력할 때, <span class="highlight_text">+</span>를 사용한다고 배웠어요.`, 'question2': '<br/>',
     'bogi2': 'print("초당"', 'bogi3': '"두부")','block1': `+`, 'answer': '1', 'input_text1': true, 'output': '초당두부'},
     2: {'type':'block', 'question1': `하지만 숫자형 자료 <span class="highlight_text">2</span>와 문자열 <span class="highlight_text">“ice cream”</span>을 결합하려고 <span class="highlight_text">+</span>를 쓰면, 어떻게 될까요? `, 'question2': `아래처럼 두 가지의 타입(‘int’ and ‘str’)이 서로 다르기 때문에 연산을 수행할 수 없다는 내용의 에러가 뜨게 되죠.`, 
     'bogi2': 'print(2', 'bogi3': '"apples")', 'block1': `+`, 'answer': '1', 'input_text1': true, 'output': 'Traceback(most recent call last): <br> &nbsp &nbsp &nbsp File “script.py”, line 1, in <module> <br> &nbsp &nbsp &nbsp Print(2 + “ice cream”) <br/> TypeError: unsupported operand type(s) for +: ‘int’ and ‘str’'},
