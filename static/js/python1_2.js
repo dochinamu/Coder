@@ -19,7 +19,7 @@ var quiz_list = {
     9: {'type':'block', 'question1': `변수에는 다른 변수의 값을 저장할 수도 있어요.`, 'question2': `아래의 코드에서 변수 <span class='highlight_text'>new_status</span>에 또 다른 변수 <span class='highlight_text'>default_option</span>의 값을 저장해볼까요? `, 
     'block1': `default_option`, 'block2': `( )`, 'block3': 'print', 'answer': ['1']},
     10: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'choice1': 'Watching a moive', 'choice2': 'status', 'default_code': 'status = "Watching a movie" <br/> print(status)', 'answer': ['1']},
+    'choice1': 'Watching a movie', 'choice2': 'status', 'default_code': 'status = "Watching a movie" <br/> print(status)', 'answer': ['1']},
     11: {'type':'typing', 'question1': `변수 <span class='highlight_text'>status</span>의 값을 “Writing code”로 바꿔보세요.`, 'question2': ``, 
     "pre_blank":`status = "Completing spreadsheet" <br/>`,'after_blank': `print(status)`, 'answer': ['status = "Writing code"', 'status= "Writing code"', 'status ="Writing code"', 'status="Writing code"', 'status = “Writing code”', 'status= “Writing code”', 'status =“Writing code”', 'status=“Writing code”']},
     12: {'type': 'typing', 'question1': `변수 <span class='highlight_text'>status</span>의 값을 “Complete”로 바꾸고 그 값을 출력해보세요.`, 'question2': '',
