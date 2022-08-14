@@ -32,20 +32,20 @@
             <div class="progress-bar bg-success" role="progressbar" style="width: calc(100/10*0%)"></div>
         </div>
         <!-- explain part 구현 -->
-        <div class="explain" style="height: 35%;">
-            <div class="mt-5 ml-4 mr-4 mb-5">
-                <p class="explain_text">==, != 같은 ‘동등 연산자’를 사용하면 문자열끼리 같은지, 다른지 비교할 수도 있어요.</p>
+        <div class="explain">
+            <div class="mt-4 ml-4 mr-4 mb-4">
+                <p class="explain_text"><span class='highlight_text'>==, != 같은 <span class='highlight_text'>동등 연산자’</span>를 사용하면 문자열끼리 같은지, 다른지 비교할 수도 있어요.</p>
                 <p class="explain_text pt-3"><span class="highlight_text">==</span>은 서로 같은지를, <span class="highlight_text">!=</span>는 서로 다른지를 확인하는 연산자예요.</p>
             </div>
-            <div class="file_name text-white pt-1 pb-1 pl-3">script.py</div>
-            <div class="code_background pt-3 pl-3 pb-1">
-                <span class="default_code">print("online" == "online") <br/> print("online" != "offline")</span>
-            </div>
-            <div class="output_m pb-2">
+        </div>
+        <div class="file_name text-white pt-1 pb-1 pl-3">script.py</div>
+        <div class="code_background pt-2 pl-2 pb-1">
+            <span class="default_code">print("online" == "online") <br/> print("online" != "offline")</span>
+        </div>
+            <div class="output_m pb-2" style="background-color: white;">
                 <div class="output-title pl-2 mt-2 mb-2">Output</div>
                 <hr class="line mt-0 mb-0"/>
                 <div class="output-code pl-3 pt-2">True <br/> True</div>
-            </div>
         </div>
 
         <!-- 다음으로 part 구현 -->
@@ -93,7 +93,7 @@
         <!-- [타이핑형] 틀 구현 -->
         <div id="typing">
             <div class="code_background pl-3">
-            <div class="code pt-3">
+            <div class="code pt-2 pb-2">
                 <span id="pre_blank">print("apple"</span>
                 <input id="input_text" size="2px" class="underline text-center" type="text">                      
                 <span id="after_blank">"apple")</span>

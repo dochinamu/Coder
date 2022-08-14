@@ -161,7 +161,7 @@ def python1_challenge(request):
         # 게시글 페이지로 나누기
         blogs = PyChal1_Blog.objects.filter().order_by('-date')
         page = request.GET.get('page', 1)
-        paginator = Paginator(blogs, 3)
+        paginator = Paginator(blogs, 5)
         try:
             users = paginator.page(page)
         except PageNotAnInteger:
@@ -205,8 +205,8 @@ def python1_challenge(request):
 
 # 새 글 작성
 def pychal1_new(request):
+    post = PyChal1_Blog()
     if (request.method == 'POST' or request.method == 'FILES'):
-        post = PyChal1_Blog()
         post.title = request.POST['title']
         post.body = request.POST['body']
         if request.FILES:
@@ -219,7 +219,7 @@ def pychal1_new(request):
         user.first_post = True
         user.save()
         return redirect('python1_challenge')
-    return render(request, 'pychal1_new.html')
+    return render(request, 'pychal1_new.html', {'post': post})
 
 # 해당글의 자세한 내용
 def pychal1_detail(request, blog_id):

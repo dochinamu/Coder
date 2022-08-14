@@ -37,7 +37,7 @@
 * { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; } */
 * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
 
-html, body, .question, .explanation {
+html, body, .question, .question3-1, .explanation {
     height: 100%;
   }
   * {
@@ -53,7 +53,6 @@ article {
 } */
 .explain {
     background-color: #343E56;
-    height: 45vh;
 }
 
 .explain_text {
@@ -128,7 +127,10 @@ flex: 1;
 /* 질문 */
 .quiz {
     background-color: #343E56;
-    min-height: 25vh;
+    min-height: 25%;
+}
+.border_text {
+    font-weight: bolder;
 }
 .highlight_text {
     background-color: white;
@@ -245,7 +247,7 @@ flex: 1;
 
 .code_background {
     background-color: #F2F2F2;
-    min-height: 30%;
+    min-height: 20%;
 }
 #output {
     height: 20%;
@@ -261,6 +263,7 @@ flex: 1;
 
 .blocks {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     height: 20%;
@@ -268,6 +271,8 @@ flex: 1;
 
 .block_btn {
     color: white;
+    margin: 0px 2px 0px;
+    max-height: fit-content;
     border: 1.5px solid rgb(170, 170, 170);
     border-radius: 8px;
     background-color: #666EE8;
@@ -362,14 +367,24 @@ flex: 1;
     font-weight: 600;
     font-size: 15px;
   }
+
+  .button_text {
+    color: #F2F2F2;
+  }
   .complete_button {
-    margin-top: 3px;
+    text-decoration-line: none;
+    background-color: #12338f;
     width: 60%;
     height: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
     border-radius: 8px;
-    background-color: #12338f;
+    /* margin-top: 3px;
+    border-radius: 8px;
     color: white;
-    font-size: 16px;
+    font-size: 16px; */
   }
   .complete_button:active {
     box-shadow: 1px 1px 0 rgb(0,0,0,0.5);

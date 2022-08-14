@@ -4,51 +4,98 @@
 {% load static %}
 
 <style>
-    #previewImage {width: 100px; }
+    * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
+
+    .new    {height: 307.86px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;}
+
+    .new_title {width: 350px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                margin-left: 5%;
+                padding-top: 1%; padding-bottom: 1%; padding-left: 3%;
+                font-size: 15px;}
+
+    .new_body   {width: 350px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                margin-left: 5%; margin-bottom: 0px;
+                padding-top: 1%; padding-bottom: 1%; padding-left: 3%;}
+
+    .form-down {display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 368.35px;
+                margin-left: 5%; margin-top: 0px;}
+
+    .form-down1 {width: 318.35px; height: 35px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                text-align: center;}
+
+    .form-down p    {font-size: 12px; font-weight: 400;
+                    color:rgba(0, 0, 0, 0.6);
+                    margin-left: 3%; margin-top: 7px;}
+
+    .form-down2 {width: 50px; height: 35px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                text-align: center;
+                vertical-align: middle;}
+
+    .form-down2 img {margin-top: 4px;}
+
+    button {font-size: 20px;
+            color: white;
+            background-color: #666EE8;
+            border-radius: 4px;
+            text-align: center;
+            width: 360px;
+            margin-top: 10%; margin-left: 5%;
+            padding: 2% 30%;}
+
+    #previewImage {width: 25px;}
+    
 </style>
 
 
 <form action="{% url 'pychal1_edit' post.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="new">
-        <div class="new_content">
-            <input type="text" name="title" id="title" value="{{ post.title }}">
-        </div>
-
-        <div class="imgbox" id="profile_img">
-            <label className="input-file-button" for="input-file">
-                {% if post.photo %}
-                <img src="{{ post.photo.url }}" id="previewImage" >
-                {% else %}
-                <img src="{% static 'img/upload.png' %}" id="previewImage" >
-                {% endif %}
-            </label>
-            <input type="file" class="file" id="input-file" name="blog_image" style="display:none" onchange="imageView(this);">
-            <script type="text/javascript">
-            function readImage(input) {
-                if (input.files && input.files[0]) {
-                    const reader = new FileReader();
-                    
-                    reader.onload = (e) => {
-                        const previewImage = document.getElementById('previewImage');
-                        previewImage.src = e.target.result;
+        <input type="text" name="title" id="title" class="new_title" value="{{ post.title }}">
+        <textarea name="body" id="body" cols="30" rows="10" class="new_body">{{ post.body }}</textarea>
+        <section class="form-down">
+            <article class="form-down1">
+                <p>주제와 무관한 댓글은 삭제될 수 있어요.</p>
+            </article>
+            <article class="form-down2">
+                <label className="input-file-button" for="input-file">
+                    {% if post.photo %}
+                    <img src="{{ post.photo.url }}" id="previewImage" >
+                    {% else %}
+                    <img src="{% static 'img/upload.png' %}" id="previewImage" >
+                    {% endif %}
+                </label>
+                <input type="file" class="file" id="input-file" name="blog_image" style="display:none" onchange="imageView(this);">
+                <script type="text/javascript">
+                function readImage(input) {
+                    if (input.files && input.files[0]) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = (e) => {
+                            const previewImage = document.getElementById('previewImage');
+                            previewImage.src = e.target.result;
+                        }
+                        reader.readAsDataURL(input.files[0]);
                     }
-                    reader.readAsDataURL(input.files[0]);
                 }
-            }
-            document.getElementById('input-file').addEventListener('change', (e) => {
-                readImage(e.target);
-            })
-            </script>
-        </div>
-
-        <div class="new_content">
-            <textarea name="body" id="body" cols="30" rows="10">{{ post.body }}</textarea>
-        </div>
-        <div>
-            <p>주제와 무관한 댓글은 삭제될 수 있어요.</p>
-        </div>
-        <button type="submit">글 올리기</button><br>
+                document.getElementById('input-file').addEventListener('change', (e) => {
+                    readImage(e.target);
+                })
+                </script>
+            </article>
+        </section>
     </div>
+    <button type="submit">수정하기</button><br>
 </form>
 {% endblock %}
+
+<div class="imgbox" id="profile_img"></div>
