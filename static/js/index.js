@@ -161,8 +161,9 @@ $('.choice_btn').click(function() {
 }) 
 
 //[타이핑형] 뭐라도 입력해야 제출 버튼 활성화됨
-$('.underline').on("input", function (e) {
-    $('#input_text').attr('size', $('#input_text').val().length)
+
+$('#input_text').on("input", function (e) {
+    $('#input_text').attr('size', $('#input_text').val().length+1)
     if ($('#input_text').val() != '') {
         $('.submit_btn').attr("disabled", false);
     } else {
@@ -170,6 +171,7 @@ $('.underline').on("input", function (e) {
     }
     
 })
+
 
 //[블록입력형] 블록 1: value에 버튼 id 누적 + 제출 버튼 활성화 + 버튼 한 번 클릭 시 input 하나의 placeholder 내용에 버튼 내용 띄우기 
 $('.block1').click(function () {
