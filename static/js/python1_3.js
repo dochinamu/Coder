@@ -14,7 +14,7 @@ var quiz_list = {
     'bogi2' : 'coder_users = ', 'block1': `<1000>`, 'block2': `"1000"`, 'block3': '1000', 'answer': ['3'], 'input_text1': true},
     7: {'type': 'block', 'question1': '숫자형 값을 갖는 변수로 계산을 할 수도 있어요', 'question2': '<span class="highlight_text">number_of_steps에 1을 더해 결과를 확인해봅시다.',
     'bogi': `number_of_steps = 10 <br/> print("You're on step: ")`, 'bogi2': 'print(number_of_steps', 'bogi4': ')', 'block1': '+', 'block2': '=', 'block3': '1', 'answer': ['13'], 'input_text1': true, 'input_text2': true, 'output': "You're on step: <br/> 11"}, 
-    8: {'type': 'block', 'question1': '변수에 계산 결과를 저장할 수도 있어요', 'question2': '변수 <span class="highlight_text">total에 <span class="highlight_text">men+women</span>의 값을 저장해봅시다!',
+    8: {'type': 'block', 'question1': '변수에 계산 결과를 저장할 수도 있어요', 'question2': '변수 <span class="highlight_text">total</span>에 <span class="highlight_text">men+women</span>의 값을 저장해봅시다!',
     'bogi': `men = 10 <br/> women = 8`, 'bogi2': ' ', 'bogi3': ' = men','bogi5': '<br/> &nbsp; print("Total number: ") <br/> &nbsp; print(total)', 'block1': '+', 'block2': 'women', 'block3': 'total', 'answer': ['312'], 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': "Total number : <br/> 18"}, 
     9: {'type':'multiple', 'question1': `아래의 코드는 왜 4가 아니라 <span class='highlight_text'>31</span>을 출력할까요?`, 'question2': ``, 
     'default_code': `temperature = "3" + "1" <br/> print(temperature)`, 'choice1': `“3”과 “1”이 문자열 값이기 때문에`, 'choice2': `숫자형끼리 뺄셈을 하는 표현식이기 때문에`, 'answer': ['1'], 'output': '31'},    
@@ -98,6 +98,8 @@ function next() {
     } //타이핑형: 입력된 내용 지우기 + 빈칸 앞 뒤 내용 바꾸고 틀 띄우기
     else if (quiz_list[num]['type'] === 'typing') {
         $('#input_text').val("");
+        $('#input_text').attr("size", '1px');
+
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 
         

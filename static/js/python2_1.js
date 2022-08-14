@@ -99,6 +99,8 @@ function next() {
     else if (quiz_list[num]['type'] === 'typing') {
         $('#input_text').show()
         $('#input_text').val("");
+        $('#input_text').attr("size", '1px');
+
         $('#input_text_add').val("");
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 

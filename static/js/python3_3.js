@@ -96,11 +96,11 @@ function next() {
     } //타이핑형: 입력된 내용 지우기 + 빈칸 앞 뒤 내용 바꾸고 틀 띄우기
     else if (quiz_list[num]['type'] === 'typing') {
         $('#input_text').val("");
-        $('#input_text').show("");
+        $('#input_text').attr("size", '1px');
+        $('#input_text').show();
 
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 
-        
 
         // $("#"+quiz_list[num]['type']).show() 
     } 
@@ -111,7 +111,7 @@ function next() {
         $('.bogi3').html('')
         $('.bogi4').html('')
         $('.bogi4').html('')
-        $('.underline').attr("value", "");
+        $('.underline').attr("value", "")
         $('.underline').attr("size", '1px')          
 
         num_list.map((it) =>
@@ -139,9 +139,6 @@ function next() {
         }  else if (num === 8) {
             $('.block3').show();
         } 
-        else if (num === 10) {
-            $('.code_background').attr('style', 'height: 50%')
-        }
 
         $('.block1').html(quiz_list[num]['block1'])
         $('.block2').html(quiz_list[num]['block2'])

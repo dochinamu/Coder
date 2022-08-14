@@ -1,6 +1,6 @@
 var num=1;
 var quiz_list = {
-    1: {'type':'block', 'question1': `문자열(string)은 따옴표 <span class = "highlight_text">“</span>로 처음과 끝을 감싸서 표현합니다.`, 'question2': '변수 sugar에 문자열 값을 저장해볼까요? <br/> (이렇게 변수에 값을 저장하는 것을 변수에 값을  <span class = "highlight_text">할당</span>한다고 표현해요.)',
+    1: {'type':'block', 'question1': `문자열(string)은 큰따옴표 <span class = "highlight_text">“</span>나 작은따옴표 <span class="highlight">'</span>로 처음과 끝을 감싸서 표현합니다. 단, 하나의 문자열에는 한 가지 따옴표만 사용해야 하니 주의하세요!`, 'question2': '변수 sugar에 문자열 값을 저장해볼까요? <br/> (이렇게 변수에 값을 저장하는 것을 변수에 값을  <span class = "highlight_text">할당</span>한다고 표현해요.)',
     'bogi2': 'sugar = ', 'bogi3': 'sweet','block1': `"`, 'answer': ['11'], 'input_text1': true, 'input_text2': true},
     2: {'type':'block', 'question1': "정수형(integer)도 이미 배웠던 자료형이에요! ", 'question2': `정수형은 42와 같이, 소수점 아래 자리가 없는 숫자를 의미해요.`, 
     'bogi2': 'score = ', 'block1': `"43"`, 'block2': `42`, 'block3': `True`, 'answer': ['2'], 'input_text1': true},
@@ -93,7 +93,8 @@ function next() {
     } //타이핑형: 입력된 내용 지우기 + 빈칸 앞 뒤 내용 바꾸고 틀 띄우기
     else if (quiz_list[num]['type'] === 'typing') {
         $('#input_text').val("");
-        $('#input_text').show("");
+        $('#input_text').attr("size", '1px');
+        $('#input_text').show();
 
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 

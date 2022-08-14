@@ -97,11 +97,12 @@ function next() {
         // $("#"+quiz_list[num]['type']).show();       
     } //타이핑형: 입력된 내용 지우기 + 빈칸 앞 뒤 내용 바꾸고 틀 띄우기
     else if (quiz_list[num]['type'] === 'typing') {
-        $('#input_text').val("");
-        $('#input_text').show("");
+        $('#input_text').html("");
+        $('#input_text').show();
 
         $('#pre_blank').html(quiz_list[num]['pre_blank']);
         $('#after_blank').html(quiz_list[num]['after_blank']); 
+
         
 
         // $("#"+quiz_list[num]['type']).show() 
@@ -206,25 +207,21 @@ $('.choice_btn').click(function() {
 
 //[타이핑형] 뭐라도 입력해야 제출 버튼 활성화됨
 $('#input_text').on("input", function (e) {
-    $('#input_text').attr('size', $('#input_text').val().length)
-    if ($('#input_text').val() != '') {
+    // $('#input_text').attr('size', $('#input_text').val().length+1)
+    if ($('#input_text').html() != '') {
         $('.submit_btn').attr("disabled", false);
     } else {
         $('.submit_btn').attr("disabled", true);
     }
-    
 })
-// var inputWidth;
-// $('#input_text').on('input', function(e){
-//     value = $('#input_text').val();
-//   $('.code').append('<div id="virtual_dom">' + value + '</div>'); 
-//   //실제 코드에는 상위돔에 집어넣어주세요.
 
-//     inputWidth =  $('#virtual_dom').width() + 10; // 글자 하나의 대략적인 크기 
+// var resizable = function(el, factor) {
+// 	var unit = Number(factor) || 7.7;
+// 	function resize() {
+// 		el.style.width = ((el.value.length+1) * unit) + 'px'
+// 	}
+    
 
-//     $('#input_text').css('size', inputWidth); 
-//   $('#virtual_dom').remove();
-// });
 
 //[블록입력형] 블록 1: value에 버튼 id 누적 + 제출 버튼 활성화 + 버튼 한 번 클릭 시 input 하나의 placeholder 내용에 버튼 내용 띄우기 
 $('.block1').click(function () {
@@ -372,7 +369,7 @@ $('.submit_btn').click(function() {
     
     //[타이핑형] 답 저장: 입력할 때마다 value값에 저장하려니 console 차는 게 싫어서, '제출'할 때 저장함 
     if (quiz_list[num]['type'] === 'typing') {
-        value = $('#input_text').val()
+        value = $('#input_text').html()
         console.log('제출한 답?', value)
         console.log('진짜 답은?', quiz_list[num]['answer'])
     }
@@ -406,7 +403,7 @@ $('.submit_btn').click(function() {
 $('.retry_btn').click(function() {
     $('#not_correct').hide();
     if (quiz_list[num]['type'] === 'typing') {
-        $('#input_text').val('');
+        $('#input_text').html('');
     } else if (quiz_list[num]['type'] === 'block') {
         $('#input_text1').attr("value", "");
         $('#input_text3').attr("value", "");
