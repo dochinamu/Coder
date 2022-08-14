@@ -15,7 +15,7 @@ var quiz_list = {
     7: {'type':'multiple', 'question1': ``, 'question2': `변수 <span class='highlight_text'>value</span>가 문자열인지 어떻게 알 수 있나요?`, 
     'default_code': 'value = "watermelon"', 'choice1': `큰 따옴표 사이에 있기 때문에`, 'choice2': `= 표시가 있기 때문에`, 'answer': ['1']},    
     8: {'type':'multiple', 'question1': ``, 'question2': `아래 코드에 대한 올바른 설명은 무엇인가요??`, 
-    'default_code': 'Measurement = "average"', 'choice1': `변수 "average"가 Measurement value를 저장하고 있다`, 'choice2': `변수 Measurement가 value "average"를 저장하고 있다.`, 'answer': '2'},
+    'default_code': 'Measurement = "average"', 'choice1': `변수 "average"가 Measurement value를 저장하고 있다`, 'choice2': `변수 Measurement가 value "average"를 저장하고 있다.`, 'answer': ['2']},
     9: {'type':'multiple', 'question1': ``, 'question2': `다음 중 <span class='highlight_text'>변수의 이름</span>은 무엇인가요?`, 
     'default_code': 'hobby = "tennis"', 'choice1': `hobby`, 'choice2': `"tennis"`, 'answer': ['1']},
     10: {'type':'block', 'question1': ``, 'question2': `변수 <span class='highlight_text'>job</span>을 생성하고 "Developer" 값(value)으로 지정해주세요.`, 
@@ -23,7 +23,7 @@ var quiz_list = {
     11: {'type':'block', 'question1': ``, 'question2': `변수 <span class='highlight_text'>job_title</span>에 문자열 값을 저장해주세요.`, 
     "bogi2":"job_title =",'block1': `"`, 'block2': `Marketer`, 'block3': `+`, 'block4': '"', 'answer': ['121']},
     12: {'type': 'typing', 'question1': ``, 'question2': '변수 <span class="highlight_text">user_agent</span>에 문자열 값 "Mobile"을 저장해주세요.',
-    'pre_blank': 'user_agent = ', 'after_blank': '', 'answer': [`"Mobile"`, `'Mobile'`]}   
+    'pre_blank': 'user_agent = ', 'after_blank': '', 'answer': [`"Mobile"`, `'Mobile'`, `“Mobile”`]}   
 };
 var value='';
 $('.bogi2').hide()

@@ -23,7 +23,7 @@ var quiz_list = {
     11: {'type': 'multiple', 'question1': '<span class="highlight_text">f-string</span>으로 숫자형 값을 출력하고 싶다면 어떻게 해야 할까요?', 'question2': '',
     'choice1': `중괄호 {} 사이에 값을 입력한다.`, 'choice2': 'f-string으로는 숫자형 값을 출력할 수 없다.', 'answer': ['1']}, 
     12: {'type': 'typing', 'question1': '<span class="highlight_text">f-string</span>과 변수 <span class="highlight_text">degrees</span>를 사용하여 <br/> <span class="highlight_text">현재 온도: 70F</span>를 출력해보세요.', 'question2': '',
-    'pre_blank': `degrees = 70 <br/> print(`, 'after_blank': ')', 'answer': ['f"현재 온도: {degrees}F"'], 'output': '현재 온도: 70F'}, 
+    'pre_blank': `degrees = 70 <br/> print(`, 'after_blank': ')', 'answer': ['f"현재 온도: {degrees}F"', , `f“현재 온도: {degrees}F”`], 'output': '현재 온도: 70F'}, 
 };
 const num_list = ["","2","3","4","5"]
 const num_list_for_input = ["1", "2", "3"]
