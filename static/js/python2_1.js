@@ -5,7 +5,7 @@ var quiz_list = {
     2: {'type':'block', 'question1': `<span class="highlight_text">&#60</span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 크기가 작지 않으면, False를 결과로 반환합니다.`, 'question2': `아래 빈칸에 숫자를 입력하여, <span class="highlight_text">False</span>를 출력해보세요.`, 
     'bogi2': 'print(', 'bogi3': '<', 'bogi4': ')','block1': `235`, 'block2': '1', 'block3': '=', 'answer': ['12'], 'input_text1': true, 'input_text2': true, 'output': 'False'},
     3: {'type':'block', 'question1': `<span class="highlight_text">></span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 크면, True 결과로 반환합니다.`, 'question2': '아래 빈칸에 숫자를 입력하여, <span class="highlight_text">True</span>를 출력해보세요.',
-    'bogi2': 'print(', 'bogi3': '>', 'bogi4': ')','block1': `101`, 'block2': '90', 'block3': '=', 'answer': ['21'], 'input_text1': true, 'input_text2': true, 'output': 'True'},
+    'bogi2': 'print(', 'bogi3': '>', 'bogi4': ')','block1': `101`, 'block2': '90', 'block3': '=', 'answer': ['12'], 'input_text1': true, 'input_text2': true, 'output': 'True'},
     4: {'type':'multiple', 'question1': `연산자 <span class="highlight_text">></span>의 역할은 무엇인가요?`, 'question2': ``, 
     'choice1': `숫자끼리 값이 같은지 비교하는 역할`, 'choice2': `숫자가 다른 숫자보다 값이 큰지 비교하는 역할`, 'answer': ['2']},
     5: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 

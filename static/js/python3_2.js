@@ -205,16 +205,26 @@ $('.choice_btn').click(function() {
 }) 
 
 //[타이핑형] 뭐라도 입력해야 제출 버튼 활성화됨
-$('#input_text').on("input", function (e) {
-    $('#input_text').attr('size', $('#input_text').val().length)
-    if ($('#input_text').val() != '') {
-        $('.submit_btn').attr("disabled", false);
-    } else {
-        $('.submit_btn').attr("disabled", true);
-    }
+// $('#input_text').on("input", function (e) {
+//     $('#input_text').attr('size', $('#input_text').val().length)
+//     if ($('#input_text').val() != '') {
+//         $('.submit_btn').attr("disabled", false);
+//     } else {
+//         $('.submit_btn').attr("disabled", true);
+//     }
     
-})
+// })
 
+$('#input_text').on('keydown', function(e){
+    var value = $('#input_text').val();
+  $('.code').append('<div id="virtual_dom">' + value + '</div>'); 
+  //실제 코드에는 상위돔에 집어넣어주세요.
+
+    var inputWidth =  $('#virtual_dom').width() + 1; // 글자 하나의 대략적인 크기 
+
+    $('#input_text').css('width', inputWidth); 
+  $('#virtual_dom').remove();
+});
 
 //[블록입력형] 블록 1: value에 버튼 id 누적 + 제출 버튼 활성화 + 버튼 한 번 클릭 시 input 하나의 placeholder 내용에 버튼 내용 띄우기 
 $('.block1').click(function () {

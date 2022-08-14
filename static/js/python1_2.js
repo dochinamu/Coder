@@ -21,7 +21,7 @@ var quiz_list = {
     10: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
     'choice1': 'Watching a moive', 'choice2': 'status', 'default_code': 'status = "Watching a movie" <br/> print(status)', 'answer': ['1']},
     11: {'type':'typing', 'question1': `변수 <span class='highlight_text'>status</span>의 값을 “Writing code”로 바꿔보세요.`, 'question2': ``, 
-    "pre_blank":`status = "Completing spreadsheet" <br/>`,'after_blank': `print(status)`, 'answer': ['status = "Writing code"', 'status= "Writing code"', 'status ="Writing code"', 'status="Writing code"']},
+    "pre_blank":`status = "Completing spreadsheet" <br/>`,'after_blank': `print(status)`, 'answer': ['status = "Writing code"', 'status= "Writing code"', 'status ="Writing code"', 'status="Writing code"', 'status = “Writing code”']},
     12: {'type': 'typing', 'question1': `변수 <span class='highlight_text'>status</span>의 값을 “Complete”로 바꾸고 그 값을 출력해보세요.`, 'question2': '',
     'pre_blank': 'status = "Loading" <br>', 'after_blank': '', 'answer': [`status = "Complete"`, `status="Complete"`, `status ="Complete"`, `status= "Complete"`], 'answer2': 'print(status)'}   
 };
