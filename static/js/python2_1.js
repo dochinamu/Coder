@@ -1,29 +1,29 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': '<span class="highlight_text">&#60;</span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 작을 때, True를 결과로 반환합니다.', 'question2': '아래 빈칸에 숫자를 입력하여, <span class="highlight_text">True</span>를 출력해보세요.',
-    'bogi2': 'print(', 'bogi3': '<', 'bogi4': ')','block1': `235`, 'block2': '1', 'block3': '=', 'answer': '21', 'input_text1': true, 'input_text2': true, 'output': 'True'},
+    'bogi2': 'print(', 'bogi3': '<', 'bogi4': ')','block1': `235`, 'block2': '1', 'block3': '=', 'answer': ['21'], 'input_text1': true, 'input_text2': true, 'output': 'True'},
     2: {'type':'block', 'question1': `<span class="highlight_text">&#60</span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 크기가 작지 않으면, False를 결과로 반환합니다.`, 'question2': `아래 빈칸에 숫자를 입력하여, <span class="highlight_text">False</span>를 출력해보세요.`, 
-    'bogi2': 'print(', 'bogi3': '<', 'bogi4': ')','block1': `235`, 'block2': '1', 'block3': '=', 'answer': '12', 'input_text1': true, 'input_text2': true, 'output': 'False'},
+    'bogi2': 'print(', 'bogi3': '<', 'bogi4': ')','block1': `235`, 'block2': '1', 'block3': '=', 'answer': ['12'], 'input_text1': true, 'input_text2': true, 'output': 'False'},
     3: {'type':'block', 'question1': `<span class="highlight_text">></span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 크면, True 결과로 반환합니다.`, 'question2': '아래 빈칸에 숫자를 입력하여, <span class="highlight_text">True</span>를 출력해보세요.',
-    'bogi2': 'print(', 'bogi3': '<', 'bogi4': ')','block1': `101`, 'block2': '90', 'block3': '=', 'answer': '21', 'input_text1': true, 'input_text2': true, 'output': 'True'},
+    'bogi2': 'print(', 'bogi3': '>', 'bogi4': ')','block1': `101`, 'block2': '90', 'block3': '=', 'answer': ['21'], 'input_text1': true, 'input_text2': true, 'output': 'True'},
     4: {'type':'multiple', 'question1': `연산자 <span class="highlight_text">></span>의 역할은 무엇인가요?`, 'question2': ``, 
-    'choice1': `숫자끼리 값이 같은지 비교하는 역할`, 'choice2': `숫자가 다른 숫자보다 값이 큰지 비교하는 역할`, 'answer': '2'},
+    'choice1': `숫자끼리 값이 같은지 비교하는 역할`, 'choice2': `숫자가 다른 숫자보다 값이 큰지 비교하는 역할`, 'answer': ['2']},
     5: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'default_code': 'print( 1 < 1 )', 'choice1': `True`, 'choice2': `False`, 'answer': '2', 'output': 'False'},
+    'default_code': 'print( 1 < 1 )', 'choice1': `True`, 'choice2': `False`, 'answer': ['2'], 'output': 'False'},
     6: {'type':'block', 'question1': `<span class="highlight_text"><=</span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 작거나 같을 때, True를 결과로 반환합니다. 반대로, 왼쪽 숫자가 오른쪽 숫자보다 크다면 False를 반환해요`, 'question2': `아래 빈칸에 숫자를 입력하여, <span class="highlight_text">True</span>를 출력해보세요.`, 
-    'bogi2': 'print(', 'bogi3': '<=', 'bogi4': ')', 'block1': `3`, 'block2': `1`, 'block3': '없음', 'answer': '21', 'input_text1': true, 'input_text2': true, 'output': 'True'},
+    'bogi2': 'print(', 'bogi3': '<=', 'bogi4': ')', 'block1': `3`, 'block2': `1`, 'block3': '없음', 'answer': ['21'], 'input_text1': true, 'input_text2': true, 'output': 'True'},
     7: {'type': 'block', 'question1': '<span class="highlight_text">>=</span>는 연산자 왼쪽에 있는 숫자가 오른쪽에 있는 숫자보다 작거나 같을 때, True를 결과로 반환합니다.  반대로, 왼쪽 숫자가 오른쪽 숫자보다 작다면 False를 반환해요', 'question2': '아래 빈칸에 숫자를 입력하여, <span class="highlight_text">True</span>를 출력해보세요.',
-    'bogi2': `print(`, 'bogi3': '>=', 'bogi4': ')', 'block1': '3099', 'block2': '100', 'block3': '없음', 'answer': '12', 'input_text1': true, 'input_text2': true, 'output': 'True'}, 
+    'bogi2': `print(`, 'bogi3': '>=', 'bogi4': ')', 'block1': '3099', 'block2': '100', 'block3': '없음', 'answer': ['12'], 'input_text1': true, 'input_text2': true, 'output': 'True'}, 
     8: {'type': 'block', 'question1': '할당연산자 <span class="highlight_text">=</span>을 사용해서 비교 연산의 결과를 변수에 저장할 수 있어요.', 'question2': '1과 15를 비교 연산한 결과를 result에 저장한 후, result의 값으로 <span class="highlight_text">False</span>를 출력하도록 코드를 완성해보세요.',
-    'bogi2': `result`, 'bogi3': '1 <= 15','bogi5': '<br/> &nbsp; print(result)', 'block1': '=', 'block2': '<=', 'block3': '>=', 'answer': '1', 'input_text1': true, 'output': 'False'}, 
+    'bogi2': `result`, 'bogi3': '1 <= 15','bogi5': '<br/> &nbsp; print(result)', 'block1': '=', 'block2': '<=', 'block3': '>=', 'answer': ['1'], 'input_text1': true, 'output': 'False'}, 
     9: {'type':'block', 'question1': `비교 연산자를 사용하면 변수의 값끼리 비교할 수도 있어요.`, 'question2': `min과 max의 비교 연산 결과를 result에 저장한 후, result의 값으로, <span class="highlight_text">True</span>를 출력해보세요.`, 
-    'bogi': `min = 5 <br/> max = 10`, 'bogi2': `result = min`, 'bogi3': `max <br/> &nbsp; print(result)`, 'answer': '2', 'output': 'True'},    
+    'bogi': `min = 5 <br/> max = 10`, 'bogi2': `result = min`, 'bogi3': `max <br/> &nbsp; print(result)`, 'answer': ['2'], 'output': 'True'},    
     10: {'type':'multiple', 'question1': `숫자가 최소 21 이상이라는 것을 확인하려면 어떤 연산자를 사용해야 할까요?`, 'question2': ``, 
-    'choice1': `==`, 'choice2': `>=`, 'answer': '2'},    
+    'choice1': `==`, 'choice2': `>=`, 'answer': ['2']},    
     11: {'type':'typing', 'question1': `비교연산자를 사용하여 변수 battery_level의 값이 <span class="highlight_text">20보다 작거나 같은지 비교</span>하고 그 값을 <span class="highlight_text">low에 저장</span>해주세요.`, 'question2': ``,
-    'pre_blank': `battery_level = 10 <br/> low`, 'after_blank': `battery_level`, 'after_addblank': '20 <br/> print("low battery: ") <br/> print(low)', 'answer': '=', 'answer2': '<=', 'output': "low battery: <br/> True"}, 
+    'pre_blank': `battery_level = 10 <br/> low`, 'after_blank': `battery_level`, 'after_addblank': '20 <br/> print("low battery: ") <br/> print(low)', 'answer': ['='], 'answer2': '<=', 'output': "low battery: <br/> True"}, 
     12: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'default_code': `battery_level = 10 <br/> low = battery_level <= 20 <br/> print(low)`, 'choice1': `True`, 'choice2': `False`, 'answer': '1', 'output': 'True'}, 
+    'default_code': `battery_level = 10 <br/> low = battery_level <= 20 <br/> print(low)`, 'choice1': `True`, 'choice2': `False`, 'answer': ['1'], 'output': 'True'}, 
 };
 const num_list = ["","2","3","4","5"]
 const num_list_for_input = ["1", "2", "3"]
@@ -364,7 +364,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer']) {
+    if (quiz_list[num]['answer'].includes(value)) {
         if (quiz_list[num]['answer'] === value) {
             if('answer2' in quiz_list[num] && value_add !== quiz_list[num]['answer2']) {
                 console.log('제발제발')

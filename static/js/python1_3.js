@@ -1,29 +1,29 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': `<span class='highlight_text'>+</span>기호로, 문자열 값을 이어붙여 하나의 값을 만들어낼 수 있는데, 이를 <span class='highlight_text'>표현식(expression)</span>이라고 부릅니다`, 'question2': 'print() 안에 "오리"에 “너구리”를 덧붙여 하나의 문자열을 출력해볼까요?',
-    'bogi2': 'print("오리"', 'bogi3': '"너구리")','block1': `-`, 'block2': '+', 'block3': '*', 'answer': '2', 'input_text1': true, 'output': "오리너구리"},
+    'bogi2': 'print("오리"', 'bogi3': '"너구리")','block1': `-`, 'block2': '+', 'block3': '*', 'answer': ['2'], 'input_text1': true, 'output': "오리너구리"},
     2: {'type':'block', 'question1': "표현식(expression)에 변수를 입력하면, 변수명이 아니라 변수의 <span class='highlight_text'>값(value)</span>을 사용하는 거예요.", 'question2': `<span class='highlight_text'>“Followers: “</span>에 변수 <span class='highlight_text'>followers</span>를 덧붙여 확인해봅시다.`, 
-    'bogi': 'followers = "55"', 'bogi2': 'print("Followers: "', 'bogi4': ')', 'block1': `followers`, 'block2': `+`, 'answer': '21', 'input_text1': true, 'input_text2': true, 'output': 'Followers: 55'},
+    'bogi': 'followers = "55"', 'bogi2': 'print("Followers: "', 'bogi4': ')', 'block1': `followers`, 'block2': `+`, 'answer': ['21'], 'input_text1': true, 'input_text2': true, 'output': 'Followers: 55'},
     3: {'type':'multiple', 'question1': "변수 <span class='highlight_text'>label</span>의 값은 무엇일까요?", 'question2': ``, 
-    'default_code': `label = "Name: " + "Joe"`, 'choice1': '"Joe"', 'choice2': `"Name: Joe"`, 'answer': '2'},
+    'default_code': `label = "Name: " + "Joe"`, 'choice1': '"Joe"', 'choice2': `"Name: Joe"`, 'answer': ['2']},
     4: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'default_code': `user = "coder_love_holic" <br> print("Username:" + user)`, 'choice1': `Username:user`, 'choice2': `Username:CO:DER_love_holic`, 'answer': '2', 'output': 'Username:CO:DER_love_holic'},
+    'default_code': `user = "coder_love_holic" <br> print("Username:" + user)`, 'choice1': `Username:user`, 'choice2': `Username:co:der_love_holic`, 'answer': ['2'], 'output': 'Username:co:der_love_holic'},
     5: {'type':'block', 'question1': `콘솔에 <span class='highlight_text'>다산정약용</span>을 출력해보세요.`, 'question2': ``, 
-    'bogi': 'title = "다산" <br/> name = "정약용"', 'bogi2': 'print(', 'bogi5': ')', 'block1': `+`, 'block2': `title`, 'block3': 'name', 'answer': '213', 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': '다산정약용'},
+    'bogi': 'title = "다산" <br/> name = "정약용"', 'bogi2': 'print(', 'bogi5': ')', 'block1': `+`, 'block2': `title`, 'block3': 'name', 'answer': ['213'], 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': '다산정약용'},
     6: {'type':'block', 'question1': `파이썬의 다양한 자료형 중 <span class='highlight_text'>숫자형</span>은 (문자열과 달리) 좌우를 따옴표로 둘러싸지 않고 숫자만 작성해요.`, 'question2': ``, 
-    'bogi2' : 'coder_users = ', 'block1': `<1000>`, 'block2': `"1000"`, 'block3': '1000', 'answer': '3', 'input_text1': true},
+    'bogi2' : 'coder_users = ', 'block1': `<1000>`, 'block2': `"1000"`, 'block3': '1000', 'answer': ['3'], 'input_text1': true},
     7: {'type': 'block', 'question1': '숫자형 값을 갖는 변수로 계산을 할 수도 있어요', 'question2': '<span class="highlight_text">number_of_steps에 1을 더해 결과를 확인해봅시다.',
-    'bogi': `number_of_steps = 10 <br/> print("You're on step: ")`, 'bogi2': 'print(number_of_steps', 'bogi4': ')', 'block1': '+', 'block2': '=', 'block3': '1', 'answer': '13', 'input_text1': true, 'input_text2': true, 'output': "You're on step: <br/> 11"}, 
+    'bogi': `number_of_steps = 10 <br/> print("You're on step: ")`, 'bogi2': 'print(number_of_steps', 'bogi4': ')', 'block1': '+', 'block2': '=', 'block3': '1', 'answer': ['13'], 'input_text1': true, 'input_text2': true, 'output': "You're on step: <br/> 11"}, 
     8: {'type': 'block', 'question1': '변수에 계산 결과를 저장할 수도 있어요', 'question2': '변수 <span class="highlight_text">total에 <span class="highlight_text">men+women</span>의 값을 저장해봅시다!',
-    'bogi': `men = 10 <br/> women = 8`, 'bogi2': ' ', 'bogi3': ' = men','bogi5': '<br/> &nbsp; print("Total number: ") <br/> &nbsp; print(total)', 'block1': '+', 'block2': 'women', 'block3': 'total', 'answer': '312', 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': "Total number : <br/> 18"}, 
+    'bogi': `men = 10 <br/> women = 8`, 'bogi2': ' ', 'bogi3': ' = men','bogi5': '<br/> &nbsp; print("Total number: ") <br/> &nbsp; print(total)', 'block1': '+', 'block2': 'women', 'block3': 'total', 'answer': ['312'], 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': "Total number : <br/> 18"}, 
     9: {'type':'multiple', 'question1': `아래의 코드는 왜 4가 아니라 <span class='highlight_text'>31</span>을 출력할까요?`, 'question2': ``, 
-    'default_code': `temperature = "3" + "1" <br/> print(temperature)`, 'choice1': `“3”과 “1”이 문자열 값이기 때문에`, 'choice2': `숫자형끼리 뺄셈을 하는 표현식이기 때문에`, 'answer': '1', 'output': '31'},    
+    'default_code': `temperature = "3" + "1" <br/> print(temperature)`, 'choice1': `“3”과 “1”이 문자열 값이기 때문에`, 'choice2': `숫자형끼리 뺄셈을 하는 표현식이기 때문에`, 'answer': ['1'], 'output': '31'},    
     10: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'default_code': `area = "3 * 5" <br> print(area)`, 'choice1': `15`, 'choice2': `3 * 5`, 'answer': '2', 'output': '3 * 5'},    
+    'default_code': `area = "3 * 5" <br> print(area)`, 'choice1': `15`, 'choice2': `3 * 5`, 'answer': ['2'], 'output': '3 * 5'},    
     11: {'type':'block', 'question1': `변수 <span class='highlight_text'>savings</span>에 변수 <span class='highlight_text'>interest</span>를 곱해보세요.`, 'question2': ``,
-    'bogi': `savings = 100 <br/> &nbsp; interest = 0.04`, 'bogi2': `print(savings`, 'bogi4': ')', 'block1': `/`, 'block2': `interest`, 'block3': '*', 'answer': '32', 'input_text1': true, 'input_text2': true, 'output': '4'}, 
+    'bogi': `savings = 100 <br/> &nbsp; interest = 0.04`, 'bogi2': `print(savings`, 'bogi4': ')', 'block1': `/`, 'block2': `interest`, 'block3': '*', 'answer': ['32'], 'input_text1': true, 'input_text2': true, 'output': '4'}, 
     12: {'type':'block', 'question1': `<span class='highlight_text'>sum_of_grades</span>를 <span class='highlight_text'>subjects</span>로 나누어 과목별 점수의 평균값을 구해보세요.`, 'question2': ``, 
-    'bogi': `sum_of_grades = 460 <br/> subjects = 5`, 'bogi2': `print(`, 'bogi5': ')', 'block1': `sum_of_grades`, 'block2': `subjects`, 'block3': '/', 'answer': '132', 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': '92'}, 
+    'bogi': `sum_of_grades = 460 <br/> subjects = 5`, 'bogi2': `print(`, 'bogi5': ')', 'block1': `sum_of_grades`, 'block2': `subjects`, 'block3': '/', 'answer': ['132'], 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': '92'}, 
 };
 const num_list = ["","2","3","4","5"]
 const num_list_for_input = ["1", "2", "3"]
@@ -335,7 +335,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer']) {
+    if (quiz_list[num]['answer'].includes(value)) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {

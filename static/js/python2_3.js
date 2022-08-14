@@ -1,21 +1,21 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': `문자열(string)은 따옴표 <span class = "highlight_text">“</span>로 처음과 끝을 감싸서 표현합니다.`, 'question2': '변수 sugar에 문자열 값을 저장해볼까요? <br/> (이렇게 변수에 값을 저장하는 것을 변수에 값을  <span class = "highlight_text">할당</span>한다고 표현해요.)',
-    'bogi2': 'sugar = ', 'bogi3': 'sweet','block1': `"`, 'answer': '11', 'input_text1': true, 'input_text2': true},
+    'bogi2': 'sugar = ', 'bogi3': 'sweet','block1': `"`, 'answer': ['11'], 'input_text1': true, 'input_text2': true},
     2: {'type':'block', 'question1': "정수형(integer)도 이미 배웠던 자료형이에요! ", 'question2': `정수형은 42와 같이, 소수점 아래 자리가 없는 숫자를 의미해요.`, 
-    'bogi2': 'score = ', 'block1': `"43"`, 'block2': `42`, 'block3': `True`, 'answer': '2', 'input_text1': true},
+    'bogi2': 'score = ', 'block1': `"43"`, 'block2': `42`, 'block3': `True`, 'answer': ['2'], 'input_text1': true},
     3: {'type':'block', 'question1': `실수형(float) 역시 정수형과 같은 숫자형이에요.`, 'question2': `그러나 정수형과 달리 소수점 아래 자리가 있는 숫자를 표현한답니다.`, 
-    'bogi2': `pie = `, 'block1': '3', 'block2': '"3"', 'block3': '.14150', 'answer': '13', 'input_text1': true, 'input_text2': true},
+    'bogi2': `pie = `, 'block1': '3', 'block2': '"3"', 'block3': '.14150', 'answer': ['13'], 'input_text1': true, 'input_text2': true},
     4: {'type':'typing', 'question1': `불린(Boolean) 타입은 True 와 False라는 2가지 값만 존재해요, <span class="highlight_text">received_message</span>에 <span class="highlight_text">True</span>를 저장해봅시다`, 'question2': `(True, False는 대문자 / 소문자를 구분하여, 첫 글자는 대문자로 작성해야 합니다!)`, 
-    'pre_blank': 'received_message = ', 'after_blank': '', 'answer': 'True'},
+    'pre_blank': 'received_message = ', 'after_blank': '', 'answer': ['True']},
     5: {'type':'multiple', 'question1': `result가 저장하는 값의 자료형은 무엇일까요?`, 'question2': ``, 
-    'default_code': 'result = 3.33', 'choice1': '정수', 'choice2': `실수`, 'answer': '2'},
+    'default_code': 'result = 3.33', 'choice1': '정수', 'choice2': `실수`, 'answer': ['2']},
     6: {'type':'multiple', 'question1': `다음 중 불린 값은 무엇일까요?`, 'question2': ``, 
-    'choice1': `True, False`, 'choice2': `"true", "false"`, 'answer': '1'},
+    'choice1': `True, False`, 'choice2': `"true", "false"`, 'answer': ['1']},
     7: {'type': 'multiple', 'question1': '<span class="highlight_text">변수 할당(variable assignment)</span>은 무엇을 의미하나요?', 'question2': '',
-    'choice1': `변수에 이름을 붙이는 것`, 'choice2': '변수 안에 값을 저장하는 것', 'answer': '2'}, 
+    'choice1': `변수에 이름을 붙이는 것`, 'choice2': '변수 안에 값을 저장하는 것', 'answer': ['2']}, 
     8: {'type': 'block', 'question1': '<span class="highlight_text">name</span>에는 문자열(string) 값을, <span class="highlight_text">age</span>에는 정수형(integer) 값을, <span class="highlight_text">is_active<span>에는 불린형(Boolean) 값을 할당해주세요.', 'question2': '',
-    'bogi2': `name = `, 'bogi3': '<br/> &nbsp Age =', 'bogi4': '<br/> &nbsp is_active =', 'block1': `44`, 'block2': `"PSY"`, 'block3': `True`, 'input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '213'}, 
+    'bogi2': `name = `, 'bogi3': '<br/> &nbsp Age =', 'bogi4': '<br/> &nbsp is_active =', 'block1': `44`, 'block2': `"PSY"`, 'block3': `True`, 'input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': ['213']}, 
 };
 const num_list = ["","2","3","4","5"]
 const num_list_for_input = ["1", "2", "3"]
@@ -365,7 +365,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer']) {
+    if (quiz_list[num]['answer'].includes(value)) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {

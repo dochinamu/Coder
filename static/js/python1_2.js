@@ -1,29 +1,29 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': "<span class='highlight_text'>print()</span>는 특별한 명령어예요. 컴퓨터가 콘솔(또는 shell)이라는 공간에 value를 출력하게끔 하죠.", 'question2': `콘솔에 <span class='highlight_text'>Hello, World!</span>를 출력하여 반갑게 인사해볼까요?`, 
-    'block1': `Hello, World!`, 'block2': 'print','answer': '1', 'output': 'Hello, World!'},
+    'block1': `Hello, World!`, 'block2': 'print','answer': ['1'], 'output': 'Hello, World!'},
     2: {'type':'block', 'question1': "", 'question2': `<span class='highlight_text'>print()</span> 명령어를 사용하면, 컴퓨터는 콘솔에 값을 한 줄씩 출력해요.`, 
-    'block1': `(`, 'block2': `)`, 'answer': '12', 'output': 'Wind <br/> Breaker'},
+    'block1': `(`, 'block2': `)`, 'answer': ['12'], 'output': 'Wind <br/> Breaker'},
     3: {'type':'block', 'question1': "<span class='highlight_text'>greeting</span>과 같은 변수(Variable)를 출력할 때에도, <span class='highlight_text'>print()</span>를 사용할 수 있어요.", 'question2': `콘솔에 변수를 출력하면, 변수명 대신 값(value)이 출력됩니다`, 
-    'bogi': `greeting = "Hello, World!`, 'bogi2': 'print', 'block1': `)`, 'block2': `greeting`, 'block3': `(`, 'answer': '321', 'output': 'Hello, World!'},
+    'bogi': `greeting = "Hello, World!`, 'bogi2': 'print', 'block1': `)`, 'block2': `greeting`, 'block3': `(`, 'answer': ['321'], 'output': 'Hello, World!'},
     4: {'type':'multiple', 'question1': `<span class='highlight_text'>콘솔</span>에 대한 설명으로 옳은 것을 고르세요.`, 'question2': ``, 
-    'choice1': `코드를 작성하는 공간`, 'choice2': `코드의 결과물이 출력되는 공간`, 'answer': '2'},
+    'choice1': `코드를 작성하는 공간`, 'choice2': `코드의 결과물이 출력되는 공간`, 'answer': ['2']},
     5: {'type':'multiple', 'question1': `<span class='highlight_text'>print()</span>는 무슨 역할을 하나요?`, 'question2': ``, 
-    'choice1': `콘솔에 값(value)을 출력한다.`, 'choice2': `변수를 생성한다.`, 'answer': '1'},
+    'choice1': `콘솔에 값(value)을 출력한다.`, 'choice2': `변수를 생성한다.`, 'answer': ['1']},
     6: {'type':'multiple', 'question1': `아래의 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'default_code': 'sport = "B-ball" <br/> print(sport)', 'choice1': `sport`, 'choice2': `B-ball`, 'answer': '2'},
+    'default_code': 'sport = "B-ball" <br/> print(sport)', 'choice1': `sport`, 'choice2': `B-ball`, 'answer': ['2']},
     7: {'type':'typing', 'question1': `변수 <span class='highlight_text'>major</span>의 값을 출력해보세요.`, 'question2': ``, 
-    'pre_blank': `major = "computer engineering" <br/>`, 'after_blank': '', 'answer': 'print(major)'},    
+    'pre_blank': `major = "computer engineering" <br/>`, 'after_blank': '', 'answer': ['print(major)']},    
     8: {'type':'block', 'question1': `변수는 저장하는 값이 바뀔 수 있기 때문에, <span class='highlight_text'>변수(Variable)<span>라고 부릅니다.`, 'question2': `<span class='highlight_text'>=</span>를 사용하여 새 값을 저장하면, 새로운 값을 변수에 저장할 수 있어요. 변수의 값을 새롭게 저장하고 나면, 이전 값은 잊혀집니다.`,
-    'block1': `=`, 'block2': `:`, 'answer': '1'},
+    'block1': `=`, 'block2': `:`, 'answer': ['1']},
     9: {'type':'block', 'question1': `변수에는 다른 변수의 값을 저장할 수도 있어요.`, 'question2': `아래의 코드에서 변수 <span class='highlight_text'>new_status</span>에 또 다른 변수 <span class='highlight_text'>default_option</span>의 값을 저장해볼까요? `, 
-    'block1': `default_option`, 'block2': `( )`, 'block3': 'print', 'answer': '1'},
+    'block1': `default_option`, 'block2': `( )`, 'block3': 'print', 'answer': ['1']},
     10: {'type':'multiple', 'question1': `이 코드는 콘솔에 어떤 결과를 출력할까요?`, 'question2': ``, 
-    'choice1': 'Watching a moive', 'choice2': 'status', 'default_code': 'status = "Watching a movie" <br/> print(status)', 'answer': '1'},
+    'choice1': 'Watching a moive', 'choice2': 'status', 'default_code': 'status = "Watching a movie" <br/> print(status)', 'answer': ['1']},
     11: {'type':'typing', 'question1': `변수 <span class='highlight_text'>status</span>의 값을 “Writing code”로 바꿔보세요.`, 'question2': ``, 
-    "pre_blank":`status = "Completing spreadsheet" <br/>`,'after_blank': `print(status)`, 'answer': 'status = "Writing code"' || 'status= "Writing code"' || 'status ="Writing code"' || 'status="Writing code"'},
+    "pre_blank":`status = "Completing spreadsheet" <br/>`,'after_blank': `print(status)`, 'answer': ['status = "Writing code"', 'status= "Writing code"', 'status ="Writing code"', 'status="Writing code"']},
     12: {'type': 'typing', 'question1': `변수 <span class='highlight_text'>status</span>의 값을 “Complete”로 바꾸고 그 값을 출력해보세요.`, 'question2': '',
-    'pre_blank': 'status = "Loading" <br>', 'after_blank': '', 'answer': `status = "Complete"`, 'answer2': 'print(status)'}   
+    'pre_blank': 'status = "Loading" <br>', 'after_blank': '', 'answer': [`status = "Complete"`, `status="Complete"`, `status ="Complete"`, `status= "Complete"`], 'answer2': 'print(status)'}   
 };
 var value='';
 var value2='';
@@ -154,8 +154,8 @@ function next() {
     }
     if (num === 6) {
         $(".code_background").show()
-        $('.file_name').hide()
-    }
+        $('.file_name').show() 
+}
     } 
 }
 
@@ -340,7 +340,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (((num !== 12) && (value === quiz_list[num]['answer'])) || ((num === 12) && ((value === quiz_list[num]['answer']) && (value2 === quiz_list[12]['answer2'])))) {
+    if (((num !== 12) && (quiz_list[num]['answer'].includes(value))) || ((num === 12) && ((quiz_list[num]['answer'].includes(value)) && (value2 === quiz_list[12]['answer2'])))) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {

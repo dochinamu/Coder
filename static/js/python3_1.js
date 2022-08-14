@@ -1,29 +1,29 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': `두 문자열을 이어 붙여서 출력할 때, <span class="highlight_text">+</span>를 사용한다고 배웠어요.`, 'question2': '<br/>',
-    'bogi2': 'print("초당"', 'bogi3': '"두부")','block1': `+`, 'answer': '1', 'input_text1': true, 'output': '초당두부'},
+    'bogi2': 'print("초당"', 'bogi3': '"두부")','block1': `+`, 'answer': ['1'], 'input_text1': true, 'output': '초당두부'},
     2: {'type':'block', 'question1': `하지만 숫자형 자료 <span class="highlight_text">2</span>와 문자열 <span class="highlight_text">“ice cream”</span>을 결합하려고 <span class="highlight_text">+</span>를 쓰면, 어떻게 될까요? `, 'question2': `아래처럼 두 가지의 타입(‘int’ and ‘str’)이 서로 다르기 때문에 연산을 수행할 수 없다는 내용의 에러가 뜨게 되죠.`, 
-    'bogi2': 'print(2', 'bogi3': '"apples")', 'block1': `+`, 'answer': '1', 'input_text1': true, 'output': 'Traceback(most recent call last): <br> &nbsp &nbsp &nbsp File “script.py”, line 1, in <module> <br> &nbsp &nbsp &nbsp Print(2 + “ice cream”) <br/> TypeError: unsupported operand type(s) for +: ‘int’ and ‘str’'},
+    'bogi2': 'print(2', 'bogi3': '"apples")', 'block1': `+`, 'answer': ['1'], 'input_text1': true, 'output': 'Traceback(most recent call last): <br> &nbsp &nbsp &nbsp File “script.py”, line 1, in <module> <br> &nbsp &nbsp &nbsp Print(2 + “ice cream”) <br/> TypeError: unsupported operand type(s) for +: ‘int’ and ‘str’'},
     3: {'type':'block', 'question1': `이번 시간에는 <span class="highlight_text">문자열 포맷팅</span>이라는 기능을 통해 서로 다른 종류의 값을 콘솔에 함께 출력하는 방법을 배워볼 거예요.`, 'question2': `<span class="highlight_text">f-string(서식 문자 리터럴)</span>을 사용하면, 숫자와 문자열을 에러 없이 함께 출력할 수 있습니다.`, 
-    'bogi2': `print(`, 'bogi3': ')', 'block1': 'f"{2} apples"', 'answer': '1', 'input_text1': true, 'output': '2 apples'},
+    'bogi2': `print(`, 'bogi3': ')', 'block1': 'f"{2} apples"', 'answer': ['1'], 'input_text1': true, 'output': '2 apples'},
     4: {'type':'block', 'question1': `f-string문은 문자 <span class="highlight_text">f</span> 뒤에 우리가 포맷하고 싶은 문자열을 적어서 완성해요.`, 'question2': ``, 
-    'bogi2': 'print(', 'bogi4': ')', 'block1': `“{6} apples”`, 'block2': `f`, 'input_text1': true, 'input_text2': true, 'answer': '21', 'output': '6 apples'},
+    'bogi2': 'print(', 'bogi4': ')', 'block1': `“{6} apples”`, 'block2': `f`, 'input_text1': true, 'input_text2': true, 'answer': ['21'], 'output': '6 apples'},
     5: {'type':'typing', 'question1': `하나의 print문에서 여러 자료형의 값을 함께 출력하려면, 문자열 안에 중괄호 <span class = "highlight_text">{ }</span> 사이에 값을 작성해주면 돼요.`, 'question2': `<span class="highlight_text">2 apples</span>를 출력해볼까요?`, 
-    'pre_blank': 'print(f"', 'after_blank': ' apples")', 'answer': '{2}', 'output': '2 apples'},
+    'pre_blank': 'print(f"', 'after_blank': ' apples")', 'answer': ['{2}'], 'output': '2 apples'},
     6: {'type':'block', 'question1': `<span class="highlight_text">num_of_apples</span> 같은 변수를 중괄호 <span class = "highlight_text">{ }</span> 사이에 작성해주어도, 2 apples처럼 한 번에 출력할 수 있어요.`, 'question2': ``, 
-    'bogi': 'num_of_apples = 2', 'bogi2':  'print(f"{', 'bogi3': '}apples")', 'block1': 'num_of_apples', 'block2': '5', 'answer': '1', 'output': '2apples'},
+    'bogi': 'num_of_apples = 2', 'bogi2':  'print(f"{', 'bogi3': '}apples")', 'block1': 'num_of_apples', 'block2': '5', 'answer': ['1'], 'output': '2apples'},
     7: {'type': 'typing', 'question1': '<span class = "highlight_text">new – eaten</span> 같은 표현식을 중괄호 <span class = "highlight_text">{ }</span> 사이에 작성해줄 수도 있어요', 'question2': '',
-    'pre_blank': `new= 5 <br/> eaten = 2 <br/> print(f”{`, 'after_blank': '} uneaten apples")', 'answer': 'new - eaten', 'answer_extra': 'new-eaten', 'output': '3 uneaten apples'}, 
+    'pre_blank': `new= 5 <br/> eaten = 2 <br/> print(f”{`, 'after_blank': '} uneaten apples")', 'answer': ['new - eaten', 'new- eaten', 'new -eaten', 'new-eaten'], 'answer_extra': 'new-eaten', 'output': '3 uneaten apples'}, 
     8: {'type': 'block', 'question1': '중괄호는 2개 이상 사용할 수도 있어요.', 'question2': '<span class="highlight_text">5 apples and 2 peaches</span>를 출력해볼까요?',
-    'bogi2': `print(f”{`, 'bogi3': '} apples and {', 'bogi4': '} peaches)', 'block1': `0`, 'block2': `5`, 'block3': `2`, 'input_text1': true, 'input_text2': true, 'answer': '23', 'output': '5 apples and 2 peaches'}, 
+    'bogi2': `print(f”{`, 'bogi3': '} apples and {', 'bogi4': '} peaches)', 'block1': `0`, 'block2': `5`, 'block3': `2`, 'input_text1': true, 'input_text2': true, 'answer': ['23'], 'output': '5 apples and 2 peaches'}, 
     9: {'type': 'block', 'question1': 'f-string을 변수에 저장하여 재사용할 수도 있어요.', 'question2': '<span class="highlight_text">status</span>에 알맞은 값을 저장하여, <span class="highlight_text">5 peaches</span>를 출력해볼까요?',
-    'bogi': `new = 5`, 'bogi2': ``, 'bogi5': '<br/> &nbsp print(status)', 'block1': `status`, 'block2': `f”{new} peaches” `, 'block3': `=`, 'input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': '132', 'output': '5 peaches'}, 
+    'bogi': `new = 5`, 'bogi2': ``, 'bogi5': '<br/> &nbsp print(status)', 'block1': `status`, 'block2': `f”{new} peaches” `, 'block3': `=`, 'input_text1': true, 'input_text2': true, 'input_text3': true, 'answer': ['132'], 'output': '5 peaches'}, 
     10: {'type': 'multiple', 'question1': '<span class="highlight_text">f-string</span>의 용도는 무엇일까요?', 'question2': '',
-    'choice1': `문자열 값끼리 출력하기 위함`, 'choice2': `자료형이 서로 다른 값을 문자열에서 한꺼번에 출력하기 위함`, 'answer': '2'}, 
+    'choice1': `문자열 값끼리 출력하기 위함`, 'choice2': `자료형이 서로 다른 값을 문자열에서 한꺼번에 출력하기 위함`, 'answer': ['2']}, 
     11: {'type': 'multiple', 'question1': '<span class="highlight_text">f-string</span>으로 숫자형 값을 출력하고 싶다면 어떻게 해야 할까요?', 'question2': '',
-    'choice1': `중괄호 {} 사이에 값을 입력한다.`, 'choice2': 'f-string으로는 숫자형 값을 출력할 수 없다.', 'answer': '1'}, 
+    'choice1': `중괄호 {} 사이에 값을 입력한다.`, 'choice2': 'f-string으로는 숫자형 값을 출력할 수 없다.', 'answer': ['1']}, 
     12: {'type': 'typing', 'question1': '<span class="highlight_text">f-string</span>과 변수 <span class="highlight_text">degrees</span>를 사용하여 <br/> <span class="highlight_text">현재 온도: 70F</span>를 출력해보세요.', 'question2': '',
-    'pre_blank': `degrees = 70 <br/> print(`, 'after_blank': ')', 'answer': 'f"현재 온도: {degrees}F"', 'output': '현재 온도: 70F'}, 
+    'pre_blank': `degrees = 70 <br/> print(`, 'after_blank': ')', 'answer': ['f"현재 온도: {degrees}F"'], 'output': '현재 온도: 70F'}, 
 };
 const num_list = ["","2","3","4","5"]
 const num_list_for_input = ["1", "2", "3"]
@@ -359,7 +359,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer'] || value === quiz_list[num]['answer_extra']) {
+    if (quiz_list[num]['answer'].includes(value) || ((num === 7) && (quiz_list[num]['answer'].includes(value) && (value2 === quiz_list[12]['answer_extra'])))) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {

@@ -39,10 +39,10 @@
 
 html, body, .question, .question3-1, .explanation {
     height: 100%;
-  }
-  * {
-    font-size: 20px;
-  }
+}
+* {
+font-size: 18px;
+}
 
 article {
     display: flex;
@@ -127,7 +127,7 @@ flex: 1;
 /* 질문 */
 .quiz {
     background-color: #343E56;
-    min-height: 25%;
+    min-height: 20%;
 }
 .border_text {
     font-weight: bolder;

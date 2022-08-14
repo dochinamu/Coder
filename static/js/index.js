@@ -1,29 +1,29 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': "변수의 이름에는 '숫자'가 포함될 수 있어요. 여러개의 비슷한 변수들이 있을 때 변수에 숫자를 추가하면 보다 쉽게 구분할 수 있어요.", 'question2': `우선 변수 <span class="highlight_text">city_1'</span>을 만들어볼까요?`, 
-    'block1': `1`, 'block2': `_`, 'block3': 'city', 'answer': '321'},
+    'block1': `1`, 'block2': `_`, 'block3': 'city', 'answer': ['321']},
     2: {'type':'block', 'question1': "변수를 생성하고 변수의 이름을 정한 후에는 <span class='highlight_text'>=</span>을 사용해서 변수에 값(value)을 저장해요.", 'question2': `예를 들면, <span class='highlight_text'>city_1="Seoul"</span>`, 
-    'block1': `"Seoul"`, 'block2': `=`, 'block3': 'city_1', 'answer': '321'},
+    'block1': `"Seoul"`, 'block2': `=`, 'block3': 'city_1', 'answer': ['321']},
     3: {'type':'block', 'question1': "value를 변수에 저장한다는 건, 물건을 캐리어에 넣는 것과 비슷해요.", 'question2': `"galaxy"라는 값을 <span class='highlight_text'>device_type</span>에 저장해보세요.`, 
-    'block1': `"galaxy"`, 'block2': `device_type`, 'block3': `=`, 'answer': '231'},
+    'block1': `"galaxy"`, 'block2': `device_type`, 'block3': `=`, 'answer': ['231']},
     4: {'type':'block', 'question1': `우리가 변수에 저장한 "Seoul"과 "galaxy"는 모두 <span class='highlight_text'>문자열(String)</span>이에요.`, 'question2': `문자열은 처음과 끝을 큰따옴표 <span class='highlight_text'>"</span>로 묶어요.`, 
-    'block1': `"`, 'block2': `/`, 'block3': `.`, 'block4': `.`, 'answer': '11'},
+    'block1': `"`, 'block2': `/`, 'block3': `.`, 'block4': `.`, 'answer': ['11']},
     5: {'type':'block', 'question1': `문자열에는 공백을 포함하여 모든 종류의 문자와 기호가 들어갈 수 있어요`, 'question2': `예를 들면, <span class='highlight_text'>"코딩의 시작은 CO:DER"</span>`, 
-    'block1': `"`, 'block2': `_`, 'block3': `코딩의 시작은 CO:DER`, 'answer': '131'},
+    'block1': `"`, 'block2': `_`, 'block3': `코딩의 시작은 CO:DER`, 'answer': ['131']},
     6: {'type':'multiple', 'question1': ``, 'question2': `다음 중 <span class='highlight_text'>변수의 이름</span>은 무엇인가요?`, 
-    'default_code': 'Id = "0921sean"','choice1': `Id`, 'choice2': `"0921sean"`, 'answer': '1'},
+    'default_code': 'Id = "0921sean"','choice1': `Id`, 'choice2': `"0921sean"`, 'answer': ['1']},
     7: {'type':'multiple', 'question1': ``, 'question2': `변수 <span class='highlight_text'>value</span>가 문자열인지 어떻게 알 수 있나요?`, 
-    'default_code': 'value = "watermelon"', 'choice1': `큰 따옴표 사이에 있기 때문에`, 'choice2': `= 표시가 있기 때문에`, 'answer': '1'},    
+    'default_code': 'value = "watermelon"', 'choice1': `큰 따옴표 사이에 있기 때문에`, 'choice2': `= 표시가 있기 때문에`, 'answer': ['1']},    
     8: {'type':'multiple', 'question1': ``, 'question2': `아래 코드에 대한 올바른 설명은 무엇인가요??`, 
     'default_code': 'Measurement = "average"', 'choice1': `변수 "average"가 Measurement value를 저장하고 있다`, 'choice2': `변수 Measurement가 value "average"를 저장하고 있다.`, 'answer': '2'},
     9: {'type':'multiple', 'question1': ``, 'question2': `다음 중 <span class='highlight_text'>변수의 이름</span>은 무엇인가요?`, 
-    'default_code': 'hobby = "tennis"', 'choice1': `hobby`, 'choice2': `"tennis"`, 'answer': '1'},
+    'default_code': 'hobby = "tennis"', 'choice1': `hobby`, 'choice2': `"tennis"`, 'answer': ['1']},
     10: {'type':'block', 'question1': ``, 'question2': `변수 <span class='highlight_text'>job</span>을 생성하고 "Developer" 값(value)으로 지정해주세요.`, 
-    'bogi': 'name = "Sojeong"','block1': `"Developer"`, 'block2': `=`, 'block3': "job", 'answer': '321'},
+    'bogi': 'name = "Sojeong"','block1': `"Developer"`, 'block2': `=`, 'block3': "job", 'answer': ['321']},
     11: {'type':'block', 'question1': ``, 'question2': `변수 <span class='highlight_text'>job_title</span>에 문자열 값을 저장해주세요.`, 
-    "bogi2":"job_title =",'block1': `"`, 'block2': `Marketer`, 'block3': `+`, 'block4': '"', 'answer': '121'},
+    "bogi2":"job_title =",'block1': `"`, 'block2': `Marketer`, 'block3': `+`, 'block4': '"', 'answer': ['121']},
     12: {'type': 'typing', 'question1': ``, 'question2': '변수 <span class="highlight_text">user_agent</span>에 문자열 값 "Mobile"을 저장해주세요.',
-    'pre_blank': 'user_agent = ', 'after_blank': '', 'answer': `"Mobile"`}   
+    'pre_blank': 'user_agent = ', 'after_blank': '', 'answer': [`"Mobile"`, `'Mobile'`]}   
 };
 var value='';
 $('.bogi2').hide()
@@ -292,7 +292,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer']) {
+    if (quiz_list[num]['answer'].includes(value)) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {

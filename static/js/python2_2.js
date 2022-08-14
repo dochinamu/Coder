@@ -1,25 +1,25 @@
 var num=1;
 var quiz_list = {
     1: {'type':'block', 'question1': `=을 2개 이어붙인 <span class="highlight_text">==</span>를 사용하면, 문자열끼리 같은지 비교할 수 있어요. `, 'question2': '(=과 헷갈리지 않도록 주의하여 기억해둡시다!)',
-    'bogi2': 'print("apples"', 'bogi3': '"apple")','block1': `= =`, 'block2': '>=', 'block3': '!=', 'answer': '1', 'input_text1': true, 'output': 'True'},
+    'bogi2': 'print("apples"', 'bogi3': '"apple")','block1': `==`, 'block2': '>=', 'block3': '!=', 'answer': ['1'], 'input_text1': true, 'output': 'True'},
     2: {'type':'block', 'question1': "만약 두 값이 같지 않다면, 결과로 False를 반환합니다. ", 'question2': `아래 코드를 완성하여 False를 출력해보세요!`, 
-    'bogi2': 'print("apples"', 'bogi4': ')', 'block1': `= =`, 'block2': `"orange"`, 'answer': '12', 'input_text1': true, 'input_text2': true, 'output': 'False'},
+    'bogi2': 'print("apples"', 'bogi4': ')', 'block1': `==`, 'block2': `"orange"`, 'answer': ['12'], 'input_text1': true, 'input_text2': true, 'output': 'False'},
     3: {'type':'block', 'question1': `<span class="highlight_text">==</span>을 사용해서 변수가 저장하고 있는 값이 같은지도 비교할 수 있어요.`, 'question2': `<span class="highlight_text">fruit_1</span>과 <span class="highlight_text">fruit_2</span>에 문자열을 저장한 뒤, 두 변수의 값이 같은지 비교해볼까요?`, 
-    'bogi2': `fruit_1`, 'bogi3': '"apple"" <br/> &nbsp; fruit_2', 'bogi4': `"orange <br/> &nbsp; print( fruit_1`, 'bogi5': `fruit_2 )`, 'block1': '= =', 'block2': '=', 'answer': '221', 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': 'False'},
+    'bogi2': `fruit_1`, 'bogi3': '"apple"" <br/> &nbsp; fruit_2', 'bogi4': `"orange <br/> &nbsp; print( fruit_1`, 'bogi5': `fruit_2 )`, 'block1': '==', 'block2': '=', 'answer': ['221'], 'input_text1': true, 'input_text2': true, 'input_text3': true, 'output': 'False'},
     4: {'type':'block', 'question1': `<span class="highlight_text">!=</span>를 사용하면, 문자열끼리 다른지 확인할 수 있어요. (==과는 정반대의 의미예요!)`, 'question2': ` 아래처럼 두 문자열의 값이 서로 다르다면 <span class="highlight_text">True</span>를 반환한답니다.`, 
-    'bogi2': 'print("subscribed"', 'bogi3': '"alarm")','block1': `=`, 'block2': `>=`, 'block3': `!=`, 'answer': '3', 'input_text1': true, 'output': 'True'},
+    'bogi2': 'print("subscribed"', 'bogi3': '"alarm")','block1': `=`, 'block2': `>=`, 'block3': `!=`, 'answer': ['3'], 'input_text1': true, 'output': 'True'},
     5: {'type':'block', 'question1': `반대로 두 문자열의 값이 같을 때 <span class="highlight_text">!=</span>를 사용하면, <span class="highlight_text">False</span>를 반환해요. `, 'question2': `아래의 코드를 완성하여 False를 출력해보세요!`, 
-    'bogi2': 'print("subscribed"', 'bogi3': '"subscribed")', 'block1': `= =`, 'block2': `!=`, 'block3': '=', 'answer': '2', 'input_text1': true, 'output': 'False'},
+    'bogi2': 'print("subscribed"', 'bogi3': '"subscribed")', 'block1': `==`, 'block2': `!=`, 'block3': '=', 'answer': ['2'], 'input_text1': true, 'output': 'False'},
     6: {'type':'block', 'question1': `<span class="highlight_text">=</span>기호를 사용해서 비교 연산의 결과를 변수에 저장할 수 있어요.`, 'question2': `<span class="highlight_text">( )</span>는 괄호 사이에 적은 <span class="highlight_text">"alarm" != "alarm"</span> 연산을 먼저 실행시키라는 의미예요.`, 
-    'bogi2' : 'same', 'bogi3': '("alarm" != "alarm")', 'block1': `= =`, 'block2': `=`, 'block3': '!=', 'answer': '2', 'input_text1': true},
+    'bogi2' : 'same', 'bogi3': '("alarm" != "alarm")', 'block1': `==`, 'block2': `=`, 'block3': '!=', 'answer': ['2'], 'input_text1': true},
     7: {'type': 'multiple', 'question1': '<span class="highlight_text">False</span>를 반환하는 비교 연산은 어떤 것일까요?', 'question2': '',
-    'choice1': `"apple" != "orange"`, 'choice2': '“apple”== “black”', 'answer': '2'}, 
+    'choice1': `"apple" != "orange"`, 'choice2': '“apple”== “black”', 'answer': ['2']}, 
     8: {'type': 'multiple', 'question1': '이 코드는 콘솔에 어떤 결과를 출력할까요?', 'question2': '',
-    'default_code': `print(“orange” != “yellow”) <br/> print(“apple” == “red”)`, 'choice1': 'True <br/> False', 'choice2': 'False <br/> True', 'answer': '1'}, 
+    'default_code': `print(“orange” != “yellow”) <br/> print(“apple” == “red”)`, 'choice1': 'True <br/> False', 'choice2': 'False <br/> True', 'answer': ['1']}, 
     9: {'type':'block', 'question1': `wallpaper에 알맞은 값을 저장하여, 콘솔에 False를 출력해보세요.`, 'question2': ``, 
-    'bogi2': `wallpaper = `, 'bogi3': `<br/> &nbsp print(wallpaper != "dog.png")`, 'block1': `"dog.png"`, 'block2': `"cat.png"`,'answer': '1', 'output': 'False'},    
+    'bogi2': `wallpaper = `, 'bogi3': `<br/> &nbsp print(wallpaper != "dog.png")`, 'block1': `"dog.png"`, 'block2': `"cat.png"`,'answer': ['1'], 'output': 'False'},    
     10: {'type':'block', 'question1': `big_city와 small_city의 값을 비교하여 True와 False를 차례대로 출력해보세요.`, 'question2': ``, 
-    'bogi': `big_city = "New York" <br/> small_city = "Seoul"`, 'bogi2': `print(big_city`, 'bogi3': `small_city) <br/> &nbsp print(big_city`, 'bogi4': `small_city)`, 'block1': '= =', 'block2': '!=', 'input_text1': true, 'input_text2': true, 'answer': '21', 'output': 'True <br/> False'},    
+    'bogi': `big_city = "New York" <br/> small_city = "Seoul"`, 'bogi2': `print(big_city`, 'bogi3': `small_city) <br/> &nbsp print(big_city`, 'bogi4': `small_city)`, 'block1': '==', 'block2': '!=', 'input_text1': true, 'input_text2': true, 'answer': ['21'], 'output': 'True <br/> False'},    
 };
 const num_list = ["","2","3","4","5"]
 const num_list_for_input = ["1", "2", "3"]
@@ -365,7 +365,7 @@ $('.submit_btn').click(function() {
     }
 
     //정답 비교하고, 각 문구/버튼 띄움
-    if (value === quiz_list[num]['answer']) {
+    if (quiz_list[num]['answer'].includes(value)) {
         console.log('정답~')
         $('.blocks').hide();
         if ('output' in quiz_list[num]) {
