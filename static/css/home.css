@@ -40,15 +40,21 @@ hr  {margin:0px;}
             }
 
 .logout {background-color: rgba(0,0,0,80%);}
-.need-login {background-color: #666EE8;
-            border:none;
-            border-radius: 15px;
-            width:90%; height: 80px;}
 
-
-.need-login a   {color:white;
+.need-login     {background-color: #666EE8;
+                 border:none;
+                border-radius: 15px;
+                width:90%; 
+                display:block;
+                color:white;
                 font-size: 15px;
-                font-weight: bold;}    
+                font-weight: bold;
+                text-align: center;
+                padding-top:20px;
+                padding-bottom:20px;}
+
+
+  
 
 .logout .challenge  {margin-top:0%;}      
 .logout .week   {padding-top: 10px;
@@ -75,16 +81,15 @@ hr  {margin:0px;}
 .one-category   {display:flex;
                 flex-direction: row;
                 justify-content: space-around;
-                flex-wrap: wrap;
                 margin-top:20px;}
 
 .one-challenge  {color:black;}
 
 .challenge-img  {border-radius: 15px;
-                width: 150px; height: 100px;
+                width: 110px; height: 90px;
                 text-align: center;}
 
-.challenge-title    {font-weight: bold; font-size:large;
+.challenge-title    {font-weight: bold; font-size:15px;
                     margin-bottom: 10px;}
 
 .tag-list   {display:flex;
@@ -107,7 +112,7 @@ hr  {margin:0px;}
                 justify-content: center;}
 
 /* footer  */
-footer  {padding: 10% 5%; 
+footer  {padding: 12% 6%; 
         background-color: #babdef;
         margin:0px;}
 

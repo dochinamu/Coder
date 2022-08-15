@@ -27,7 +27,9 @@ input   {width: 250px;
     color: white;
     background-color: #666EE8;;
     border:none;
-    width: 275px;}
+    width: 275px;
+    padding-top: 13px;
+        padding-bottom: 13px;}
 
 .login-button   {margin-top: 20px;}
 
