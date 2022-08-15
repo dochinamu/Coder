@@ -6,7 +6,7 @@
 <style>
     * {font-family: 'Spoqa Han Sans', 'Sans-serif';}
 
-    .post_title {margin-left: 5%; margin-bottom: 0%;
+    .post_title {margin-left: 7%; margin-bottom: 0%;
                 font-size: 20px; font-weight: 700;}
 
     .post_info, .comment_info  {display: flex;
@@ -22,55 +22,85 @@
 
     .detail_blog img, .comment img {margin-left: 8%;}
 
-    .edit-box   {text-align:right;
-                margin-right: 8%;}
-
     .comment-topic {display: flex;
                     flex-direction: row;
                     align-items: center;}
 
     .comment-topic h1   {font-size: 20px; font-weight: 700;
-                        margin-left: 5%; margin-right: 3%;}
+                        margin-left: 7%; margin-right: 3%;}
 
     .comment-topic p    {font-size: 20px; font-weight: 700;}
 
-    form    {height: 153.24px;
+    form    {width: 340px;
+            height: 153.24px;
             display: flex;
             flex-direction: column;
-            justify-content: center;}
+            justify-content: center;
+            margin: auto;}
 
-    textarea    {width: 330px; height: 100px;
-                margin-left: 5%; margin-bottom: 0px;
+    textarea    {height: 100px;
+                margin-bottom: 0px;
                 padding-top: 2%; padding-left: 20px; padding-right: 0px;
-                border: 2px solid rgba(0, 0, 0, 0.2);}
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                }
 
     .form-down {display: flex;
                 flex-direction: row;
                 align-items: center;
-                width: 354px;
-                margin-left: 5%; margin-top: 0px;}
+                margin-top: 0px;}
 
-    .form-down1 {width: 250px; height: 35px;
+    .form-down1 { width: 230px;
+                height: 35px;
                 border: 2px solid rgba(0, 0, 0, 0.2);
+                border-top: none;
                 text-align: center;}
 
     .form-down p    {font-size: 12px; font-weight: 400;
                     color:rgba(0, 0, 0, 0.6);
                     margin-left: 3%; margin-top: 7px;}
 
-    .form-down2 {width: 50px; height: 35px;
-                border: 2px solid rgba(0, 0, 0, 0.2);
+    .form-down2 { width: 55px;
+                height: 35px;
+                border-bottom: 2px solid rgba(0, 0, 0, 0.2);
                 text-align: center;
                 vertical-align: middle;}
 
     .form-down2 img {margin-top: 4px;}
 
-    .button {width: 50px; height: 39px;
+    .button {width: 55px;
+            height: 39px;
             color: white;
             background-color: grey;
-            border: 2px solid rgba(0, 0, 0, 0.2);
             text-align: center;
-            vertical-align: middle;}
+            vertical-align: middle;
+            border:none;}
+
+    .back   {display: block;
+            text-decoration: none;
+            text-align: center;
+            width: 150px;
+            margin: auto;
+            background-color: #666EE8;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 4px;
+            margin-top: 50px;
+            }
+        
+
+    .edit-box   {display: flex;
+                flex-direction: row;
+                justify-content: center;}
+
+    .edit-box   a   {display: block;
+                    text-decoration: none;
+                    border-radius: 4px;
+                    margin-right: 10px;
+                    color:white;
+                    padding: 5px 8px;
+                    }
+    .update     {background-color: #666EE8;}
+    .delete     {background-color: #ee6b6e;}
 </style>
 
 
@@ -89,8 +119,8 @@
         </div>
         <div class="edit-box">
             {% if user.is_authenticated and user.username == blog_detail.author.username %}
-                <a href="{% url 'pychal1_edit' blog_detail.id %}">수정하기</a>
-                <a href="{% url 'pychal1_del' blog_detail.id %}">삭제하기</a>
+                <a href="{% url 'pychal1_edit' blog_detail.id %}" class="update">수정하기</a>
+                <a href="{% url 'pychal1_del' blog_detail.id %}" class="delete">삭제하기</a>
             {% endif %}
         </div>
     </div>
@@ -137,5 +167,7 @@
             </section>
         </div>
     {% endfor %}
+    <a href="{% url 'python1_challenge' %}" class = "back">목록으로 돌아가기</a><br>
 </div>
+    
 {% endblock %}
