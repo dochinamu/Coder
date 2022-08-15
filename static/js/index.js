@@ -22,7 +22,7 @@ var quiz_list = {
     'bogi': 'name = "Sojeong"','block1': `"Developer"`, 'block2': `=`, 'block3': "job", 'answer': ['321']},
     11: {'type':'block', 'question1': ``, 'question2': `변수 <span class='highlight_text'>job_title</span>에 문자열 값을 저장해주세요.`, 
     "bogi2":"job_title =",'block1': `"`, 'block2': `Marketer`, 'block3': `+`, 'block4': '"', 'answer': ['121']},
-    12: {'type': 'typing', 'question1': ``, 'question2': '변수 <span class="highlight_text">user_agent</span>에 문자열 값 "Mobile"을 저장해주세요.',
+    12: {'type': 'typing', 'question1': `변수 <span class="highlight_text">user_agent</span>에 문자열 값 "Mobile"을 저장해볼끼요?`, 'question2': '(빈칸을 클릭하면, 답을 입력할 수 있어요!)',
     'pre_blank': 'user_agent = ', 'after_blank': '', 'answer': [`"Mobile"`, `'Mobile'`, `“Mobile”`]}   
 };
 var value='';
