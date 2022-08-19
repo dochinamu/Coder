@@ -14,6 +14,12 @@ def account(request):
 def signup(request):
     if request.method == 'POST':
         if request.POST['password'] == request.POST['repeat']:
+            # 중복 아이디 
+            users = User.objects.all() # 전체 사용자 객체 가져오기 
+            for i in users:
+                if request.POST['username'] == i.username:
+                    return render(request, 'resignup.html', {'same_id': True})
+
             # 회원가입 
             new_user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'], 
             name=request.POST['name'], nickname=request.POST['nickname'], email=request.POST['email'], phone_number=request.POST['phone_number'])
@@ -22,7 +28,7 @@ def signup(request):
             # 홈 리다이렉션
             return render(request, 'account.html')
         else:
-            return render(request, 'resignup.html')
+            return render(request, 'resignup.html', {'same_id': False})
     # GET 요청
     return render(request, 'signup.html') 
 
